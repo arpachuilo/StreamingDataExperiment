@@ -14,7 +14,7 @@ function DynamicCardGrid (el) {
     }
 
     data.forEach(function (d) {
-      el.appendChild(generateCard(d))
+      generateCard(d, el)
     })
 
     return this
@@ -23,30 +23,40 @@ function DynamicCardGrid (el) {
   return this
 }
 
-function generateCard (datum) {
+function generateCard (datum, el) {
   var card = document.createElement('figure')
   card.classList.add('card')
 
-  if (datum.user) {
-    var user = document.createElement('h4')
-    user.classList.add('title')
-    user.innerHtml = datum.user
-    card.appendChild(user)
-  }
+  var picContainer = document.createElement('div')
+  picContainer.classList.add('picContainer')
 
-  if (datum.img) {
+  card.appendChild(picContainer)
+
+  var textContainer = document.createElement('div')
+  textContainer.classList.add('textContainer')
+
+  card.appendChild(textContainer)
+
+  el.appendChild(card)
+
+  if (datum.profile_pic) {
     var img = document.createElement('img')
     img.classList.add('picture')
-    img.setAttribute('src', datum.img)
-    card.appendChild(img)
+    img.setAttribute('src', datum.profile_pic)
+    picContainer.appendChild(img)
   }
 
-  if (datum.text) {
+  if (datum.user) {
+    var user = document.createElement('p')
+    user.classList.add('title')
+    user.innerText = datum.user
+    textContainer.appendChild(user)
+  }
+
+  if (datum.fixed_text) {
     var txt = document.createElement('p')
     txt.classList.add('text')
-    txt.textContent = datum.text
-    card.appendChild(txt)
+    textContainer.appendChild(txt)
+    txt.innerHTML = datum.fixed_text
   }
-
-  return card
 }

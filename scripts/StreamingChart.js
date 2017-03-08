@@ -7,7 +7,7 @@ function StreamingChart(selection) {
     top: 10,
     right: 0,
     bottom: 45,
-    left: 30
+    left: 50
   }
   var height = 420
   var width = 860
@@ -40,8 +40,7 @@ function StreamingChart(selection) {
   var glyphSize = 64
 
   // Cursor settings
-  var cursorFunction = function () {}
-  var targetName = '.target'
+  var cursor = false
   var clickHandler = function () {}
 
   // Misc settings
@@ -123,6 +122,22 @@ function StreamingChart(selection) {
     d3.select('body').on('keydown.StreamScatterPlot', null)
     selection.selectAll('*').remove()
   };
+
+  this.clickHandler = function (_) {
+    if (!arguments.length) return clickHandler
+    clickHandler = _
+    return this
+  }
+
+  this.cursor = function (_) {
+    if (!arguments.length) return cursor
+    if (cursor) {
+      cursor.destroy()
+    }
+    cursor = _
+    cursor = cursor(d3.select('svg'), margin, xScale, yScale, xValue, yValue)
+    return this
+  }
 
   this.margin = function (_) {
     if (!arguments.length) return margin
@@ -227,12 +242,6 @@ function StreamingChart(selection) {
     return this
   }
 
-  this.clickHandler = function (_) {
-    if (!arguments.length) return clickHandler
-    clickHandler = _
-    return this
-  }
-
   this.setData = function (_) {
     if (!arguments.length) return data
     data = _
@@ -278,11 +287,8 @@ function StreamingChart(selection) {
         })
       .merge(points)
         .attr('transform', function (d) {
-          return 'translate(' + xScale(d[xValue]) + ',' + yScale(d[yValue]) + ')'
+          return 'translate(' + xScale(+d[xValue]) + ',' + yScale(+d[yValue]) + ')'
         })
-
-    //Update Cursor
-    cursorFunction()
 
     return this
   }

@@ -1,2727 +1,398 @@
-{
-    "table": [
-        {
-            "id": 1,
-            "title": {
-                "created_at": "Mon Feb 27 12:55:06 +0000 2017",
-                "id": 836197970462781400,
-                "id_str": "836197970462781440",
-                "text": "\"Learn the fundamentals instead of the next group of cutting edge technologies\" #javascript #reactjs #elixir… https://t.co/33443TeLVM",
-                "display_text_range": [
-                    0,
-                    140
-                ],
-                "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
-                "truncated": true,
-                "in_reply_to_status_id": null,
-                "in_reply_to_status_id_str": null,
-                "in_reply_to_user_id": null,
-                "in_reply_to_user_id_str": null,
-                "in_reply_to_screen_name": null,
-                "user": {
-                    "id": 145754389,
-                    "id_str": "145754389",
-                    "name": "Eddy Wong",
-                    "screen_name": "eddywongch",
-                    "location": "Boston, MA, USA",
-                    "url": null,
-                    "description": "Entrepreneur, Computer Scientist, p13n/data science/graphs, uw photographer, Peruvian-Cantonese, traveler, foodie, CTO/Cofounder @Redphare, Cofounder @GoWanderu",
-                    "protected": false,
-                    "verified": false,
-                    "followers_count": 721,
-                    "friends_count": 1400,
-                    "listed_count": 161,
-                    "favourites_count": 696,
-                    "statuses_count": 1778,
-                    "created_at": "Wed May 19 20:02:59 +0000 2010",
-                    "utc_offset": null,
-                    "time_zone": null,
-                    "geo_enabled": true,
-                    "lang": "en",
-                    "contributors_enabled": false,
-                    "is_translator": false,
-                    "profile_background_color": "C0DEED",
-                    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-                    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-                    "profile_background_tile": false,
-                    "profile_link_color": "1DA1F2",
-                    "profile_sidebar_border_color": "C0DEED",
-                    "profile_sidebar_fill_color": "DDEEF6",
-                    "profile_text_color": "333333",
-                    "profile_use_background_image": true,
-                    "profile_image_url": "http://pbs.twimg.com/profile_images/2395849625/4ypzpxx1bg7cugmbn5l3_normal.jpeg",
-                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/2395849625/4ypzpxx1bg7cugmbn5l3_normal.jpeg",
-                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/145754389/1447805718",
-                    "default_profile": true,
-                    "default_profile_image": false,
-                    "following": null,
-                    "follow_request_sent": null,
-                    "notifications": null
-                },
-                "geo": null,
-                "coordinates": null,
-                "place": null,
-                "contributors": null,
-                "quoted_status_id": 836183191543300100,
-                "quoted_status_id_str": "836183191543300097",
-                "quoted_status": {
-                    "created_at": "Mon Feb 27 11:56:23 +0000 2017",
-                    "id": 836183191543300100,
-                    "id_str": "836183191543300097",
-                    "text": "Elixir, ReactJS, &amp; The Technologies That Will Rule Programming Until 2020 And Beyond https://t.co/NWWgSXhRb1",
-                    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
-                    "truncated": false,
-                    "in_reply_to_status_id": null,
-                    "in_reply_to_status_id_str": null,
-                    "in_reply_to_user_id": null,
-                    "in_reply_to_user_id_str": null,
-                    "in_reply_to_screen_name": null,
-                    "user": {
-                        "id": 53382919,
-                        "id_str": "53382919",
-                        "name": "Erlang Solutions",
-                        "screen_name": "ErlangSolutions",
-                        "location": "London",
-                        "url": "http://erlang-solutions.com/",
-                        "description": "World-class solutions for issues of scale, reliability and performance. Passionate about #Erlang & #Elixirlang, creators of @MongooseIM & WombatOAM.",
-                        "protected": false,
-                        "verified": false,
-                        "followers_count": 7600,
-                        "friends_count": 1260,
-                        "listed_count": 321,
-                        "favourites_count": 2488,
-                        "statuses_count": 4791,
-                        "created_at": "Fri Jul 03 13:22:44 +0000 2009",
-                        "utc_offset": 0,
-                        "time_zone": "London",
-                        "geo_enabled": true,
-                        "lang": "en",
-                        "contributors_enabled": false,
-                        "is_translator": false,
-                        "profile_background_color": "FFFFFF",
-                        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/806875126/960676c678f891c2d9140766d7e5b459.jpeg",
-                        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/806875126/960676c678f891c2d9140766d7e5b459.jpeg",
-                        "profile_background_tile": false,
-                        "profile_link_color": "AA1D2D",
-                        "profile_sidebar_border_color": "FFFFFF",
-                        "profile_sidebar_fill_color": "F5EBEB",
-                        "profile_text_color": "0F0D0F",
-                        "profile_use_background_image": false,
-                        "profile_image_url": "http://pbs.twimg.com/profile_images/683954316059672577/pS-khquR_normal.png",
-                        "profile_image_url_https": "https://pbs.twimg.com/profile_images/683954316059672577/pS-khquR_normal.png",
-                        "profile_banner_url": "https://pbs.twimg.com/profile_banners/53382919/1447860911",
-                        "default_profile": false,
-                        "default_profile_image": false,
-                        "following": null,
-                        "follow_request_sent": null,
-                        "notifications": null
-                    },
-                    "geo": null,
-                    "coordinates": null,
-                    "place": null,
-                    "contributors": null,
-                    "is_quote_status": false,
-                    "retweet_count": 2,
-                    "favorite_count": 2,
-                    "entities": {
-                        "hashtags": [],
-                        "urls": [
-                            {
-                                "url": "https://t.co/NWWgSXhRb1",
-                                "expanded_url": "https://tinyurl.com/gsnha9g",
-                                "display_url": "tinyurl.com/gsnha9g",
-                                "indices": [
-                                    89,
-                                    112
-                                ]
-                            }
-                        ],
-                        "user_mentions": [],
-                        "symbols": []
-                    },
-                    "favorited": false,
-                    "retweeted": false,
-                    "possibly_sensitive": false,
-                    "filter_level": "low",
-                    "lang": "en"
-                },
-                "is_quote_status": true,
-                "extended_tweet": {
-                    "full_text": "\"Learn the fundamentals instead of the next group of cutting edge technologies\" #javascript #reactjs #elixir #erlang #programming https://t.co/7SDc7TghJz",
-                    "display_text_range": [
-                        0,
-                        129
-                    ],
-                    "entities": {
-                        "hashtags": [
-                            {
-                                "text": "javascript",
-                                "indices": [
-                                    80,
-                                    91
-                                ]
-                            },
-                            {
-                                "text": "reactjs",
-                                "indices": [
-                                    92,
-                                    100
-                                ]
-                            },
-                            {
-                                "text": "elixir",
-                                "indices": [
-                                    101,
-                                    108
-                                ]
-                            },
-                            {
-                                "text": "erlang",
-                                "indices": [
-                                    109,
-                                    116
-                                ]
-                            },
-                            {
-                                "text": "programming",
-                                "indices": [
-                                    117,
-                                    129
-                                ]
-                            }
-                        ],
-                        "urls": [
-                            {
-                                "url": "https://t.co/7SDc7TghJz",
-                                "expanded_url": "https://twitter.com/erlangsolutions/status/836183191543300097",
-                                "display_url": "twitter.com/erlangsolution…",
-                                "indices": [
-                                    130,
-                                    153
-                                ]
-                            }
-                        ],
-                        "user_mentions": [],
-                        "symbols": []
-                    }
-                },
-                "retweet_count": 0,
-                "favorite_count": 0,
-                "entities": {
-                    "hashtags": [
-                        {
-                            "text": "javascript",
-                            "indices": [
-                                80,
-                                91
-                            ]
-                        },
-                        {
-                            "text": "reactjs",
-                            "indices": [
-                                92,
-                                100
-                            ]
-                        },
-                        {
-                            "text": "elixir",
-                            "indices": [
-                                101,
-                                108
-                            ]
-                        }
-                    ],
-                    "urls": [
-                        {
-                            "url": "https://t.co/33443TeLVM",
-                            "expanded_url": "https://twitter.com/i/web/status/836197970462781440",
-                            "display_url": "twitter.com/i/web/status/8…",
-                            "indices": [
-                                110,
-                                133
-                            ]
-                        }
-                    ],
-                    "user_mentions": [],
-                    "symbols": []
-                },
-                "favorited": false,
-                "retweeted": false,
-                "possibly_sensitive": false,
-                "filter_level": "low",
-                "lang": "en",
-                "timestamp_ms": "1488200106622"
-            },
-            "text": "\"Learn the fundamentals instead of the next group of cutting edge technologies\" #javascript #reactjs #elixir… https://t.co/33443TeLVM"
-        },
-        {
-            "id": 2,
-            "title": {
-                "created_at": "Mon Feb 27 12:55:08 +0000 2017",
-                "id": 836197977412653000,
-                "id_str": "836197977412653057",
-                "text": "RT @lramadhan_: mantap kang, makasih ilmunya... (: https://t.co/C5ePy4OCyv",
-                "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
-                "truncated": false,
-                "in_reply_to_status_id": null,
-                "in_reply_to_status_id_str": null,
-                "in_reply_to_user_id": null,
-                "in_reply_to_user_id_str": null,
-                "in_reply_to_screen_name": null,
-                "user": {
-                    "id": 44846445,
-                    "id_str": "44846445",
-                    "name": "Sandhika Galih",
-                    "screen_name": "sandhikagalih",
-                    "location": "Bandung, West Java, Indonesia",
-                    "url": "http://youtube.com/webprogrammingUNPAS",
-                    "description": "Lecturer | Web Designer & Developer | WebProgrammingUNPAS",
-                    "protected": false,
-                    "verified": false,
-                    "followers_count": 686,
-                    "friends_count": 912,
-                    "listed_count": 33,
-                    "favourites_count": 207,
-                    "statuses_count": 5397,
-                    "created_at": "Fri Jun 05 07:49:34 +0000 2009",
-                    "utc_offset": 25200,
-                    "time_zone": "Jakarta",
-                    "geo_enabled": true,
-                    "lang": "en",
-                    "contributors_enabled": false,
-                    "is_translator": false,
-                    "profile_background_color": "C0DEED",
-                    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-                    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-                    "profile_background_tile": false,
-                    "profile_link_color": "1DA1F2",
-                    "profile_sidebar_border_color": "C0DEED",
-                    "profile_sidebar_fill_color": "DDEEF6",
-                    "profile_text_color": "333333",
-                    "profile_use_background_image": true,
-                    "profile_image_url": "http://pbs.twimg.com/profile_images/378800000006131705/be741a8f180f36709f570d506cb485f8_normal.png",
-                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/378800000006131705/be741a8f180f36709f570d506cb485f8_normal.png",
-                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/44846445/1423756859",
-                    "default_profile": true,
-                    "default_profile_image": false,
-                    "following": null,
-                    "follow_request_sent": null,
-                    "notifications": null
-                },
-                "geo": null,
-                "coordinates": null,
-                "place": null,
-                "contributors": null,
-                "retweeted_status": {
-                    "created_at": "Mon Feb 27 12:39:49 +0000 2017",
-                    "id": 836194123602243600,
-                    "id_str": "836194123602243584",
-                    "text": "mantap kang, makasih ilmunya... (: https://t.co/C5ePy4OCyv",
-                    "display_text_range": [
-                        0,
-                        34
-                    ],
-                    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
-                    "truncated": false,
-                    "in_reply_to_status_id": null,
-                    "in_reply_to_status_id_str": null,
-                    "in_reply_to_user_id": null,
-                    "in_reply_to_user_id_str": null,
-                    "in_reply_to_screen_name": null,
-                    "user": {
-                        "id": 1003877934,
-                        "id_str": "1003877934",
-                        "name": "Hanafiah Ramadhan",
-                        "screen_name": "lramadhan_",
-                        "location": "\"Find me on path\"",
-                        "url": "http://linuxmannote.wordpress.com",
-                        "description": "I Never make the same mistake twice. I make it four or five, just to be sure.",
-                        "protected": false,
-                        "verified": false,
-                        "followers_count": 228,
-                        "friends_count": 227,
-                        "listed_count": 22,
-                        "favourites_count": 233,
-                        "statuses_count": 17680,
-                        "created_at": "Tue Dec 11 11:56:48 +0000 2012",
-                        "utc_offset": 25200,
-                        "time_zone": "Jakarta",
-                        "geo_enabled": true,
-                        "lang": "en",
-                        "contributors_enabled": false,
-                        "is_translator": false,
-                        "profile_background_color": "990099",
-                        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/378800000151755434/LQE8d6By.png",
-                        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/378800000151755434/LQE8d6By.png",
-                        "profile_background_tile": false,
-                        "profile_link_color": "DD2E44",
-                        "profile_sidebar_border_color": "FFFFFF",
-                        "profile_sidebar_fill_color": "DDEEF6",
-                        "profile_text_color": "333333",
-                        "profile_use_background_image": true,
-                        "profile_image_url": "http://pbs.twimg.com/profile_images/815197050740477952/fzFgwDPD_normal.jpg",
-                        "profile_image_url_https": "https://pbs.twimg.com/profile_images/815197050740477952/fzFgwDPD_normal.jpg",
-                        "profile_banner_url": "https://pbs.twimg.com/profile_banners/1003877934/1485851137",
-                        "default_profile": false,
-                        "default_profile_image": false,
-                        "following": null,
-                        "follow_request_sent": null,
-                        "notifications": null
-                    },
-                    "geo": null,
-                    "coordinates": null,
-                    "place": null,
-                    "contributors": null,
-                    "quoted_status_id": 836111454533218300,
-                    "quoted_status_id_str": "836111454533218304",
-                    "quoted_status": {
-                        "created_at": "Mon Feb 27 07:11:19 +0000 2017",
-                        "id": 836111454533218300,
-                        "id_str": "836111454533218304",
-                        "text": "belajar mengenai PENGULANGAN dengan WHILE pada javascript https://t.co/OzwdiujbqU",
-                        "source": "<a href=\"http://www.google.com/\" rel=\"nofollow\">Google</a>",
-                        "truncated": false,
-                        "in_reply_to_status_id": null,
-                        "in_reply_to_status_id_str": null,
-                        "in_reply_to_user_id": null,
-                        "in_reply_to_user_id_str": null,
-                        "in_reply_to_screen_name": null,
-                        "user": {
-                            "id": 44846445,
-                            "id_str": "44846445",
-                            "name": "Sandhika Galih",
-                            "screen_name": "sandhikagalih",
-                            "location": "Bandung, West Java, Indonesia",
-                            "url": "http://youtube.com/webprogrammingUNPAS",
-                            "description": "Lecturer | Web Designer & Developer | WebProgrammingUNPAS",
-                            "protected": false,
-                            "verified": false,
-                            "followers_count": 686,
-                            "friends_count": 912,
-                            "listed_count": 33,
-                            "favourites_count": 207,
-                            "statuses_count": 5396,
-                            "created_at": "Fri Jun 05 07:49:34 +0000 2009",
-                            "utc_offset": 25200,
-                            "time_zone": "Jakarta",
-                            "geo_enabled": true,
-                            "lang": "en",
-                            "contributors_enabled": false,
-                            "is_translator": false,
-                            "profile_background_color": "C0DEED",
-                            "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-                            "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-                            "profile_background_tile": false,
-                            "profile_link_color": "1DA1F2",
-                            "profile_sidebar_border_color": "C0DEED",
-                            "profile_sidebar_fill_color": "DDEEF6",
-                            "profile_text_color": "333333",
-                            "profile_use_background_image": true,
-                            "profile_image_url": "http://pbs.twimg.com/profile_images/378800000006131705/be741a8f180f36709f570d506cb485f8_normal.png",
-                            "profile_image_url_https": "https://pbs.twimg.com/profile_images/378800000006131705/be741a8f180f36709f570d506cb485f8_normal.png",
-                            "profile_banner_url": "https://pbs.twimg.com/profile_banners/44846445/1423756859",
-                            "default_profile": true,
-                            "default_profile_image": false,
-                            "following": null,
-                            "follow_request_sent": null,
-                            "notifications": null
-                        },
-                        "geo": null,
-                        "coordinates": null,
-                        "place": null,
-                        "contributors": null,
-                        "is_quote_status": false,
-                        "retweet_count": 0,
-                        "favorite_count": 1,
-                        "entities": {
-                            "hashtags": [],
-                            "urls": [
-                                {
-                                    "url": "https://t.co/OzwdiujbqU",
-                                    "expanded_url": "http://youtu.be/61XLzozBj2c?a",
-                                    "display_url": "youtu.be/61XLzozBj2c?a",
-                                    "indices": [
-                                        58,
-                                        81
-                                    ]
-                                }
-                            ],
-                            "user_mentions": [],
-                            "symbols": []
-                        },
-                        "favorited": false,
-                        "retweeted": false,
-                        "possibly_sensitive": false,
-                        "filter_level": "low",
-                        "lang": "in"
-                    },
-                    "is_quote_status": true,
-                    "retweet_count": 1,
-                    "favorite_count": 1,
-                    "entities": {
-                        "hashtags": [],
-                        "urls": [
-                            {
-                                "url": "https://t.co/C5ePy4OCyv",
-                                "expanded_url": "https://twitter.com/sandhikagalih/status/836111454533218304",
-                                "display_url": "twitter.com/sandhikagalih/…",
-                                "indices": [
-                                    35,
-                                    58
-                                ]
-                            }
-                        ],
-                        "user_mentions": [],
-                        "symbols": []
-                    },
-                    "favorited": false,
-                    "retweeted": false,
-                    "possibly_sensitive": false,
-                    "filter_level": "low",
-                    "lang": "in"
-                },
-                "quoted_status_id": 836111454533218300,
-                "quoted_status_id_str": "836111454533218304",
-                "quoted_status": {
-                    "created_at": "Mon Feb 27 07:11:19 +0000 2017",
-                    "id": 836111454533218300,
-                    "id_str": "836111454533218304",
-                    "text": "belajar mengenai PENGULANGAN dengan WHILE pada javascript https://t.co/OzwdiujbqU",
-                    "source": "<a href=\"http://www.google.com/\" rel=\"nofollow\">Google</a>",
-                    "truncated": false,
-                    "in_reply_to_status_id": null,
-                    "in_reply_to_status_id_str": null,
-                    "in_reply_to_user_id": null,
-                    "in_reply_to_user_id_str": null,
-                    "in_reply_to_screen_name": null,
-                    "user": {
-                        "id": 44846445,
-                        "id_str": "44846445",
-                        "name": "Sandhika Galih",
-                        "screen_name": "sandhikagalih",
-                        "location": "Bandung, West Java, Indonesia",
-                        "url": "http://youtube.com/webprogrammingUNPAS",
-                        "description": "Lecturer | Web Designer & Developer | WebProgrammingUNPAS",
-                        "protected": false,
-                        "verified": false,
-                        "followers_count": 686,
-                        "friends_count": 912,
-                        "listed_count": 33,
-                        "favourites_count": 207,
-                        "statuses_count": 5396,
-                        "created_at": "Fri Jun 05 07:49:34 +0000 2009",
-                        "utc_offset": 25200,
-                        "time_zone": "Jakarta",
-                        "geo_enabled": true,
-                        "lang": "en",
-                        "contributors_enabled": false,
-                        "is_translator": false,
-                        "profile_background_color": "C0DEED",
-                        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-                        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-                        "profile_background_tile": false,
-                        "profile_link_color": "1DA1F2",
-                        "profile_sidebar_border_color": "C0DEED",
-                        "profile_sidebar_fill_color": "DDEEF6",
-                        "profile_text_color": "333333",
-                        "profile_use_background_image": true,
-                        "profile_image_url": "http://pbs.twimg.com/profile_images/378800000006131705/be741a8f180f36709f570d506cb485f8_normal.png",
-                        "profile_image_url_https": "https://pbs.twimg.com/profile_images/378800000006131705/be741a8f180f36709f570d506cb485f8_normal.png",
-                        "profile_banner_url": "https://pbs.twimg.com/profile_banners/44846445/1423756859",
-                        "default_profile": true,
-                        "default_profile_image": false,
-                        "following": null,
-                        "follow_request_sent": null,
-                        "notifications": null
-                    },
-                    "geo": null,
-                    "coordinates": null,
-                    "place": null,
-                    "contributors": null,
-                    "is_quote_status": false,
-                    "retweet_count": 0,
-                    "favorite_count": 1,
-                    "entities": {
-                        "hashtags": [],
-                        "urls": [
-                            {
-                                "url": "https://t.co/OzwdiujbqU",
-                                "expanded_url": "http://youtu.be/61XLzozBj2c?a",
-                                "display_url": "youtu.be/61XLzozBj2c?a",
-                                "indices": [
-                                    58,
-                                    81
-                                ]
-                            }
-                        ],
-                        "user_mentions": [],
-                        "symbols": []
-                    },
-                    "favorited": false,
-                    "retweeted": false,
-                    "possibly_sensitive": false,
-                    "filter_level": "low",
-                    "lang": "in"
-                },
-                "is_quote_status": true,
-                "retweet_count": 0,
-                "favorite_count": 0,
-                "entities": {
-                    "hashtags": [],
-                    "urls": [
-                        {
-                            "url": "https://t.co/C5ePy4OCyv",
-                            "expanded_url": "https://twitter.com/sandhikagalih/status/836111454533218304",
-                            "display_url": "twitter.com/sandhikagalih/…",
-                            "indices": [
-                                51,
-                                74
-                            ]
-                        }
-                    ],
-                    "user_mentions": [
-                        {
-                            "screen_name": "lramadhan_",
-                            "name": "Hanafiah Ramadhan",
-                            "id": 1003877934,
-                            "id_str": "1003877934",
-                            "indices": [
-                                3,
-                                14
-                            ]
-                        }
-                    ],
-                    "symbols": []
-                },
-                "favorited": false,
-                "retweeted": false,
-                "possibly_sensitive": false,
-                "filter_level": "low",
-                "lang": "in",
-                "timestamp_ms": "1488200108279"
-            },
-            "text": "RT @lramadhan_: mantap kang, makasih ilmunya... (: https://t.co/C5ePy4OCyv"
-        },
-        {
-            "id": 3,
-            "title": {
-                "created_at": "Mon Feb 27 12:55:09 +0000 2017",
-                "id": 836197982987038700,
-                "id_str": "836197982987038721",
-                "text": "Javascript library that runs any .vi on browser without LabVIEW installed. WebGL/WebCL FPGA Deepmind SAP Forex IBM Nasdaq 1488200110",
-                "source": "<a href=\"http://www.LabVIEWopenJS.com\" rel=\"nofollow\">LabVIEWopenJS</a>",
-                "truncated": false,
-                "in_reply_to_status_id": null,
-                "in_reply_to_status_id_str": null,
-                "in_reply_to_user_id": null,
-                "in_reply_to_user_id_str": null,
-                "in_reply_to_screen_name": null,
-                "user": {
-                    "id": 3054625217,
-                    "id_str": "3054625217",
-                    "name": "LabVIEWopenJS",
-                    "screen_name": "LabVIEWopenJS",
-                    "location": null,
-                    "url": null,
-                    "description": null,
-                    "protected": false,
-                    "verified": false,
-                    "followers_count": 186,
-                    "friends_count": 0,
-                    "listed_count": 19,
-                    "favourites_count": 3,
-                    "statuses_count": 214184,
-                    "created_at": "Mon Feb 23 02:24:49 +0000 2015",
-                    "utc_offset": null,
-                    "time_zone": null,
-                    "geo_enabled": false,
-                    "lang": "en-gb",
-                    "contributors_enabled": false,
-                    "is_translator": false,
-                    "profile_background_color": "C0DEED",
-                    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-                    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-                    "profile_background_tile": false,
-                    "profile_link_color": "1DA1F2",
-                    "profile_sidebar_border_color": "C0DEED",
-                    "profile_sidebar_fill_color": "DDEEF6",
-                    "profile_text_color": "333333",
-                    "profile_use_background_image": true,
-                    "profile_image_url": "http://pbs.twimg.com/profile_images/569685091299762176/csrXzkEL_normal.png",
-                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/569685091299762176/csrXzkEL_normal.png",
-                    "default_profile": true,
-                    "default_profile_image": false,
-                    "following": null,
-                    "follow_request_sent": null,
-                    "notifications": null
-                },
-                "geo": null,
-                "coordinates": null,
-                "place": null,
-                "contributors": null,
-                "is_quote_status": false,
-                "retweet_count": 0,
-                "favorite_count": 0,
-                "entities": {
-                    "hashtags": [],
-                    "urls": [],
-                    "user_mentions": [],
-                    "symbols": []
-                },
-                "favorited": false,
-                "retweeted": false,
-                "filter_level": "low",
-                "lang": "en",
-                "timestamp_ms": "1488200109608"
-            },
-            "text": "Javascript library that runs any .vi on browser without LabVIEW installed. WebGL/WebCL FPGA Deepmind SAP Forex IBM Nasdaq 1488200110"
-        },
-        {
-            "id": 4,
-            "title": {
-                "created_at": "Mon Feb 27 12:55:19 +0000 2017",
-                "id": 836198023378034700,
-                "id_str": "836198023378034688",
-                "text": "今日のJavaScriptの時間終わり！今日の成果は使用するであろう音声ファイルを全てアップロードしてもサーバーの容量範囲内に収まるのが確認できたこと。大きな一歩です。\nエンディングテーマ: 陽のあたる坂道(DAI)\nhttps://t.co/zLDohPkwWp",
-                "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
-                "truncated": false,
-                "in_reply_to_status_id": null,
-                "in_reply_to_status_id_str": null,
-                "in_reply_to_user_id": null,
-                "in_reply_to_user_id_str": null,
-                "in_reply_to_screen_name": null,
-                "user": {
-                    "id": 161461326,
-                    "id_str": "161461326",
-                    "name": "紅茶狩人",
-                    "screen_name": "kochan8104",
-                    "location": "大阪",
-                    "url": "http://kochan8104.tumblr.com/",
-                    "description": "▽プロ野球・阪神＆ロッテを応援。▽Blog「一杯の紅茶」館長 ▽ボーカロイド・UTAU奏者 ▽ミラーレス一眼で気ままに写真撮影(Tumblr) ▽南海電鉄ファン▽メイプルストーリーは活動縮小中 ▽ポケモンGoはポケソース学専攻・チーム黄色",
-                    "protected": false,
-                    "verified": false,
-                    "followers_count": 116,
-                    "friends_count": 88,
-                    "listed_count": 3,
-                    "favourites_count": 46,
-                    "statuses_count": 15732,
-                    "created_at": "Wed Jun 30 22:42:36 +0000 2010",
-                    "utc_offset": 32400,
-                    "time_zone": "Tokyo",
-                    "geo_enabled": false,
-                    "lang": "ja",
-                    "contributors_enabled": false,
-                    "is_translator": false,
-                    "profile_background_color": "EDDEC0",
-                    "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/554523924357079041/v7Enhg2p.png",
-                    "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/554523924357079041/v7Enhg2p.png",
-                    "profile_background_tile": true,
-                    "profile_link_color": "951A1D",
-                    "profile_sidebar_border_color": "C0DEED",
-                    "profile_sidebar_fill_color": "DDEEF6",
-                    "profile_text_color": "333333",
-                    "profile_use_background_image": true,
-                    "profile_image_url": "http://pbs.twimg.com/profile_images/802758482407485440/k7cyTtb3_normal.jpg",
-                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/802758482407485440/k7cyTtb3_normal.jpg",
-                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/161461326/1454125350",
-                    "default_profile": false,
-                    "default_profile_image": false,
-                    "following": null,
-                    "follow_request_sent": null,
-                    "notifications": null
-                },
-                "geo": null,
-                "coordinates": null,
-                "place": null,
-                "contributors": null,
-                "is_quote_status": false,
-                "retweet_count": 0,
-                "favorite_count": 0,
-                "entities": {
-                    "hashtags": [],
-                    "urls": [
-                        {
-                            "url": "https://t.co/zLDohPkwWp",
-                            "expanded_url": "https://youtu.be/wpDK-gN_85c",
-                            "display_url": "youtu.be/wpDK-gN_85c",
-                            "indices": [
-                                109,
-                                132
-                            ]
-                        }
-                    ],
-                    "user_mentions": [],
-                    "symbols": []
-                },
-                "favorited": false,
-                "retweeted": false,
-                "possibly_sensitive": false,
-                "filter_level": "low",
-                "lang": "ja",
-                "timestamp_ms": "1488200119238"
-            },
-            "text": "今日のJavaScriptの時間終わり！今日の成果は使用するであろう音声ファイルを全てアップロードしてもサーバーの容量範囲内に収まるのが確認できたこと。大きな一歩です。\nエンディングテーマ: 陽のあたる坂道(DAI)\nhttps://t.co/zLDohPkwWp"
-        },
-        {
-            "id": 5,
-            "title": {
-                "created_at": "Mon Feb 27 12:55:30 +0000 2017",
-                "id": 836198069913980900,
-                "id_str": "836198069913980928",
-                "text": "#empleo Analista Programador HTML,CSS,Javascript https://t.co/NQjkCBl8Tr",
-                "source": "<a href=\"http://www.botize.com\" rel=\"nofollow\">Botize</a>",
-                "truncated": false,
-                "in_reply_to_status_id": null,
-                "in_reply_to_status_id_str": null,
-                "in_reply_to_user_id": null,
-                "in_reply_to_user_id_str": null,
-                "in_reply_to_screen_name": null,
-                "user": {
-                    "id": 354969976,
-                    "id_str": "354969976",
-                    "name": "Ofertas de Empleo",
-                    "screen_name": "EmpleoOfertas",
-                    "location": "España",
-                    "url": "http://www.vuelosa1euro.es",
-                    "description": "Te recomendamos seguir a @Vuelosa1euro para conseguir las mejores ofertas de vuelos y a @edufinanzas_com para mejorar tu educación financiera.",
-                    "protected": false,
-                    "verified": false,
-                    "followers_count": 9160,
-                    "friends_count": 309,
-                    "listed_count": 343,
-                    "favourites_count": 15,
-                    "statuses_count": 80920,
-                    "created_at": "Sun Aug 14 16:18:37 +0000 2011",
-                    "utc_offset": 3600,
-                    "time_zone": "Madrid",
-                    "geo_enabled": false,
-                    "lang": "es",
-                    "contributors_enabled": false,
-                    "is_translator": false,
-                    "profile_background_color": "ACDED6",
-                    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme18/bg.gif",
-                    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme18/bg.gif",
-                    "profile_background_tile": false,
-                    "profile_link_color": "038543",
-                    "profile_sidebar_border_color": "EEEEEE",
-                    "profile_sidebar_fill_color": "F6F6F6",
-                    "profile_text_color": "333333",
-                    "profile_use_background_image": true,
-                    "profile_image_url": "http://pbs.twimg.com/profile_images/1495051692/oferta-empleo_normal.gif",
-                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/1495051692/oferta-empleo_normal.gif",
-                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/354969976/1411335454",
-                    "default_profile": false,
-                    "default_profile_image": false,
-                    "following": null,
-                    "follow_request_sent": null,
-                    "notifications": null
-                },
-                "geo": null,
-                "coordinates": null,
-                "place": null,
-                "contributors": null,
-                "is_quote_status": false,
-                "retweet_count": 0,
-                "favorite_count": 0,
-                "entities": {
-                    "hashtags": [
-                        {
-                            "text": "empleo",
-                            "indices": [
-                                0,
-                                7
-                            ]
-                        }
-                    ],
-                    "urls": [
-                        {
-                            "url": "https://t.co/NQjkCBl8Tr",
-                            "expanded_url": "https://www.tecnoempleo.com/analista-programador-html-css-javascript-madrid/html5-css3-javascript/rf-5b88he7b9je50i3b1462?btz88=1255023027",
-                            "display_url": "tecnoempleo.com/analista-progr…",
-                            "indices": [
-                                49,
-                                72
-                            ]
-                        }
-                    ],
-                    "user_mentions": [],
-                    "symbols": []
-                },
-                "favorited": false,
-                "retweeted": false,
-                "possibly_sensitive": false,
-                "filter_level": "low",
-                "lang": "es",
-                "timestamp_ms": "1488200130333"
-            },
-            "text": "#empleo Analista Programador HTML,CSS,Javascript https://t.co/NQjkCBl8Tr"
-        },
-        {
-            "id": 6,
-            "title": {
-                "created_at": "Mon Feb 27 12:55:43 +0000 2017",
-                "id": 836198124322357200,
-                "id_str": "836198124322357250",
-                "text": "プログラミングにそこまで熱心じゃないからNode.jsとかElectronを見ても「JavaScriptでなんでもできる時代になったのね〜〜おばちゃんも昔はJavaScript書いてたのよ〜〜」みたいな感じにしかなれない",
-                "source": "<a href=\"http://theworld09.com/\" rel=\"nofollow\">TheWorld⠀</a>",
-                "truncated": false,
-                "in_reply_to_status_id": null,
-                "in_reply_to_status_id_str": null,
-                "in_reply_to_user_id": null,
-                "in_reply_to_user_id_str": null,
-                "in_reply_to_screen_name": null,
-                "user": {
-                    "id": 465397121,
-                    "id_str": "465397121",
-                    "name": "もにゅちゃん11さい",
-                    "screen_name": "MoNyU_Tetsugi",
-                    "location": "ゲーセン",
-                    "url": "http://pixiv.me/monyudou",
-                    "description": "一年に数回絵を描いて一週間に一回DDRをやる人",
-                    "protected": false,
-                    "verified": false,
-                    "followers_count": 712,
-                    "friends_count": 319,
-                    "listed_count": 42,
-                    "favourites_count": 5876,
-                    "statuses_count": 170475,
-                    "created_at": "Mon Jan 16 09:17:46 +0000 2012",
-                    "utc_offset": 32400,
-                    "time_zone": "Tokyo",
-                    "geo_enabled": false,
-                    "lang": "ja",
-                    "contributors_enabled": false,
-                    "is_translator": false,
-                    "profile_background_color": "EDECE9",
-                    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme3/bg.gif",
-                    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme3/bg.gif",
-                    "profile_background_tile": false,
-                    "profile_link_color": "8FB8FF",
-                    "profile_sidebar_border_color": "D3D2CF",
-                    "profile_sidebar_fill_color": "E3E2DE",
-                    "profile_text_color": "634047",
-                    "profile_use_background_image": true,
-                    "profile_image_url": "http://pbs.twimg.com/profile_images/830758042148802560/OfduEM8J_normal.jpg",
-                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/830758042148802560/OfduEM8J_normal.jpg",
-                    "default_profile": false,
-                    "default_profile_image": false,
-                    "following": null,
-                    "follow_request_sent": null,
-                    "notifications": null
-                },
-                "geo": null,
-                "coordinates": null,
-                "place": null,
-                "contributors": null,
-                "is_quote_status": false,
-                "retweet_count": 0,
-                "favorite_count": 0,
-                "entities": {
-                    "hashtags": [],
-                    "urls": [],
-                    "user_mentions": [],
-                    "symbols": []
-                },
-                "favorited": false,
-                "retweeted": false,
-                "filter_level": "low",
-                "lang": "ja",
-                "timestamp_ms": "1488200143305"
-            },
-            "text": "プログラミングにそこまで熱心じゃないからNode.jsとかElectronを見ても「JavaScriptでなんでもできる時代になったのね〜〜おばちゃんも昔はJavaScript書いてたのよ〜〜」みたいな感じにしかなれない"
-        },
-        {
-            "id": 7,
-            "title": {
-                "created_at": "Mon Feb 27 12:55:44 +0000 2017",
-                "id": 836198127262699500,
-                "id_str": "836198127262699520",
-                "text": "Single Line / Scatter Chart JScript Plugin - https://t.co/7G6aeANtZW - https://t.co/2D4vPuIf8Q",
-                "display_text_range": [
-                    0,
-                    70
-                ],
-                "source": "<a href=\"http://codeholder.net/\" rel=\"nofollow\">CodeHolder.net</a>",
-                "truncated": false,
-                "in_reply_to_status_id": null,
-                "in_reply_to_status_id_str": null,
-                "in_reply_to_user_id": null,
-                "in_reply_to_user_id_str": null,
-                "in_reply_to_screen_name": null,
-                "user": {
-                    "id": 780346112167280600,
-                    "id_str": "780346112167280640",
-                    "name": "CodeHolder.net",
-                    "screen_name": "CodeHolder_net",
-                    "location": null,
-                    "url": "http://codeholder.net/",
-                    "description": "@Code @Scripts @Plugins @PHP @CSS @HTML @WordPress",
-                    "protected": false,
-                    "verified": false,
-                    "followers_count": 32,
-                    "friends_count": 1,
-                    "listed_count": 14,
-                    "favourites_count": 0,
-                    "statuses_count": 2896,
-                    "created_at": "Mon Sep 26 09:59:46 +0000 2016",
-                    "utc_offset": -28800,
-                    "time_zone": "Pacific Time (US & Canada)",
-                    "geo_enabled": false,
-                    "lang": "en",
-                    "contributors_enabled": false,
-                    "is_translator": false,
-                    "profile_background_color": "F5F8FA",
-                    "profile_background_image_url": "",
-                    "profile_background_image_url_https": "",
-                    "profile_background_tile": false,
-                    "profile_link_color": "1DA1F2",
-                    "profile_sidebar_border_color": "C0DEED",
-                    "profile_sidebar_fill_color": "DDEEF6",
-                    "profile_text_color": "333333",
-                    "profile_use_background_image": true,
-                    "profile_image_url": "http://pbs.twimg.com/profile_images/780346752612331520/WpUsRksh_normal.jpg",
-                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/780346752612331520/WpUsRksh_normal.jpg",
-                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/780346112167280640/1474884188",
-                    "default_profile": true,
-                    "default_profile_image": false,
-                    "following": null,
-                    "follow_request_sent": null,
-                    "notifications": null
-                },
-                "geo": null,
-                "coordinates": null,
-                "place": null,
-                "contributors": null,
-                "is_quote_status": false,
-                "retweet_count": 0,
-                "favorite_count": 0,
-                "entities": {
-                    "hashtags": [],
-                    "urls": [
-                        {
-                            "url": "https://t.co/7G6aeANtZW",
-                            "expanded_url": "https://codeholder.net/item/javascript/single-line-chart-plugin",
-                            "display_url": "codeholder.net/item/javascrip…",
-                            "indices": [
-                                45,
-                                68
-                            ]
-                        }
-                    ],
-                    "user_mentions": [],
-                    "symbols": [],
-                    "media": [
-                        {
-                            "id": 836198125589123100,
-                            "id_str": "836198125589123073",
-                            "indices": [
-                                71,
-                                94
-                            ],
-                            "media_url": "http://pbs.twimg.com/media/C5rFw82WUAEZULr.jpg",
-                            "media_url_https": "https://pbs.twimg.com/media/C5rFw82WUAEZULr.jpg",
-                            "url": "https://t.co/2D4vPuIf8Q",
-                            "display_url": "pic.twitter.com/2D4vPuIf8Q",
-                            "expanded_url": "https://twitter.com/CodeHolder_net/status/836198127262699520/photo/1",
-                            "type": "photo",
-                            "sizes": {
-                                "medium": {
-                                    "w": 590,
-                                    "h": 300,
-                                    "resize": "fit"
-                                },
-                                "large": {
-                                    "w": 590,
-                                    "h": 300,
-                                    "resize": "fit"
-                                },
-                                "thumb": {
-                                    "w": 150,
-                                    "h": 150,
-                                    "resize": "crop"
-                                },
-                                "small": {
-                                    "w": 590,
-                                    "h": 300,
-                                    "resize": "fit"
-                                }
-                            }
-                        }
-                    ]
-                },
-                "extended_entities": {
-                    "media": [
-                        {
-                            "id": 836198125589123100,
-                            "id_str": "836198125589123073",
-                            "indices": [
-                                71,
-                                94
-                            ],
-                            "media_url": "http://pbs.twimg.com/media/C5rFw82WUAEZULr.jpg",
-                            "media_url_https": "https://pbs.twimg.com/media/C5rFw82WUAEZULr.jpg",
-                            "url": "https://t.co/2D4vPuIf8Q",
-                            "display_url": "pic.twitter.com/2D4vPuIf8Q",
-                            "expanded_url": "https://twitter.com/CodeHolder_net/status/836198127262699520/photo/1",
-                            "type": "photo",
-                            "sizes": {
-                                "medium": {
-                                    "w": 590,
-                                    "h": 300,
-                                    "resize": "fit"
-                                },
-                                "large": {
-                                    "w": 590,
-                                    "h": 300,
-                                    "resize": "fit"
-                                },
-                                "thumb": {
-                                    "w": 150,
-                                    "h": 150,
-                                    "resize": "crop"
-                                },
-                                "small": {
-                                    "w": 590,
-                                    "h": 300,
-                                    "resize": "fit"
-                                }
-                            }
-                        }
-                    ]
-                },
-                "favorited": false,
-                "retweeted": false,
-                "possibly_sensitive": false,
-                "filter_level": "low",
-                "lang": "fr",
-                "timestamp_ms": "1488200144006"
-            },
-            "text": "Single Line / Scatter Chart JScript Plugin - https://t.co/7G6aeANtZW - https://t.co/2D4vPuIf8Q"
-        },
-        {
-            "id": 8,
-            "title": {
-                "created_at": "Mon Feb 27 12:55:49 +0000 2017",
-                "id": 836198149282648000,
-                "id_str": "836198149282648064",
-                "text": "RT @JavaScriptDaily: JavaScript's 'void' Keyword: https://t.co/iygxfeef5p",
-                "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
-                "truncated": false,
-                "in_reply_to_status_id": null,
-                "in_reply_to_status_id_str": null,
-                "in_reply_to_user_id": null,
-                "in_reply_to_user_id_str": null,
-                "in_reply_to_screen_name": null,
-                "user": {
-                    "id": 4409027607,
-                    "id_str": "4409027607",
-                    "name": "Fellipe Kerrawgah",
-                    "screen_name": "karugu_eric",
-                    "location": null,
-                    "url": null,
-                    "description": "Own employer||outstanding real patriot and a foe of tyranny,impunity and corruption.",
-                    "protected": false,
-                    "verified": false,
-                    "followers_count": 94,
-                    "friends_count": 369,
-                    "listed_count": 3,
-                    "favourites_count": 39,
-                    "statuses_count": 96,
-                    "created_at": "Mon Dec 07 22:01:23 +0000 2015",
-                    "utc_offset": null,
-                    "time_zone": null,
-                    "geo_enabled": false,
-                    "lang": "en",
-                    "contributors_enabled": false,
-                    "is_translator": false,
-                    "profile_background_color": "C0DEED",
-                    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-                    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-                    "profile_background_tile": false,
-                    "profile_link_color": "1DA1F2",
-                    "profile_sidebar_border_color": "C0DEED",
-                    "profile_sidebar_fill_color": "DDEEF6",
-                    "profile_text_color": "333333",
-                    "profile_use_background_image": true,
-                    "profile_image_url": "http://pbs.twimg.com/profile_images/816281458713063425/Wyt6d1-x_normal.jpg",
-                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/816281458713063425/Wyt6d1-x_normal.jpg",
-                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/4409027607/1479307920",
-                    "default_profile": true,
-                    "default_profile_image": false,
-                    "following": null,
-                    "follow_request_sent": null,
-                    "notifications": null
-                },
-                "geo": null,
-                "coordinates": null,
-                "place": null,
-                "contributors": null,
-                "retweeted_status": {
-                    "created_at": "Mon Feb 27 11:36:01 +0000 2017",
-                    "id": 836178067211104300,
-                    "id_str": "836178067211104256",
-                    "text": "JavaScript's 'void' Keyword: https://t.co/iygxfeef5p",
-                    "source": "<a href=\"http://bufferapp.com\" rel=\"nofollow\">Buffer</a>",
-                    "truncated": false,
-                    "in_reply_to_status_id": null,
-                    "in_reply_to_status_id_str": null,
-                    "in_reply_to_user_id": null,
-                    "in_reply_to_user_id_str": null,
-                    "in_reply_to_screen_name": null,
-                    "user": {
-                        "id": 459275531,
-                        "id_str": "459275531",
-                        "name": "JavaScript Daily",
-                        "screen_name": "JavaScriptDaily",
-                        "location": null,
-                        "url": "http://jslive.com",
-                        "description": "Daily JavaScript / JS community news, links and events, by @Cooperpress. Go to @reactdaily for React news.",
-                        "protected": false,
-                        "verified": false,
-                        "followers_count": 243025,
-                        "friends_count": 111,
-                        "listed_count": 5271,
-                        "favourites_count": 300,
-                        "statuses_count": 7149,
-                        "created_at": "Mon Jan 09 13:43:05 +0000 2012",
-                        "utc_offset": -28800,
-                        "time_zone": "Pacific Time (US & Canada)",
-                        "geo_enabled": false,
-                        "lang": "en",
-                        "contributors_enabled": false,
-                        "is_translator": false,
-                        "profile_background_color": "51CBBF",
-                        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/558331836/jsbg.png",
-                        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/558331836/jsbg.png",
-                        "profile_background_tile": true,
-                        "profile_link_color": "D4BB00",
-                        "profile_sidebar_border_color": "F0EDDA",
-                        "profile_sidebar_fill_color": "FDFFF0",
-                        "profile_text_color": "333333",
-                        "profile_use_background_image": true,
-                        "profile_image_url": "http://pbs.twimg.com/profile_images/710428065369890816/ZaHBODSJ_normal.jpg",
-                        "profile_image_url_https": "https://pbs.twimg.com/profile_images/710428065369890816/ZaHBODSJ_normal.jpg",
-                        "profile_banner_url": "https://pbs.twimg.com/profile_banners/459275531/1458214369",
-                        "default_profile": false,
-                        "default_profile_image": false,
-                        "following": null,
-                        "follow_request_sent": null,
-                        "notifications": null
-                    },
-                    "geo": null,
-                    "coordinates": null,
-                    "place": null,
-                    "contributors": null,
-                    "is_quote_status": false,
-                    "retweet_count": 18,
-                    "favorite_count": 38,
-                    "entities": {
-                        "hashtags": [],
-                        "urls": [
-                            {
-                                "url": "https://t.co/iygxfeef5p",
-                                "expanded_url": "http://cmichel.io/javascript-void-keyword/",
-                                "display_url": "cmichel.io/javascript-voi…",
-                                "indices": [
-                                    29,
-                                    52
-                                ]
-                            }
-                        ],
-                        "user_mentions": [],
-                        "symbols": []
-                    },
-                    "favorited": false,
-                    "retweeted": false,
-                    "possibly_sensitive": false,
-                    "filter_level": "low",
-                    "lang": "en"
-                },
-                "is_quote_status": false,
-                "retweet_count": 0,
-                "favorite_count": 0,
-                "entities": {
-                    "hashtags": [],
-                    "urls": [
-                        {
-                            "url": "https://t.co/iygxfeef5p",
-                            "expanded_url": "http://cmichel.io/javascript-void-keyword/",
-                            "display_url": "cmichel.io/javascript-voi…",
-                            "indices": [
-                                50,
-                                73
-                            ]
-                        }
-                    ],
-                    "user_mentions": [
-                        {
-                            "screen_name": "JavaScriptDaily",
-                            "name": "JavaScript Daily",
-                            "id": 459275531,
-                            "id_str": "459275531",
-                            "indices": [
-                                3,
-                                19
-                            ]
-                        }
-                    ],
-                    "symbols": []
-                },
-                "favorited": false,
-                "retweeted": false,
-                "possibly_sensitive": false,
-                "filter_level": "low",
-                "lang": "en",
-                "timestamp_ms": "1488200149256"
-            },
-            "text": "RT @JavaScriptDaily: JavaScript's 'void' Keyword: https://t.co/iygxfeef5p"
-        },
-        {
-            "id": 9,
-            "title": {
-                "created_at": "Mon Feb 27 12:56:26 +0000 2017",
-                "id": 836198305067642900,
-                "id_str": "836198305067642881",
-                "text": "invention.js - a server-side image test engine, for clients to cut up utilities for responsive layouts. Get it on Github. #js #javascript",
-                "source": "<a href=\"http://cheapbotsdonequick.com\" rel=\"nofollow\">Cheap Bots, Done Quick!</a>",
-                "truncated": false,
-                "in_reply_to_status_id": null,
-                "in_reply_to_status_id_str": null,
-                "in_reply_to_user_id": null,
-                "in_reply_to_user_id_str": null,
-                "in_reply_to_screen_name": null,
-                "user": {
-                    "id": 729017959402836000,
-                    "id_str": "729017959402835968",
-                    "name": "JS Libs Bot",
-                    "screen_name": "javascriptlibs",
-                    "location": "All modern browsers",
-                    "url": null,
-                    "description": "An entirely made-up look at the latest cutting-edge JavaScript libraries on the interwebs. A bot by @danhett",
-                    "protected": false,
-                    "verified": false,
-                    "followers_count": 57,
-                    "friends_count": 1,
-                    "listed_count": 42,
-                    "favourites_count": 0,
-                    "statuses_count": 1191,
-                    "created_at": "Sat May 07 18:40:00 +0000 2016",
-                    "utc_offset": null,
-                    "time_zone": null,
-                    "geo_enabled": false,
-                    "lang": "en",
-                    "contributors_enabled": false,
-                    "is_translator": false,
-                    "profile_background_color": "000000",
-                    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-                    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-                    "profile_background_tile": false,
-                    "profile_link_color": "FAB81E",
-                    "profile_sidebar_border_color": "000000",
-                    "profile_sidebar_fill_color": "000000",
-                    "profile_text_color": "000000",
-                    "profile_use_background_image": false,
-                    "profile_image_url": "http://pbs.twimg.com/profile_images/729018859022323713/NNWTH5bI_normal.jpg",
-                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/729018859022323713/NNWTH5bI_normal.jpg",
-                    "default_profile": false,
-                    "default_profile_image": false,
-                    "following": null,
-                    "follow_request_sent": null,
-                    "notifications": null
-                },
-                "geo": null,
-                "coordinates": null,
-                "place": null,
-                "contributors": null,
-                "is_quote_status": false,
-                "retweet_count": 0,
-                "favorite_count": 0,
-                "entities": {
-                    "hashtags": [
-                        {
-                            "text": "js",
-                            "indices": [
-                                122,
-                                125
-                            ]
-                        },
-                        {
-                            "text": "javascript",
-                            "indices": [
-                                126,
-                                137
-                            ]
-                        }
-                    ],
-                    "urls": [],
-                    "user_mentions": [],
-                    "symbols": []
-                },
-                "favorited": false,
-                "retweeted": false,
-                "filter_level": "low",
-                "lang": "en",
-                "timestamp_ms": "1488200186398"
-            },
-            "text": "invention.js - a server-side image test engine, for clients to cut up utilities for responsive layouts. Get it on Github. #js #javascript"
-        },
-        {
-            "id": 10,
-            "title": {
-                "created_at": "Mon Feb 27 12:56:38 +0000 2017",
-                "id": 836198357827797000,
-                "id_str": "836198357827796992",
-                "text": "Multi Line Chart - https://t.co/iGV0FlzHmc - https://t.co/FpmdK9eykZ",
-                "display_text_range": [
-                    0,
-                    44
-                ],
-                "source": "<a href=\"http://codeholder.net/\" rel=\"nofollow\">CodeHolder.net</a>",
-                "truncated": false,
-                "in_reply_to_status_id": null,
-                "in_reply_to_status_id_str": null,
-                "in_reply_to_user_id": null,
-                "in_reply_to_user_id_str": null,
-                "in_reply_to_screen_name": null,
-                "user": {
-                    "id": 780346112167280600,
-                    "id_str": "780346112167280640",
-                    "name": "CodeHolder.net",
-                    "screen_name": "CodeHolder_net",
-                    "location": null,
-                    "url": "http://codeholder.net/",
-                    "description": "@Code @Scripts @Plugins @PHP @CSS @HTML @WordPress",
-                    "protected": false,
-                    "verified": false,
-                    "followers_count": 32,
-                    "friends_count": 1,
-                    "listed_count": 14,
-                    "favourites_count": 0,
-                    "statuses_count": 2897,
-                    "created_at": "Mon Sep 26 09:59:46 +0000 2016",
-                    "utc_offset": -28800,
-                    "time_zone": "Pacific Time (US & Canada)",
-                    "geo_enabled": false,
-                    "lang": "en",
-                    "contributors_enabled": false,
-                    "is_translator": false,
-                    "profile_background_color": "F5F8FA",
-                    "profile_background_image_url": "",
-                    "profile_background_image_url_https": "",
-                    "profile_background_tile": false,
-                    "profile_link_color": "1DA1F2",
-                    "profile_sidebar_border_color": "C0DEED",
-                    "profile_sidebar_fill_color": "DDEEF6",
-                    "profile_text_color": "333333",
-                    "profile_use_background_image": true,
-                    "profile_image_url": "http://pbs.twimg.com/profile_images/780346752612331520/WpUsRksh_normal.jpg",
-                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/780346752612331520/WpUsRksh_normal.jpg",
-                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/780346112167280640/1474884188",
-                    "default_profile": true,
-                    "default_profile_image": false,
-                    "following": null,
-                    "follow_request_sent": null,
-                    "notifications": null
-                },
-                "geo": null,
-                "coordinates": null,
-                "place": null,
-                "contributors": null,
-                "is_quote_status": false,
-                "retweet_count": 0,
-                "favorite_count": 0,
-                "entities": {
-                    "hashtags": [],
-                    "urls": [
-                        {
-                            "url": "https://t.co/iGV0FlzHmc",
-                            "expanded_url": "https://codeholder.net/item/javascript/be-multi-line-chart-plugin",
-                            "display_url": "codeholder.net/item/javascrip…",
-                            "indices": [
-                                19,
-                                42
-                            ]
-                        }
-                    ],
-                    "user_mentions": [],
-                    "symbols": [],
-                    "media": [
-                        {
-                            "id": 836198355927720000,
-                            "id_str": "836198355927719936",
-                            "indices": [
-                                45,
-                                68
-                            ],
-                            "media_url": "http://pbs.twimg.com/media/C5rF-W7WYAAgYja.jpg",
-                            "media_url_https": "https://pbs.twimg.com/media/C5rF-W7WYAAgYja.jpg",
-                            "url": "https://t.co/FpmdK9eykZ",
-                            "display_url": "pic.twitter.com/FpmdK9eykZ",
-                            "expanded_url": "https://twitter.com/CodeHolder_net/status/836198357827796992/photo/1",
-                            "type": "photo",
-                            "sizes": {
-                                "medium": {
-                                    "w": 590,
-                                    "h": 300,
-                                    "resize": "fit"
-                                },
-                                "large": {
-                                    "w": 590,
-                                    "h": 300,
-                                    "resize": "fit"
-                                },
-                                "thumb": {
-                                    "w": 150,
-                                    "h": 150,
-                                    "resize": "crop"
-                                },
-                                "small": {
-                                    "w": 590,
-                                    "h": 300,
-                                    "resize": "fit"
-                                }
-                            }
-                        }
-                    ]
-                },
-                "extended_entities": {
-                    "media": [
-                        {
-                            "id": 836198355927720000,
-                            "id_str": "836198355927719936",
-                            "indices": [
-                                45,
-                                68
-                            ],
-                            "media_url": "http://pbs.twimg.com/media/C5rF-W7WYAAgYja.jpg",
-                            "media_url_https": "https://pbs.twimg.com/media/C5rF-W7WYAAgYja.jpg",
-                            "url": "https://t.co/FpmdK9eykZ",
-                            "display_url": "pic.twitter.com/FpmdK9eykZ",
-                            "expanded_url": "https://twitter.com/CodeHolder_net/status/836198357827796992/photo/1",
-                            "type": "photo",
-                            "sizes": {
-                                "medium": {
-                                    "w": 590,
-                                    "h": 300,
-                                    "resize": "fit"
-                                },
-                                "large": {
-                                    "w": 590,
-                                    "h": 300,
-                                    "resize": "fit"
-                                },
-                                "thumb": {
-                                    "w": 150,
-                                    "h": 150,
-                                    "resize": "crop"
-                                },
-                                "small": {
-                                    "w": 590,
-                                    "h": 300,
-                                    "resize": "fit"
-                                }
-                            }
-                        }
-                    ]
-                },
-                "favorited": false,
-                "retweeted": false,
-                "possibly_sensitive": false,
-                "filter_level": "low",
-                "lang": "et",
-                "timestamp_ms": "1488200198977"
-            },
-            "text": "Multi Line Chart - https://t.co/iGV0FlzHmc - https://t.co/FpmdK9eykZ"
-        },
-        {
-            "id": 11,
-            "title": {
-                "created_at": "Mon Feb 27 12:57:00 +0000 2017",
-                "id": 836198448961552400,
-                "id_str": "836198448961552387",
-                "text": "Read a file one line at a time in node.js? #javascript #nodejs #file-io #lazy-evaluation https://t.co/2xlsx6VfFZ",
-                "source": "<a href=\"http://jarvis.ratankumar.org\" rel=\"nofollow\">nodejsQnA</a>",
-                "truncated": false,
-                "in_reply_to_status_id": null,
-                "in_reply_to_status_id_str": null,
-                "in_reply_to_user_id": null,
-                "in_reply_to_user_id_str": null,
-                "in_reply_to_screen_name": null,
-                "user": {
-                    "id": 746037268238991400,
-                    "id_str": "746037268238991360",
-                    "name": "Nodejs",
-                    "screen_name": "NodeJsQnA",
-                    "location": "Bengaluru, India",
-                    "url": null,
-                    "description": "I tweet Nodejs QnA from stackoverflow",
-                    "protected": false,
-                    "verified": false,
-                    "followers_count": 999,
-                    "friends_count": 508,
-                    "listed_count": 241,
-                    "favourites_count": 8,
-                    "statuses_count": 36290,
-                    "created_at": "Thu Jun 23 17:48:40 +0000 2016",
-                    "utc_offset": null,
-                    "time_zone": null,
-                    "geo_enabled": false,
-                    "lang": "en",
-                    "contributors_enabled": false,
-                    "is_translator": false,
-                    "profile_background_color": "F5F8FA",
-                    "profile_background_image_url": "",
-                    "profile_background_image_url_https": "",
-                    "profile_background_tile": false,
-                    "profile_link_color": "1DA1F2",
-                    "profile_sidebar_border_color": "C0DEED",
-                    "profile_sidebar_fill_color": "DDEEF6",
-                    "profile_text_color": "333333",
-                    "profile_use_background_image": true,
-                    "profile_image_url": "http://pbs.twimg.com/profile_images/746038345902391296/0mkujVoG_normal.jpg",
-                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/746038345902391296/0mkujVoG_normal.jpg",
-                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/746037268238991360/1466709886",
-                    "default_profile": true,
-                    "default_profile_image": false,
-                    "following": null,
-                    "follow_request_sent": null,
-                    "notifications": null
-                },
-                "geo": null,
-                "coordinates": null,
-                "place": null,
-                "contributors": null,
-                "is_quote_status": false,
-                "retweet_count": 0,
-                "favorite_count": 0,
-                "entities": {
-                    "hashtags": [
-                        {
-                            "text": "javascript",
-                            "indices": [
-                                43,
-                                54
-                            ]
-                        },
-                        {
-                            "text": "nodejs",
-                            "indices": [
-                                55,
-                                62
-                            ]
-                        },
-                        {
-                            "text": "file",
-                            "indices": [
-                                63,
-                                68
-                            ]
-                        },
-                        {
-                            "text": "lazy",
-                            "indices": [
-                                72,
-                                77
-                            ]
-                        }
-                    ],
-                    "urls": [
-                        {
-                            "url": "https://t.co/2xlsx6VfFZ",
-                            "expanded_url": "https://goo.gl/mQuzlm",
-                            "display_url": "goo.gl/mQuzlm",
-                            "indices": [
-                                89,
-                                112
-                            ]
-                        }
-                    ],
-                    "user_mentions": [],
-                    "symbols": []
-                },
-                "favorited": false,
-                "retweeted": false,
-                "possibly_sensitive": false,
-                "filter_level": "low",
-                "lang": "en",
-                "timestamp_ms": "1488200220705"
-            },
-            "text": "Read a file one line at a time in node.js? #javascript #nodejs #file-io #lazy-evaluation https://t.co/2xlsx6VfFZ"
-        },
-        {
-            "id": 12,
-            "title": {
-                "created_at": "Mon Feb 27 12:57:01 +0000 2017",
-                "id": 836198450635104300,
-                "id_str": "836198450635104257",
-                "text": "IziModal - A responsive, flexible &amp; lightweight #jQuery plugin for modals https://t.co/7mpMGI3Ftz #JavaScript #JavaScriptTools #JS",
-                "source": "<a href=\"http://bufferapp.com\" rel=\"nofollow\">Buffer</a>",
-                "truncated": false,
-                "in_reply_to_status_id": null,
-                "in_reply_to_status_id_str": null,
-                "in_reply_to_user_id": null,
-                "in_reply_to_user_id_str": null,
-                "in_reply_to_screen_name": null,
-                "user": {
-                    "id": 15262417,
-                    "id_str": "15262417",
-                    "name": "Benny Alexander",
-                    "screen_name": "macronimous",
-                    "location": "GLOBAL",
-                    "url": "http://about.me/benny.a",
-                    "description": "Web development, iOS & Android development, SEO/SMO techniques, Responsive UI, UX, Opensource apps, Useful web tools and life around technology!",
-                    "protected": false,
-                    "verified": false,
-                    "followers_count": 2044,
-                    "friends_count": 485,
-                    "listed_count": 3649,
-                    "favourites_count": 2293,
-                    "statuses_count": 55569,
-                    "created_at": "Sat Jun 28 11:39:18 +0000 2008",
-                    "utc_offset": -28800,
-                    "time_zone": "Pacific Time (US & Canada)",
-                    "geo_enabled": false,
-                    "lang": "en",
-                    "contributors_enabled": false,
-                    "is_translator": false,
-                    "profile_background_color": "E6723C",
-                    "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/157979510/twitter_mac_bg.jpg",
-                    "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/157979510/twitter_mac_bg.jpg",
-                    "profile_background_tile": false,
-                    "profile_link_color": "996464",
-                    "profile_sidebar_border_color": "829D5E",
-                    "profile_sidebar_fill_color": "FFA724",
-                    "profile_text_color": "7A2626",
-                    "profile_use_background_image": true,
-                    "profile_image_url": "http://pbs.twimg.com/profile_images/495468523825528832/CnrVL-sQ_normal.png",
-                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/495468523825528832/CnrVL-sQ_normal.png",
-                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/15262417/1476106416",
-                    "default_profile": false,
-                    "default_profile_image": false,
-                    "following": null,
-                    "follow_request_sent": null,
-                    "notifications": null
-                },
-                "geo": null,
-                "coordinates": null,
-                "place": null,
-                "contributors": null,
-                "is_quote_status": false,
-                "retweet_count": 0,
-                "favorite_count": 0,
-                "entities": {
-                    "hashtags": [
-                        {
-                            "text": "jQuery",
-                            "indices": [
-                                52,
-                                59
-                            ]
-                        },
-                        {
-                            "text": "JavaScript",
-                            "indices": [
-                                102,
-                                113
-                            ]
-                        },
-                        {
-                            "text": "JavaScriptTools",
-                            "indices": [
-                                114,
-                                130
-                            ]
-                        },
-                        {
-                            "text": "JS",
-                            "indices": [
-                                131,
-                                134
-                            ]
-                        }
-                    ],
-                    "urls": [
-                        {
-                            "url": "https://t.co/7mpMGI3Ftz",
-                            "expanded_url": "http://bit.ly/2lTXT41",
-                            "display_url": "bit.ly/2lTXT41",
-                            "indices": [
-                                78,
-                                101
-                            ]
-                        }
-                    ],
-                    "user_mentions": [],
-                    "symbols": []
-                },
-                "favorited": false,
-                "retweeted": false,
-                "possibly_sensitive": false,
-                "filter_level": "low",
-                "lang": "en",
-                "timestamp_ms": "1488200221104"
-            },
-            "text": "IziModal - A responsive, flexible &amp; lightweight #jQuery plugin for modals https://t.co/7mpMGI3Ftz #JavaScript #JavaScriptTools #JS"
-        },
-        {
-            "id": 13,
-            "title": {
-                "created_at": "Mon Feb 27 12:57:02 +0000 2017",
-                "id": 836198455412314100,
-                "id_str": "836198455412314112",
-                "text": "Enfold - Responsive Multi-Purpose Theme https://t.co/sbEYcxcsLS #trends2015 #wordpress #javascript #jQuery #html5 #css3 #php",
-                "source": "<a href=\"http://twittbot.net/\" rel=\"nofollow\">twittbot.net</a>",
-                "truncated": false,
-                "in_reply_to_status_id": null,
-                "in_reply_to_status_id_str": null,
-                "in_reply_to_user_id": null,
-                "in_reply_to_user_id_str": null,
-                "in_reply_to_screen_name": null,
-                "user": {
-                    "id": 135894119,
-                    "id_str": "135894119",
-                    "name": "Trends 2015",
-                    "screen_name": "trendbisnis2015",
-                    "location": "Bandung, Indonesia",
-                    "url": "https://trend2015.wordpress.com/",
-                    "description": "The Best Marketing Online 2015",
-                    "protected": false,
-                    "verified": false,
-                    "followers_count": 1477,
-                    "friends_count": 2690,
-                    "listed_count": 335,
-                    "favourites_count": 39,
-                    "statuses_count": 22856,
-                    "created_at": "Thu Apr 22 13:53:13 +0000 2010",
-                    "utc_offset": 25200,
-                    "time_zone": "Jakarta",
-                    "geo_enabled": true,
-                    "lang": "en",
-                    "contributors_enabled": false,
-                    "is_translator": false,
-                    "profile_background_color": "000000",
-                    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme18/bg.gif",
-                    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme18/bg.gif",
-                    "profile_background_tile": false,
-                    "profile_link_color": "000000",
-                    "profile_sidebar_border_color": "000000",
-                    "profile_sidebar_fill_color": "000000",
-                    "profile_text_color": "000000",
-                    "profile_use_background_image": false,
-                    "profile_image_url": "http://pbs.twimg.com/profile_images/589705612864331777/rZPuXSEA_normal.jpg",
-                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/589705612864331777/rZPuXSEA_normal.jpg",
-                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/135894119/1427911394",
-                    "default_profile": false,
-                    "default_profile_image": false,
-                    "following": null,
-                    "follow_request_sent": null,
-                    "notifications": null
-                },
-                "geo": null,
-                "coordinates": null,
-                "place": null,
-                "contributors": null,
-                "is_quote_status": false,
-                "retweet_count": 0,
-                "favorite_count": 0,
-                "entities": {
-                    "hashtags": [
-                        {
-                            "text": "trends2015",
-                            "indices": [
-                                64,
-                                75
-                            ]
-                        },
-                        {
-                            "text": "wordpress",
-                            "indices": [
-                                76,
-                                86
-                            ]
-                        },
-                        {
-                            "text": "javascript",
-                            "indices": [
-                                87,
-                                98
-                            ]
-                        },
-                        {
-                            "text": "jQuery",
-                            "indices": [
-                                99,
-                                106
-                            ]
-                        },
-                        {
-                            "text": "html5",
-                            "indices": [
-                                107,
-                                113
-                            ]
-                        },
-                        {
-                            "text": "css3",
-                            "indices": [
-                                114,
-                                119
-                            ]
-                        },
-                        {
-                            "text": "php",
-                            "indices": [
-                                120,
-                                124
-                            ]
-                        }
-                    ],
-                    "urls": [
-                        {
-                            "url": "https://t.co/sbEYcxcsLS",
-                            "expanded_url": "http://goo.gl/sPkix5",
-                            "display_url": "goo.gl/sPkix5",
-                            "indices": [
-                                40,
-                                63
-                            ]
-                        }
-                    ],
-                    "user_mentions": [],
-                    "symbols": []
-                },
-                "favorited": false,
-                "retweeted": false,
-                "possibly_sensitive": true,
-                "filter_level": "low",
-                "lang": "en",
-                "timestamp_ms": "1488200222243"
-            },
-            "text": "Enfold - Responsive Multi-Purpose Theme https://t.co/sbEYcxcsLS #trends2015 #wordpress #javascript #jQuery #html5 #css3 #php"
-        },
-        {
-            "id": 14,
-            "title": {
-                "created_at": "Mon Feb 27 12:57:07 +0000 2017",
-                "id": 836198477059219500,
-                "id_str": "836198477059219457",
-                "text": "Convert String to DOM Nodes https://t.co/ug1cJrkCFr #javascript #web development #web design",
-                "source": "<a href=\"https://ifttt.com\" rel=\"nofollow\">IFTTT</a>",
-                "truncated": false,
-                "in_reply_to_status_id": null,
-                "in_reply_to_status_id_str": null,
-                "in_reply_to_user_id": null,
-                "in_reply_to_user_id_str": null,
-                "in_reply_to_screen_name": null,
-                "user": {
-                    "id": 20704166,
-                    "id_str": "20704166",
-                    "name": "Josh Saint Jacque",
-                    "screen_name": "ThroughActions",
-                    "location": "Seattle",
-                    "url": "http://www.emeraldcitydev.com",
-                    "description": "Seattle area Software Engineer and Product Manager. Background in #RubyonRails, #JavaScript, and full stack web development.",
-                    "protected": false,
-                    "verified": false,
-                    "followers_count": 2061,
-                    "friends_count": 1589,
-                    "listed_count": 456,
-                    "favourites_count": 117,
-                    "statuses_count": 10763,
-                    "created_at": "Thu Feb 12 18:55:54 +0000 2009",
-                    "utc_offset": null,
-                    "time_zone": null,
-                    "geo_enabled": false,
-                    "lang": "en",
-                    "contributors_enabled": false,
-                    "is_translator": false,
-                    "profile_background_color": "C0DEED",
-                    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-                    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-                    "profile_background_tile": false,
-                    "profile_link_color": "1DA1F2",
-                    "profile_sidebar_border_color": "C0DEED",
-                    "profile_sidebar_fill_color": "DDEEF6",
-                    "profile_text_color": "333333",
-                    "profile_use_background_image": true,
-                    "profile_image_url": "http://pbs.twimg.com/profile_images/816285380660043781/WAM90KcG_normal.jpg",
-                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/816285380660043781/WAM90KcG_normal.jpg",
-                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/20704166/1421117804",
-                    "default_profile": true,
-                    "default_profile_image": false,
-                    "following": null,
-                    "follow_request_sent": null,
-                    "notifications": null
-                },
-                "geo": null,
-                "coordinates": null,
-                "place": null,
-                "contributors": null,
-                "is_quote_status": false,
-                "retweet_count": 0,
-                "favorite_count": 0,
-                "entities": {
-                    "hashtags": [
-                        {
-                            "text": "javascript",
-                            "indices": [
-                                52,
-                                63
-                            ]
-                        },
-                        {
-                            "text": "web",
-                            "indices": [
-                                64,
-                                68
-                            ]
-                        },
-                        {
-                            "text": "web",
-                            "indices": [
-                                81,
-                                85
-                            ]
-                        }
-                    ],
-                    "urls": [
-                        {
-                            "url": "https://t.co/ug1cJrkCFr",
-                            "expanded_url": "http://ift.tt/2l3s8pv",
-                            "display_url": "ift.tt/2l3s8pv",
-                            "indices": [
-                                28,
-                                51
-                            ]
-                        }
-                    ],
-                    "user_mentions": [],
-                    "symbols": []
-                },
-                "favorited": false,
-                "retweeted": false,
-                "possibly_sensitive": false,
-                "filter_level": "low",
-                "lang": "en",
-                "timestamp_ms": "1488200227404"
-            },
-            "text": "Convert String to DOM Nodes https://t.co/ug1cJrkCFr #javascript #web development #web design"
-        },
-        {
-            "id": 15,
-            "title": {
-                "created_at": "Mon Feb 27 12:57:12 +0000 2017",
-                "id": 836198496747270100,
-                "id_str": "836198496747270144",
-                "text": "The Bridge Ltd: Senior Java Software De... https://t.co/8xVDEyJvTt",
-                "source": "<a href=\"http://www.jobs.as/\" rel=\"nofollow\">Job Listings United Kingdom</a>",
-                "truncated": false,
-                "in_reply_to_status_id": null,
-                "in_reply_to_status_id_str": null,
-                "in_reply_to_user_id": null,
-                "in_reply_to_user_id_str": null,
-                "in_reply_to_screen_name": null,
-                "user": {
-                    "id": 1068057936,
-                    "id_str": "1068057936",
-                    "name": "JOBS UK",
-                    "screen_name": "jobs_uk_",
-                    "location": null,
-                    "url": "http://www.jobs.as/",
-                    "description": "JOBS is an international job board that provides the latest job-matching \r\nfeatures for Job Search and Staff Recruitment.",
-                    "protected": false,
-                    "verified": false,
-                    "followers_count": 591,
-                    "friends_count": 43,
-                    "listed_count": 145,
-                    "favourites_count": 0,
-                    "statuses_count": 222320,
-                    "created_at": "Mon Jan 07 11:20:17 +0000 2013",
-                    "utc_offset": null,
-                    "time_zone": null,
-                    "geo_enabled": false,
-                    "lang": "es",
-                    "contributors_enabled": false,
-                    "is_translator": false,
-                    "profile_background_color": "ACDED6",
-                    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme18/bg.gif",
-                    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme18/bg.gif",
-                    "profile_background_tile": false,
-                    "profile_link_color": "038543",
-                    "profile_sidebar_border_color": "000000",
-                    "profile_sidebar_fill_color": "F6F6F6",
-                    "profile_text_color": "333333",
-                    "profile_use_background_image": true,
-                    "profile_image_url": "http://pbs.twimg.com/profile_images/3471863077/6eb1cadad1bd160596fad5d1983b1cf5_normal.png",
-                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/3471863077/6eb1cadad1bd160596fad5d1983b1cf5_normal.png",
-                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/1068057936/1472314701",
-                    "default_profile": false,
-                    "default_profile_image": false,
-                    "following": null,
-                    "follow_request_sent": null,
-                    "notifications": null
-                },
-                "geo": null,
-                "coordinates": null,
-                "place": null,
-                "contributors": null,
-                "is_quote_status": false,
-                "retweet_count": 0,
-                "favorite_count": 0,
-                "entities": {
-                    "hashtags": [],
-                    "urls": [
-                        {
-                            "url": "https://t.co/8xVDEyJvTt",
-                            "expanded_url": "http://www.jobs.as/job/15796536/senior-java-software-developer-java-jee-javascript-sql-spring/",
-                            "display_url": "jobs.as/job/15796536/s…",
-                            "indices": [
-                                43,
-                                66
-                            ]
-                        }
-                    ],
-                    "user_mentions": [],
-                    "symbols": []
-                },
-                "favorited": false,
-                "retweeted": false,
-                "possibly_sensitive": false,
-                "filter_level": "low",
-                "lang": "en",
-                "timestamp_ms": "1488200232098"
-            },
-            "text": "The Bridge Ltd: Senior Java Software De... https://t.co/8xVDEyJvTt"
-        },
-        {
-            "id": 16,
-            "title": {
-                "created_at": "Mon Feb 27 12:57:23 +0000 2017",
-                "id": 836198543337611300,
-                "id_str": "836198543337611264",
-                "text": "PubNub SDK for React Native version 4.4.4 is released. https://t.co/iw06Azl8HP",
-                "source": "<a href=\"https://www.pubnub.com/docs\" rel=\"nofollow\">dev PN SDK post</a>",
-                "truncated": false,
-                "in_reply_to_status_id": null,
-                "in_reply_to_status_id_str": null,
-                "in_reply_to_user_id": null,
-                "in_reply_to_user_id_str": null,
-                "in_reply_to_screen_name": null,
-                "user": {
-                    "id": 290030861,
-                    "id_str": "290030861",
-                    "name": "alyyas",
-                    "screen_name": "aliyayasir",
-                    "location": null,
-                    "url": null,
-                    "description": null,
-                    "protected": false,
-                    "verified": false,
-                    "followers_count": 13,
-                    "friends_count": 1123,
-                    "listed_count": 1,
-                    "favourites_count": 0,
-                    "statuses_count": 147,
-                    "created_at": "Fri Apr 29 16:42:30 +0000 2011",
-                    "utc_offset": null,
-                    "time_zone": null,
-                    "geo_enabled": false,
-                    "lang": "en",
-                    "contributors_enabled": false,
-                    "is_translator": false,
-                    "profile_background_color": "C0DEED",
-                    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-                    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-                    "profile_background_tile": false,
-                    "profile_link_color": "1DA1F2",
-                    "profile_sidebar_border_color": "C0DEED",
-                    "profile_sidebar_fill_color": "DDEEF6",
-                    "profile_text_color": "333333",
-                    "profile_use_background_image": true,
-                    "profile_image_url": "http://pbs.twimg.com/profile_images/778158698187325440/etzylzVO_normal.jpg",
-                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/778158698187325440/etzylzVO_normal.jpg",
-                    "default_profile": true,
-                    "default_profile_image": false,
-                    "following": null,
-                    "follow_request_sent": null,
-                    "notifications": null
-                },
-                "geo": null,
-                "coordinates": null,
-                "place": null,
-                "contributors": null,
-                "is_quote_status": false,
-                "retweet_count": 0,
-                "favorite_count": 0,
-                "entities": {
-                    "hashtags": [],
-                    "urls": [
-                        {
-                            "url": "https://t.co/iw06Azl8HP",
-                            "expanded_url": "https://www.pubnub.com/docs/react-native-javascript/changelog#v4-4-4",
-                            "display_url": "pubnub.com/docs/react-nat…",
-                            "indices": [
-                                55,
-                                78
-                            ]
-                        }
-                    ],
-                    "user_mentions": [],
-                    "symbols": []
-                },
-                "favorited": false,
-                "retweeted": false,
-                "possibly_sensitive": false,
-                "filter_level": "low",
-                "lang": "en",
-                "timestamp_ms": "1488200243206"
-            },
-            "text": "PubNub SDK for React Native version 4.4.4 is released. https://t.co/iw06Azl8HP"
-        },
-        {
-            "id": 17,
-            "title": {
-                "created_at": "Mon Feb 27 12:57:59 +0000 2017",
-                "id": 836198696475734000,
-                "id_str": "836198696475734017",
-                "text": "RT @tiffani: Hi. My name is Tiffani. My code gets people's water turned back on but I can't write a linked list from scratch any… ",
-                "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
-                "truncated": false,
-                "in_reply_to_status_id": null,
-                "in_reply_to_status_id_str": null,
-                "in_reply_to_user_id": null,
-                "in_reply_to_user_id_str": null,
-                "in_reply_to_screen_name": null,
-                "user": {
-                    "id": 66583271,
-                    "id_str": "66583271",
-                    "name": "Justin Camarena",
-                    "screen_name": "juscamarena",
-                    "location": "Ontario, California",
-                    "url": "https://21.co/camarena/",
-                    "description": "CS student. Bitcoin",
-                    "protected": false,
-                    "verified": false,
-                    "followers_count": 886,
-                    "friends_count": 2085,
-                    "listed_count": 132,
-                    "favourites_count": 14087,
-                    "statuses_count": 28835,
-                    "created_at": "Tue Aug 18 03:27:35 +0000 2009",
-                    "utc_offset": -28800,
-                    "time_zone": "Pacific Time (US & Canada)",
-                    "geo_enabled": true,
-                    "lang": "en",
-                    "contributors_enabled": false,
-                    "is_translator": false,
-                    "profile_background_color": "000000",
-                    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme9/bg.gif",
-                    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme9/bg.gif",
-                    "profile_background_tile": false,
-                    "profile_link_color": "3B94D9",
-                    "profile_sidebar_border_color": "000000",
-                    "profile_sidebar_fill_color": "000000",
-                    "profile_text_color": "000000",
-                    "profile_use_background_image": false,
-                    "profile_image_url": "http://pbs.twimg.com/profile_images/821649096033390593/GLZ8-lrN_normal.jpg",
-                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/821649096033390593/GLZ8-lrN_normal.jpg",
-                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/66583271/1482828035",
-                    "default_profile": false,
-                    "default_profile_image": false,
-                    "following": null,
-                    "follow_request_sent": null,
-                    "notifications": null
-                },
-                "geo": null,
-                "coordinates": null,
-                "place": null,
-                "contributors": null,
-                "retweeted_status": {
-                    "created_at": "Mon Feb 27 02:23:45 +0000 2017",
-                    "id": 836039084145401900,
-                    "id_str": "836039084145401856",
-                    "text": "Hi. My name is Tiffani. My code gets people's water turned back on but I can't write a linked list from scratch any… https://t.co/Q8p8JL2sAD",
-                    "display_text_range": [
-                        0,
-                        140
-                    ],
-                    "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
-                    "truncated": true,
-                    "in_reply_to_status_id": null,
-                    "in_reply_to_status_id_str": null,
-                    "in_reply_to_user_id": null,
-                    "in_reply_to_user_id_str": null,
-                    "in_reply_to_screen_name": null,
-                    "user": {
-                        "id": 3471901,
-                        "id_str": "3471901",
-                        "name": "Tiffani Ashley Bell",
-                        "screen_name": "tiffani",
-                        "location": "FAY - SF",
-                        "url": "http://humanutility.org",
-                        "description": "Executive Director at The @HumanUtility restoring dignity by paying water bills. @HowardU & @ycombinator alum. Rails hacker. ADHDer. Water is a human right.",
-                        "protected": false,
-                        "verified": false,
-                        "followers_count": 11876,
-                        "friends_count": 6191,
-                        "listed_count": 676,
-                        "favourites_count": 73962,
-                        "statuses_count": 56120,
-                        "created_at": "Wed Apr 04 23:48:53 +0000 2007",
-                        "utc_offset": -18000,
-                        "time_zone": "Eastern Time (US & Canada)",
-                        "geo_enabled": true,
-                        "lang": "en",
-                        "contributors_enabled": false,
-                        "is_translator": false,
-                        "profile_background_color": "FFFFFF",
-                        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/162372018/pyi_back_stripe.png",
-                        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/162372018/pyi_back_stripe.png",
-                        "profile_background_tile": true,
-                        "profile_link_color": "335CFF",
-                        "profile_sidebar_border_color": "CCCCCC",
-                        "profile_sidebar_fill_color": "B8E1FC",
-                        "profile_text_color": "303030",
-                        "profile_use_background_image": true,
-                        "profile_image_url": "http://pbs.twimg.com/profile_images/640890833714069504/5KJgZU-0_normal.jpg",
-                        "profile_image_url_https": "https://pbs.twimg.com/profile_images/640890833714069504/5KJgZU-0_normal.jpg",
-                        "profile_banner_url": "https://pbs.twimg.com/profile_banners/3471901/1481658580",
-                        "default_profile": false,
-                        "default_profile_image": false,
-                        "following": null,
-                        "follow_request_sent": null,
-                        "notifications": null
-                    },
-                    "geo": null,
-                    "coordinates": null,
-                    "place": {
-                        "id": "ab2f2fac83aa388d",
-                        "url": "https://api.twitter.com/1.1/geo/id/ab2f2fac83aa388d.json",
-                        "place_type": "city",
-                        "name": "Oakland",
-                        "full_name": "Oakland, CA",
-                        "country_code": "US",
-                        "country": "United States",
-                        "bounding_box": {
-                            "type": "Polygon",
-                            "coordinates": [
-                                [
-                                    [
-                                        -122.34266,
-                                        37.699279
-                                    ],
-                                    [
-                                        -122.34266,
-                                        37.884709
-                                    ],
-                                    [
-                                        -122.114711,
-                                        37.884709
-                                    ],
-                                    [
-                                        -122.114711,
-                                        37.699279
-                                    ]
-                                ]
-                            ]
-                        },
-                        "attributes": {}
-                    },
-                    "contributors": null,
-                    "quoted_status_id": 835981374309941200,
-                    "quoted_status_id_str": "835981374309941249",
-                    "quoted_status": {
-                        "created_at": "Sun Feb 26 22:34:26 +0000 2017",
-                        "id": 835981374309941200,
-                        "id_str": "835981374309941249",
-                        "text": "Hi. My name is Erin. I've been writing JavaScript for 16 years and I still have to look up the function signature f… https://t.co/P6VEdt7cR7",
-                        "display_text_range": [
-                            0,
-                            140
-                        ],
-                        "source": "<a href=\"https://about.twitter.com/products/tweetdeck\" rel=\"nofollow\">TweetDeck</a>",
-                        "truncated": true,
-                        "in_reply_to_status_id": null,
-                        "in_reply_to_status_id_str": null,
-                        "in_reply_to_user_id": null,
-                        "in_reply_to_user_id_str": null,
-                        "in_reply_to_screen_name": null,
-                        "user": {
-                            "id": 14835101,
-                            "id_str": "14835101",
-                            "name": "nodesorceress ❂",
-                            "screen_name": "erinspice",
-                            "location": "Huntsville, AL",
-                            "url": "http://yes.erin.codes/",
-                            "description": "@NodeSource Node.js/JavaScript backend software engineer. Director @WWCodeHSV. Choctaw/Indigenous. EN*P. The only Snarkaeopteryx.",
-                            "protected": false,
-                            "verified": false,
-                            "followers_count": 2049,
-                            "friends_count": 852,
-                            "listed_count": 151,
-                            "favourites_count": 14588,
-                            "statuses_count": 14081,
-                            "created_at": "Mon May 19 17:08:51 +0000 2008",
-                            "utc_offset": -21600,
-                            "time_zone": "America/Chicago",
-                            "geo_enabled": false,
-                            "lang": "en",
-                            "contributors_enabled": false,
-                            "is_translator": false,
-                            "profile_background_color": "1C130E",
-                            "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/882775034/4ccd35438b42a7da37c20ebc15940e52.jpeg",
-                            "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/882775034/4ccd35438b42a7da37c20ebc15940e52.jpeg",
-                            "profile_background_tile": false,
-                            "profile_link_color": "4F3F38",
-                            "profile_sidebar_border_color": "9DB98C",
-                            "profile_sidebar_fill_color": "140E0A",
-                            "profile_text_color": "838978",
-                            "profile_use_background_image": true,
-                            "profile_image_url": "http://pbs.twimg.com/profile_images/826257593047928832/ebkPRiuj_normal.jpg",
-                            "profile_image_url_https": "https://pbs.twimg.com/profile_images/826257593047928832/ebkPRiuj_normal.jpg",
-                            "profile_banner_url": "https://pbs.twimg.com/profile_banners/14835101/1398351739",
-                            "default_profile": false,
-                            "default_profile_image": false,
-                            "following": null,
-                            "follow_request_sent": null,
-                            "notifications": null
-                        },
-                        "geo": null,
-                        "coordinates": null,
-                        "place": null,
-                        "contributors": null,
-                        "quoted_status_id": 835956421485219800,
-                        "quoted_status_id_str": "835956421485219840",
-                        "is_quote_status": true,
-                        "extended_tweet": {
-                            "full_text": "Hi. My name is Erin. I've been writing JavaScript for 16 years and I still have to look up the function signature for Array.splice. https://t.co/OaxYz1K7Xx",
-                            "display_text_range": [
-                                0,
-                                131
-                            ],
-                            "entities": {
-                                "hashtags": [],
-                                "urls": [
-                                    {
-                                        "url": "https://t.co/OaxYz1K7Xx",
-                                        "expanded_url": "https://twitter.com/rundavidrun/status/835956421485219840",
-                                        "display_url": "twitter.com/rundavidrun/st…",
-                                        "indices": [
-                                            132,
-                                            155
-                                        ]
-                                    }
-                                ],
-                                "user_mentions": [],
-                                "symbols": []
-                            }
-                        },
-                        "retweet_count": 28,
-                        "favorite_count": 193,
-                        "entities": {
-                            "hashtags": [],
-                            "urls": [
-                                {
-                                    "url": "https://t.co/P6VEdt7cR7",
-                                    "expanded_url": "https://twitter.com/i/web/status/835981374309941249",
-                                    "display_url": "twitter.com/i/web/status/8…",
-                                    "indices": [
-                                        117,
-                                        140
-                                    ]
-                                }
-                            ],
-                            "user_mentions": [],
-                            "symbols": []
-                        },
-                        "favorited": false,
-                        "retweeted": false,
-                        "possibly_sensitive": false,
-                        "filter_level": "low",
-                        "lang": "en"
-                    },
-                    "is_quote_status": true,
-                    "extended_tweet": {
-                        "full_text": "Hi. My name is Tiffani. My code gets people's water turned back on but I can't write a linked list from scratch anymore or explain Big-O. https://t.co/SGfFwEWrtH",
-                        "display_text_range": [
-                            0,
-                            137
-                        ],
-                        "entities": {
-                            "hashtags": [],
-                            "urls": [
-                                {
-                                    "url": "https://t.co/SGfFwEWrtH",
-                                    "expanded_url": "https://twitter.com/erinspice/status/835981374309941249",
-                                    "display_url": "twitter.com/erinspice/stat…",
-                                    "indices": [
-                                        138,
-                                        161
-                                    ]
-                                }
-                            ],
-                            "user_mentions": [],
-                            "symbols": []
-                        }
-                    },
-                    "retweet_count": 100,
-                    "favorite_count": 383,
-                    "entities": {
-                        "hashtags": [],
-                        "urls": [
-                            {
-                                "url": "https://t.co/Q8p8JL2sAD",
-                                "expanded_url": "https://twitter.com/i/web/status/836039084145401856",
-                                "display_url": "twitter.com/i/web/status/8…",
-                                "indices": [
-                                    117,
-                                    140
-                                ]
-                            }
-                        ],
-                        "user_mentions": [],
-                        "symbols": []
-                    },
-                    "favorited": false,
-                    "retweeted": false,
-                    "possibly_sensitive": false,
-                    "filter_level": "low",
-                    "lang": "en"
-                },
-                "quoted_status_id": 835981374309941200,
-                "quoted_status_id_str": "835981374309941249",
-                "quoted_status": {
-                    "created_at": "Sun Feb 26 22:34:26 +0000 2017",
-                    "id": 835981374309941200,
-                    "id_str": "835981374309941249",
-                    "text": "Hi. My name is Erin. I've been writing JavaScript for 16 years and I still have to look up the function signature f… https://t.co/P6VEdt7cR7",
-                    "display_text_range": [
-                        0,
-                        140
-                    ],
-                    "source": "<a href=\"https://about.twitter.com/products/tweetdeck\" rel=\"nofollow\">TweetDeck</a>",
-                    "truncated": true,
-                    "in_reply_to_status_id": null,
-                    "in_reply_to_status_id_str": null,
-                    "in_reply_to_user_id": null,
-                    "in_reply_to_user_id_str": null,
-                    "in_reply_to_screen_name": null,
-                    "user": {
-                        "id": 14835101,
-                        "id_str": "14835101",
-                        "name": "nodesorceress ❂",
-                        "screen_name": "erinspice",
-                        "location": "Huntsville, AL",
-                        "url": "http://yes.erin.codes/",
-                        "description": "@NodeSource Node.js/JavaScript backend software engineer. Director @WWCodeHSV. Choctaw/Indigenous. EN*P. The only Snarkaeopteryx.",
-                        "protected": false,
-                        "verified": false,
-                        "followers_count": 2049,
-                        "friends_count": 852,
-                        "listed_count": 151,
-                        "favourites_count": 14588,
-                        "statuses_count": 14081,
-                        "created_at": "Mon May 19 17:08:51 +0000 2008",
-                        "utc_offset": -21600,
-                        "time_zone": "America/Chicago",
-                        "geo_enabled": false,
-                        "lang": "en",
-                        "contributors_enabled": false,
-                        "is_translator": false,
-                        "profile_background_color": "1C130E",
-                        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/882775034/4ccd35438b42a7da37c20ebc15940e52.jpeg",
-                        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/882775034/4ccd35438b42a7da37c20ebc15940e52.jpeg",
-                        "profile_background_tile": false,
-                        "profile_link_color": "4F3F38",
-                        "profile_sidebar_border_color": "9DB98C",
-                        "profile_sidebar_fill_color": "140E0A",
-                        "profile_text_color": "838978",
-                        "profile_use_background_image": true,
-                        "profile_image_url": "http://pbs.twimg.com/profile_images/826257593047928832/ebkPRiuj_normal.jpg",
-                        "profile_image_url_https": "https://pbs.twimg.com/profile_images/826257593047928832/ebkPRiuj_normal.jpg",
-                        "profile_banner_url": "https://pbs.twimg.com/profile_banners/14835101/1398351739",
-                        "default_profile": false,
-                        "default_profile_image": false,
-                        "following": null,
-                        "follow_request_sent": null,
-                        "notifications": null
-                    },
-                    "geo": null,
-                    "coordinates": null,
-                    "place": null,
-                    "contributors": null,
-                    "quoted_status_id": 835956421485219800,
-                    "quoted_status_id_str": "835956421485219840",
-                    "is_quote_status": true,
-                    "extended_tweet": {
-                        "full_text": "Hi. My name is Erin. I've been writing JavaScript for 16 years and I still have to look up the function signature for Array.splice. https://t.co/OaxYz1K7Xx",
-                        "display_text_range": [
-                            0,
-                            131
-                        ],
-                        "entities": {
-                            "hashtags": [],
-                            "urls": [
-                                {
-                                    "url": "https://t.co/OaxYz1K7Xx",
-                                    "expanded_url": "https://twitter.com/rundavidrun/status/835956421485219840",
-                                    "display_url": "twitter.com/rundavidrun/st…",
-                                    "indices": [
-                                        132,
-                                        155
-                                    ]
-                                }
-                            ],
-                            "user_mentions": [],
-                            "symbols": []
-                        }
-                    },
-                    "retweet_count": 28,
-                    "favorite_count": 193,
-                    "entities": {
-                        "hashtags": [],
-                        "urls": [
-                            {
-                                "url": "https://t.co/P6VEdt7cR7",
-                                "expanded_url": "https://twitter.com/i/web/status/835981374309941249",
-                                "display_url": "twitter.com/i/web/status/8…",
-                                "indices": [
-                                    117,
-                                    140
-                                ]
-                            }
-                        ],
-                        "user_mentions": [],
-                        "symbols": []
-                    },
-                    "favorited": false,
-                    "retweeted": false,
-                    "possibly_sensitive": false,
-                    "filter_level": "low",
-                    "lang": "en"
-                },
-                "is_quote_status": true,
-                "retweet_count": 0,
-                "favorite_count": 0,
-                "entities": {
-                    "hashtags": [],
-                    "urls": [
-                        {
-                            "url": "",
-                            "expanded_url": null,
-                            "indices": [
-                                130,
-                                130
-                            ]
-                        }
-                    ],
-                    "user_mentions": [
-                        {
-                            "screen_name": "tiffani",
-                            "name": "Tiffani Ashley Bell",
-                            "id": 3471901,
-                            "id_str": "3471901",
-                            "indices": [
-                                3,
-                                11
-                            ]
-                        }
-                    ],
-                    "symbols": []
-                },
-                "favorited": false,
-                "retweeted": false,
-                "filter_level": "low",
-                "lang": "en",
-                "timestamp_ms": "1488200279717"
-            },
-            "text": "RT @tiffani: Hi. My name is Tiffani. My code gets people's water turned back on but I can't write a linked list from scratch any… "
-        },
-        {
-            "id": 18,
-            "title": {
-                "created_at": "Mon Feb 27 12:58:01 +0000 2017",
-                "id": 836198704872845300,
-                "id_str": "836198704872845312",
-                "text": "&lt;script type=\"text/javascript\"... https://t.co/Eg2mBxbp4K",
-                "source": "<a href=\"http://www.facebook.com/twitter\" rel=\"nofollow\">Facebook</a>",
-                "truncated": false,
-                "in_reply_to_status_id": null,
-                "in_reply_to_status_id_str": null,
-                "in_reply_to_user_id": null,
-                "in_reply_to_user_id_str": null,
-                "in_reply_to_screen_name": null,
-                "user": {
-                    "id": 126447048,
-                    "id_str": "126447048",
-                    "name": "Luis Fdo Cardenas C.",
-                    "screen_name": "lfcardenasmd",
-                    "location": "Cali, Colombia",
-                    "url": "http://www.cdcderma.com/dermatologia.html",
-                    "description": "Dermatologist & Dermatopathologist. Fellowship @ Wake Forest University BMC NC, USA.  Universidad del Valle Cali Colombia",
-                    "protected": false,
-                    "verified": false,
-                    "followers_count": 159,
-                    "friends_count": 175,
-                    "listed_count": 7,
-                    "favourites_count": 79,
-                    "statuses_count": 1431,
-                    "created_at": "Thu Mar 25 22:31:59 +0000 2010",
-                    "utc_offset": -18000,
-                    "time_zone": "Bogota",
-                    "geo_enabled": true,
-                    "lang": "en",
-                    "contributors_enabled": false,
-                    "is_translator": false,
-                    "profile_background_color": "C0DEED",
-                    "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
-                    "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
-                    "profile_background_tile": false,
-                    "profile_link_color": "0084B4",
-                    "profile_sidebar_border_color": "C0DEED",
-                    "profile_sidebar_fill_color": "DDEEF6",
-                    "profile_text_color": "333333",
-                    "profile_use_background_image": false,
-                    "profile_image_url": "http://pbs.twimg.com/profile_images/794997496388927489/rsP3i-wr_normal.jpg",
-                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/794997496388927489/rsP3i-wr_normal.jpg",
-                    "profile_banner_url": "https://pbs.twimg.com/profile_banners/126447048/1351917791",
-                    "default_profile": false,
-                    "default_profile_image": false,
-                    "following": null,
-                    "follow_request_sent": null,
-                    "notifications": null
-                },
-                "geo": null,
-                "coordinates": null,
-                "place": null,
-                "contributors": null,
-                "is_quote_status": false,
-                "retweet_count": 0,
-                "favorite_count": 0,
-                "entities": {
-                    "hashtags": [],
-                    "urls": [
-                        {
-                            "url": "https://t.co/Eg2mBxbp4K",
-                            "expanded_url": "http://fb.me/1MVNxqNHu",
-                            "display_url": "fb.me/1MVNxqNHu",
-                            "indices": [
-                                37,
-                                60
-                            ]
-                        }
-                    ],
-                    "user_mentions": [],
-                    "symbols": []
-                },
-                "favorited": false,
-                "retweeted": false,
-                "possibly_sensitive": false,
-                "filter_level": "low",
-                "lang": "en",
-                "timestamp_ms": "1488200281719"
-            },
-            "text": "&lt;script type=\"text/javascript\"... https://t.co/Eg2mBxbp4K"
-        }
-    ]
-}
+[
+    {
+        "id": 837381702783807500,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482330400",
+        "user": "nacholarranaga",
+        "profile_pic": "http://pbs.twimg.com/profile_images/727548715691593730/1QTIHbYk_normal.jpg",
+        "followers": 82,
+        "following": 63,
+        "text": "https://t.co/6RAwA9cG7R",
+        "fixed_text": "<a class=\"auto-link u-url\" href=\"https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f?gi=a14f32d47fa9\">https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f?gi=a14f32d47fa9</a>"
+    },
+    {
+        "id": 837381732273913900,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482337431",
+        "user": "TreeTopWebDsgn",
+        "profile_pic": "http://pbs.twimg.com/profile_images/486976335344975874/k6BEyXsf_normal.jpeg",
+        "followers": 84,
+        "following": 138,
+        "text": "Approaching JavaScript projects https://t.co/5xbJ0ZutwR",
+        "fixed_text": "Approaching JavaScript projects <a class=\"auto-link u-url\" href=\"https://www.sitepoint.com/how-to-approach-javascript-projects-what-the-tutorials-dont-tell-you/\">https://www.sitepoint.com/how-to-approach-javascript-projects-what-the-tutorials-dont-tell-you/</a>"
+    },
+    {
+        "id": 837381757389320200,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482343419",
+        "user": "javascriptd",
+        "profile_pic": "http://pbs.twimg.com/profile_images/544034757730779136/-jOL7GnN_normal.jpeg",
+        "followers": 18930,
+        "following": 4,
+        "text": "RT @Beepop_Agency: Build a Cookie Library with Vanilla JavaScript: https://t.co/htFlDXj2Hk",
+        "fixed_text": "RT <a class=\"auto-link h-x-username\" href=\"https://twitter.com/Beepop_Agency:\">&#x40;Beepop_Agency:</a> Build a Cookie Library with Vanilla JavaScript: <a class=\"auto-link u-url\" href=\"https://scotch.io/tutorials/build-a-cookie-library-with-vanilla-javascript\">https://scotch.io/tutorials/build-a-cookie-library-with-vanilla-javascript</a>"
+    },
+    {
+        "id": 837381773008990200,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482347143",
+        "user": "mikehug",
+        "profile_pic": "http://pbs.twimg.com/profile_images/1474136341/hawksmile_normal.JPG",
+        "followers": 171,
+        "following": 209,
+        "text": "RT @Mybridge: Neuro.JS: A #JavaScript library for deep learning and reinforcement learning. https://t.co/rvjjcPV7VO https://t.co/wsazVs7Yoi",
+        "fixed_text": "RT <a class=\"auto-link h-x-username\" href=\"https://twitter.com/Mybridge:\">&#x40;Mybridge:</a> Neuro.JS: A <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#JavaScript&amp;src=hash\">&#x23;JavaScript</a> library for deep learning and reinforcement learning. <a class=\"auto-link u-url\" href=\"https://github.com/janhuenermann/neurojs?utm_source=mybridge&utm_medium=email&utm_campaign=read_more\">https://github.com/janhuenermann/neurojs?utm_source=mybridge&utm_medium=email&utm_campaign=read_more</a> <a class=\"auto-link u-url\" href=\"https://twitter.com/Mybridge/status/837265814772396033/photo/1\">https://twitter.com/Mybridge/status/837265814772396033/photo/1</a>"
+    },
+    {
+        "id": 837381844047904800,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482364080",
+        "user": "JustOpenSourced",
+        "profile_pic": "http://pbs.twimg.com/profile_images/673577743150370816/r7p3usa1_normal.png",
+        "followers": 112,
+        "following": 2,
+        "text": "rcaplan just open sourced a repository: https://t.co/4tZdmfvcQj #JavaScript",
+        "fixed_text": "rcaplan just open sourced a repository: <a class=\"auto-link u-url\" href=\"https://github.com/rcaplan/react-item-list\">https://github.com/rcaplan/react-item-list</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#JavaScript&amp;src=hash\">&#x23;JavaScript</a>"
+    },
+    {
+        "id": 837381869876326400,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482370238",
+        "user": "javascriptd",
+        "profile_pic": "http://pbs.twimg.com/profile_images/544034757730779136/-jOL7GnN_normal.jpeg",
+        "followers": 18930,
+        "following": 4,
+        "text": "RT @FireyFly: In case any of y'all enjoy codegolf and javascript, this thing exists! https://t.co/GQs6uFNx61",
+        "fixed_text": "RT <a class=\"auto-link h-x-username\" href=\"https://twitter.com/FireyFly:\">&#x40;FireyFly:</a> In case any of y&#x27;all enjoy codegolf and javascript, this thing exists&#x21; <a class=\"auto-link u-url\" href=\"https://twitter.com/MaximeEuziere/status/837370723417096195\">https://twitter.com/MaximeEuziere/status/837370723417096195</a>"
+    },
+    {
+        "id": 837381868345569300,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482369873",
+        "user": "facetimeJS",
+        "profile_pic": "http://pbs.twimg.com/profile_images/820251669418180609/m9_kj0g9_normal.jpg",
+        "followers": 563,
+        "following": 474,
+        "text": "RT @videopinme: Difference equals - https://t.co/71HZno5q1O #javascript #angularjs #education #csharp #java #windows #windows10 #bigdata #g…",
+        "fixed_text": "RT <a class=\"auto-link h-x-username\" href=\"https://twitter.com/videopinme:\">&#x40;videopinme:</a> Difference equals - <a class=\"auto-link u-url\" href=\"http://videopin.me/videoPinLogs?id=570fbccc731bd5388b7e2bd1-786&utm_content=buffer792ed&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer\">http://videopin.me/videoPinLogs?id=570fbccc731bd5388b7e2bd1-786&utm_content=buffer792ed&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#javascript&amp;src=hash\">&#x23;javascript</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#angularjs&amp;src=hash\">&#x23;angularjs</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#education&amp;src=hash\">&#x23;education</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#csharp&amp;src=hash\">&#x23;csharp</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#java&amp;src=hash\">&#x23;java</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#windows&amp;src=hash\">&#x23;windows</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#windows10&amp;src=hash\">&#x23;windows10</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#bigdata&amp;src=hash\">&#x23;bigdata</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#g…&amp;src=hash\">&#x23;g&#8230;</a>"
+    },
+    {
+        "id": 837381934674108400,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482385687",
+        "user": "javascriptd",
+        "profile_pic": "http://pbs.twimg.com/profile_images/544034757730779136/-jOL7GnN_normal.jpeg",
+        "followers": 18930,
+        "following": 4,
+        "text": "RT @keen_io: Custom Ad Tracking Guide: Try yourself in 20min with this JavaScript walkthrough. https://t.co/5qCMr7YZQv https://t.co/xFzdLNY…",
+        "fixed_text": "RT <a class=\"auto-link h-x-username\" href=\"https://twitter.com/keen_io:\">&#x40;keen_io:</a> Custom Ad Tracking Guide: Try yourself in 20min with this JavaScript walkthrough. <a class=\"auto-link u-url\" href=\"https://keen.io/docs/compute/custom-ad-performance/?s=bfplad\">https://keen.io/docs/compute/custom-ad-performance/?s=bfplad</a> https://t.co/xFzdLNY…"
+    },
+    {
+        "id": 837381974583029800,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482395202",
+        "user": "dabit3",
+        "profile_pic": "http://pbs.twimg.com/profile_images/644179330113777665/nfR6Lima_normal.jpg",
+        "followers": 1715,
+        "following": 1366,
+        "text": "RT @mattpodwysocki: Interesting that Stanford is moving their introduction to Computer Science to JavaScript from of Java https://t.co/sKRh…",
+        "fixed_text": "RT <a class=\"auto-link h-x-username\" href=\"https://twitter.com/mattpodwysocki:\">&#x40;mattpodwysocki:</a> Interesting that Stanford is moving their introduction to Computer Science to JavaScript from of Java https://t.co/sKRh…"
+    },
+    {
+        "id": 837382004110946300,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482402242",
+        "user": "creative_punch",
+        "profile_pic": "http://pbs.twimg.com/profile_images/420579444982431745/j7uTAxtF_normal.png",
+        "followers": 2741,
+        "following": 804,
+        "text": "Making an animated #HTML5 #CSS3 #jQuery bar chart\nhttps://t.co/uWvczqo7Kp\n---\n#CSS #tutorial #webdesign #JavaScript #webdev #UX #UI",
+        "fixed_text": "Making an animated <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#HTML5&amp;src=hash\">&#x23;HTML5</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#CSS3&amp;src=hash\">&#x23;CSS3</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#jQuery&amp;src=hash\">&#x23;jQuery</a> bar chart&#x0a;https:&#x2f;&#x2f;t.co&#x2f;uWvczqo7Kp&#x0a;---&#x0a;&#x23;CSS <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#tutorial&amp;src=hash\">&#x23;tutorial</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#webdesign&amp;src=hash\">&#x23;webdesign</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#JavaScript&amp;src=hash\">&#x23;JavaScript</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#webdev&amp;src=hash\">&#x23;webdev</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#UX&amp;src=hash\">&#x23;UX</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#UI&amp;src=hash\">&#x23;UI</a>"
+    },
+    {
+        "id": 837382018577096700,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482405691",
+        "user": "jsworld_java",
+        "profile_pic": "http://pbs.twimg.com/profile_images/776409855967887361/13MPnZDX_normal.jpg",
+        "followers": 2096,
+        "following": 2755,
+        "text": "Caporal.js: A Framework for Building Command Line Apps in Node - https://t.co/iMOvI7fGYM\n\n— JavaScript Daily (JavaScriptDaily) March 2, 20…",
+        "fixed_text": "Caporal.js: A Framework for Building Command Line Apps in Node - https://t.co/iMOvI7fGYM\n\n— JavaScript Daily &#x28;JavaScriptDaily&#x29; <time class=\"auto-date-discovery dt-start\" datetime=\"2017-03-02T20:00:00\">March 2, 20</time>&#8230;"
+    },
+    {
+        "id": 837382031952732200,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482408880",
+        "user": "_RitwikRoy",
+        "profile_pic": "http://pbs.twimg.com/profile_images/563152520369827840/qPaB1AE2_normal.jpeg",
+        "followers": 12,
+        "following": 12,
+        "text": "RT @JavaScriptDaily: Due to industry shifts, Stanford is trialling basing its introductory CS courses on JavaScript instead of Java: https:…",
+        "fixed_text": "RT <a class=\"auto-link h-x-username\" href=\"https://twitter.com/JavaScriptDaily:\">&#x40;JavaScriptDaily:</a> Due to industry shifts, Stanford is trialling basing its introductory CS courses on JavaScript instead of Java: https:&#8230;"
+    },
+    {
+        "id": 837382028735631400,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482408113",
+        "user": "MeenalMishra79",
+        "profile_pic": "http://pbs.twimg.com/profile_images/795882276487712768/p4rPZuJQ_normal.jpg",
+        "followers": 12,
+        "following": 65,
+        "text": "About PlayCanvas.Js https://t.co/J0wRwuzNHt #javascript #playcanvas",
+        "fixed_text": "About PlayCanvas.Js <a class=\"auto-link u-url\" href=\"http://tech.queryhome.com/147900/about-playcanvas-js?utm_source=dlvr.it&utm_medium=twitter\">http://tech.queryhome.com/147900/about-playcanvas-js?utm_source=dlvr.it&utm_medium=twitter</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#javascript&amp;src=hash\">&#x23;javascript</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#playcanvas&amp;src=hash\">&#x23;playcanvas</a>"
+    },
+    {
+        "id": 837382039556874200,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482410693",
+        "user": "javascriptd",
+        "profile_pic": "http://pbs.twimg.com/profile_images/544034757730779136/-jOL7GnN_normal.jpeg",
+        "followers": 18930,
+        "following": 4,
+        "text": "RT @SmashDev: Excited to be talking about static types in #JavaScript @CodePaLOUsa this year #TypeScript #Flow https://t.co/nNBSkpHgfG",
+        "fixed_text": "RT <a class=\"auto-link h-x-username\" href=\"https://twitter.com/SmashDev:\">&#x40;SmashDev:</a> Excited to be talking about static types in <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#JavaScript&amp;src=hash\">&#x23;JavaScript</a> <a class=\"auto-link h-x-username\" href=\"https://twitter.com/CodePaLOUsa\">&#x40;CodePaLOUsa</a> this year <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#TypeScript&amp;src=hash\">&#x23;TypeScript</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#Flow&amp;src=hash\">&#x23;Flow</a> <a class=\"auto-link u-url\" href=\"http://www.codepalousa.com/Sessions/819\">http://www.codepalousa.com/Sessions/819</a>"
+    },
+    {
+        "id": 837382061375778800,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482415895",
+        "user": "LabVIEWopenJS",
+        "profile_pic": "http://pbs.twimg.com/profile_images/569685091299762176/csrXzkEL_normal.png",
+        "followers": 186,
+        "following": 0,
+        "text": "Javascript library that runs any .vi on browser without LabVIEW installed. WebGL/WebCL FPGA Deepmind SAP Forex IBM Nasdaq 1488482416",
+        "fixed_text": "Javascript library that runs any .vi on browser without LabVIEW installed. WebGL&#x2f;WebCL FPGA Deepmind SAP Forex IBM Nasdaq 1488482416"
+    },
+    {
+        "id": 837382071584702500,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482418329",
+        "user": "pulprk",
+        "profile_pic": "http://pbs.twimg.com/profile_images/730196122787057666/IqUOzV-x_normal.jpg",
+        "followers": 226,
+        "following": 10,
+        "text": "Caporal.js: A Framework for Building Command Line Apps in Node - https://t.co/9nhCXQBxJv https://t.co/IJHFWVzfke #JavaScript via JavaScri…",
+        "fixed_text": "Caporal.js: A Framework for Building Command Line Apps in Node - <a class=\"auto-link u-url\" href=\"https://github.com/mattallty/Caporal.js\">https://github.com/mattallty/Caporal.js</a> <a class=\"auto-link u-url\" href=\"https://twitter.com/JavaScriptDaily/status/837380992792952836\">https://twitter.com/JavaScriptDaily/status/837380992792952836</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#JavaScript&amp;src=hash\">&#x23;JavaScript</a> via JavaScri&#8230;"
+    },
+    {
+        "id": 837382091608211500,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482423103",
+        "user": "javascriptd",
+        "profile_pic": "http://pbs.twimg.com/profile_images/544034757730779136/-jOL7GnN_normal.jpeg",
+        "followers": 18930,
+        "following": 4,
+        "text": "RT @ng_real_ninja: Cross-platform computer applications in practice https://t.co/eqBkdNVv47 #javascript https://t.co/itUFFE3s8R",
+        "fixed_text": "RT <a class=\"auto-link h-x-username\" href=\"https://twitter.com/ng_real_ninja:\">&#x40;ng_real_ninja:</a> Cross-platform computer applications in practice <a class=\"auto-link u-url\" href=\"https://medium.com/airtame-engineering/cross-platform-computer-applications-in-practice-15b1562a1187?source=rss------javascript-5&utm_source=dlvr.it&utm_medium=twitter\">https://medium.com/airtame-engineering/cross-platform-computer-applications-in-practice-15b1562a1187?source=rss------javascript-5&utm_source=dlvr.it&utm_medium=twitter</a> <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#javascript&amp;src=hash\">&#x23;javascript</a> <a class=\"auto-link u-url\" href=\"https://twitter.com/ng_real_ninja/status/837378012744056832/photo/1\">https://twitter.com/ng_real_ninja/status/837378012744056832/photo/1</a>"
+    },
+    {
+        "id": 837382117839499300,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482429357",
+        "user": "jramcast",
+        "profile_pic": "http://pbs.twimg.com/profile_images/769923548760698880/tGTyZza9_normal.jpg",
+        "followers": 735,
+        "following": 921,
+        "text": "RT @SharePoint: [Watch] #SharePoint Patterns &amp; Practices - JavaScript Special Interest Group Recording!  https://t.co/ymuKu9xHuQ https://t.…",
+        "fixed_text": "RT <a class=\"auto-link h-x-username\" href=\"https://twitter.com/SharePoint:\">&#x40;SharePoint:</a> &#x5b;Watch&#x5d; <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#SharePoint&amp;src=hash\">&#x23;SharePoint</a> Patterns &amp;amp&#x3b; Practices - JavaScript Special Interest Group Recording&#x21;  <a class=\"auto-link u-url\" href=\"https://techcommunity.microsoft.com/t5/SharePoint-Developer/SharePoint-Patterns-amp-Practices-JavaScript-Special-Interest/m-p/49874#M1680\">https://techcommunity.microsoft.com/t5/SharePoint-Developer/SharePoint-Patterns-amp-Practices-JavaScript-Special-Interest/m-p/49874#M1680</a> https://t.…"
+    },
+    {
+        "id": 837382114991452200,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482428678",
+        "user": "SharePoint",
+        "profile_pic": "http://pbs.twimg.com/profile_images/458756244300247040/Kbi4ibpG_normal.png",
+        "followers": 202380,
+        "following": 1733,
+        "text": "[Watch] #SharePoint Patterns &amp; Practices - JavaScript Special Interest Group Recording!  https://t.co/ymuKu9xHuQ https://t.co/S9fMKMS9c5",
+        "fixed_text": "&#x5b;Watch&#x5d; <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#SharePoint&amp;src=hash\">&#x23;SharePoint</a> Patterns &amp;amp&#x3b; Practices - JavaScript Special Interest Group Recording&#x21;  <a class=\"auto-link u-url\" href=\"https://techcommunity.microsoft.com/t5/SharePoint-Developer/SharePoint-Patterns-amp-Practices-JavaScript-Special-Interest/m-p/49874#M1680\">https://techcommunity.microsoft.com/t5/SharePoint-Developer/SharePoint-Patterns-amp-Practices-JavaScript-Special-Interest/m-p/49874#M1680</a> <a class=\"auto-link u-url\" href=\"https://twitter.com/SharePoint/status/837382114991452160/photo/1\">https://twitter.com/SharePoint/status/837382114991452160/photo/1</a>"
+    },
+    {
+        "id": 837382143298912300,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482435427",
+        "user": "maxleske",
+        "profile_pic": "http://pbs.twimg.com/profile_images/1125045547/portrait_smaller_normal.jpg",
+        "followers": 91,
+        "following": 25,
+        "text": "RT @camillobruni: Finally managed to write it down! Cookies for everyone who finishes reading it! #V8 https://t.co/0xIoDKHEiS",
+        "fixed_text": "RT <a class=\"auto-link h-x-username\" href=\"https://twitter.com/camillobruni:\">&#x40;camillobruni:</a> Finally managed to write it down&#x21; Cookies for everyone who finishes reading it&#x21; <a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#V8&amp;src=hash\">&#x23;V8</a> <a class=\"auto-link u-url\" href=\"https://twitter.com/MHablich/status/836972182722981888\">https://twitter.com/MHablich/status/836972182722981888</a>"
+    },
+    {
+        "id": 837382147187093500,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482436354",
+        "user": "Languages__Web",
+        "profile_pic": "http://pbs.twimg.com/profile_images/735878148055654400/JXNOPXn7_normal.jpg",
+        "followers": 12442,
+        "following": 4491,
+        "text": "#javascript Caporal.js: A Framework for Building Command Line Apps in Node - https://t.co/UoXUlFuTug",
+        "fixed_text": "<a class=\"auto-link p-category\" href=\"https://twitter.com/search?q=#javascript&amp;src=hash\">&#x23;javascript</a> Caporal.js: A Framework for Building Command Line Apps in Node - <a class=\"auto-link u-url\" href=\"https://github.com/mattallty/Caporal.js\">https://github.com/mattallty/Caporal.js</a>"
+    },
+    {
+        "id": 837382156347297800,
+        "rt_overtime": [
+            0,
+            null
+        ],
+        "fav_overtime": [
+            0,
+            null
+        ],
+        "time": "1488482438538",
+        "user": "javascriptd",
+        "profile_pic": "http://pbs.twimg.com/profile_images/544034757730779136/-jOL7GnN_normal.jpeg",
+        "followers": 18930,
+        "following": 4,
+        "text": "RT @Faces_2_Places: Thinking about turning you property into income\n&lt;script type=\"text/javascript\" language=\"javascript\" src=\"https://t.co/…",
+        "fixed_text": "RT <a class=\"auto-link h-x-username\" href=\"https://twitter.com/Faces_2_Places:\">&#x40;Faces_2_Places:</a> Thinking about turning you property into income&#x0a;&amp;lt&#x3b;script type&#x3d;&quot;text&#x2f;javascript&quot; language&#x3d;&quot;javascript&quot; src&#x3d;&quot;https:&#x2f;&#x2f;t.co&#x2f;&#8230;"
+    }
+]

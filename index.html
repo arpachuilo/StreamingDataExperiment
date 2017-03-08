@@ -8,6 +8,9 @@
 
   <script src='./scripts/StreamingChart.js'></script>
   <script src='./scripts/DynamicTDDisplay.js'></script>
+  <script src='./scripts/CircularProxy.js'></script>
+  <script src='./scripts/BoundingBoxProxy.js'></script>
+  <script src='./scripts/WholeScreenProxy.js'></script>
 
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css'>
@@ -27,8 +30,16 @@
       <div class='container'>
         <span>Y Value: </span>
         <select id='yValue' onchange='onYChange()'>
+          <option value='followers'>Followers</option>
+          <option value='following'>Following</option>
           <option value='rt_count'>Retweet Count</option>
           <option value='fav_count'>Favorite Count</option>
+        </select>
+        <span>ProxyMethod: </span>
+        <select id='proxyValue' onchange='onProxyChange()'>
+          <option value='CircularProxy'>Circular Proxy</option>
+          <option value='BoundingBoxProxy'>Bounding Box Proxy</option>
+          <option value='WholeScreenProxy'>WholeScreen Proxy</option>
         </select>
       </div>
     </div>
@@ -44,17 +55,25 @@
       chart.y(document.getElementById('yValue').value)
     }
 
+    function onProxyChange () {
+      var fn = window[document.getElementById('proxyValue').value]
+      chart.cursor(fn)
+    }
+
     var data = []
     var selectedData = []
 
     var chart = StreamingChart(d3.select('#StreamingChart'))
       .x('time')
-      .y('rt_count')
+      .y('followers')
+      .cursor(CircularProxy)
       .clickHandler(function (d, i) {
-        selectedData.push(d)
-        dynamicTD
-          .setData(selectedData)
-          .update()
+        if (!selectedData.includes(d)) {
+          selectedData.push(d)
+          dynamicTD
+            .setData(selectedData)
+            .update()
+        }
       })
       .start()
 
@@ -64,20 +83,10 @@
 
     d3.json('./data/output.json', function (error, json) {
       // Make for easier access to vars . . .
-      json.table.forEach(function (d) {
-        data.push({
-          id: d.id,
-          user: d.title.user.screen_name,
-          img: false,
-          text: d.text,
-          time: +d.title.timestamp_ms,
-          rt_count: +d.title.retweet_count,
-          fav_count: +d.title.favorite_count
-        })
-      })
+      data = json
 
       var tStart = d3.min(data, function (d) {
-        return d.time
+        return +d.time
       })
 
       chart

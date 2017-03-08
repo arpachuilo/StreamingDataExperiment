@@ -1,8 +1,19 @@
 #StreamingChart svg {
   cursor: crosshair;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome and Opera */
 }
 
 #StreamingChart svg .chart {
+  clip-path: url('#StreamChartClip');
+}
+
+.captured {
   clip-path: url('#StreamChartClip');
 }
 
@@ -17,10 +28,6 @@
 div#columnLayout figure {
 	column-break-inside: avoid;
 }
-
-/*div#columnLayout:hover figure:not(:hover) {
-	opacity: 0.4;
-}*/
 
 @media screen and (max-width: 750px) {
 	#columnLayout {
@@ -45,24 +52,27 @@ figure {
 	width: auto;
 }
 
-figure .title {
-	text-align: center;
-}
-
 figure img {
 	margin: auto;
 	height: auto;
-	border-bottom: 1px solid #ccc;
 	padding-bottom: 15px;
 	margin-bottom: 5px;
-	display: block;
+	display: inline-block;
 	max-width: 230px;
 	max-height: 300px;
 	width: auto;
 	height: auto;
 }
 
+figure .title {
+  margin: 0 0 0 0;
+}
+
 figure .text {
 	padding: 0 0 0 0;
 	margin: 0 0 1px 0;
+}
+
+.picContainer, .textContainer, .textContainer * {
+  display: inline-block;
 }
