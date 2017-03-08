@@ -1,0 +1,68 @@
+#StreamingChart svg {
+  cursor: crosshair;
+}
+
+#StreamingChart svg .chart {
+  clip-path: url('#StreamChartClip');
+}
+
+#columnLayout {
+	column-width: 320px;
+	column-gap: 15px;
+	width: 90%;
+	max-width: 1100px;
+	margin: 50px auto;
+}
+
+div#columnLayout figure {
+	column-break-inside: avoid;
+}
+
+/*div#columnLayout:hover figure:not(:hover) {
+	opacity: 0.4;
+}*/
+
+@media screen and (max-width: 750px) {
+	#columnLayout {
+		column-gap: 0px;
+	}
+
+	#columnLayout figure {
+		width: 100%;
+	}
+}
+
+figure {
+	background: #fefefe;
+	border: 2px solid #fcfcfc;
+	box-shadow: 0 1px 2px rgba(34,25,25,0.4);
+	border-radius: 5px;
+	margin: 0 2px 15px;
+	padding: 15px;
+	padding-bottom: 10px;
+	transition: opacity 0.4s ease-in-out;
+	display: inline-block;
+	width: auto;
+}
+
+figure .title {
+	text-align: center;
+}
+
+figure img {
+	margin: auto;
+	height: auto;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 15px;
+	margin-bottom: 5px;
+	display: block;
+	max-width: 230px;
+	max-height: 300px;
+	width: auto;
+	height: auto;
+}
+
+figure .text {
+	padding: 0 0 0 0;
+	margin: 0 0 1px 0;
+}

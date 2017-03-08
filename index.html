@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+  <meta charset='utf-8'>
+  <script src='https://d3js.org/d3.v4.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/1.3.0/moment-duration-format.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js'></script>
+
+  <script src='./scripts/StreamingChart.js'></script>
+  <script src='./scripts/DynamicTDDisplay.js'></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
+  <link rel='stylesheet' href='style.css'>
+
+  <title>Streaming Selection</title>
+</head>
+
+<body onresize='resize()'>
+  <div id='root'>
+    <div class='row'>
+      <div class='container' id='StreamingChart'></div>
+    </div>
+
+    <div class='row'>
+      <div class='container'>
+        <span>Y Value: </span>
+        <select id='yValue' onchange='onYChange()'>
+          <option value='rt_count'>Retweet Count</option>
+          <option value='fav_count'>Favorite Count</option>
+        </select>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='container' id='columnLayout'>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function onYChange () {
+      chart.y(document.getElementById('yValue').value)
+    }
+
+    var data = []
+    var selectedData = []
+
+    var chart = StreamingChart(d3.select('#StreamingChart'))
+      .x('time')
+      .y('rt_count')
+      .clickHandler(function (d, i) {
+        selectedData.push(d)
+        dynamicTD
+          .setData(selectedData)
+          .update()
+      })
+      .start()
+
+    var dynamicTD = DynamicCardGrid(document.getElementById('columnLayout'))
+      .setData(selectedData)
+      .update()
+
+    d3.json('./data/output.json', function (error, json) {
+      // Make for easier access to vars . . .
+      json.table.forEach(function (d) {
+        data.push({
+          id: d.id,
+          user: d.title.user.screen_name,
+          img: false,
+          text: d.text,
+          time: +d.title.timestamp_ms,
+          rt_count: +d.title.retweet_count,
+          fav_count: +d.title.favorite_count
+        })
+      })
+
+      var tStart = d3.min(data, function (d) {
+        return d.time
+      })
+
+      chart
+        .setNow(tStart)
+        .setData(data)
+    })
+
+  </script>
+</body>
