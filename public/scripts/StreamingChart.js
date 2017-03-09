@@ -7,7 +7,7 @@ function StreamingChart(selection) {
     top: 10,
     right: 0,
     bottom: 45,
-    left: 50
+    left: 70
   }
   var height = 420
   var width = 860
@@ -21,7 +21,7 @@ function StreamingChart(selection) {
 
   // Scale
   var xScale = d3.scaleTime()
-  var yScale = d3.scaleLinear()
+  var yScale = d3.scaleLog()
 
   // Axes
   var xAxis = d3.axisBottom()
@@ -37,7 +37,7 @@ function StreamingChart(selection) {
 
   // Glpyh settings
   var glyph = d3.symbol()
-  var glyphSize = 64
+  var glyphSize = 256
 
   // Cursor settings
   var cursor = false
@@ -112,16 +112,21 @@ function StreamingChart(selection) {
     d3.select('body')
       .on('keydown.StreamScatterPlot', function() {
         if (d3.event.keyCode == 32) {
-          chart.pause()
+          pause()
         }
       })
   })
 
-  this.destroy = function() {
+  this.destroy = function () {
     timer.stop()
     d3.select('body').on('keydown.StreamScatterPlot', null)
     selection.selectAll('*').remove()
   };
+
+  this.timeRange = function () {
+    var now = tStart + tDelta
+    return [now - timeWindow, now]
+  }
 
   this.clickHandler = function (_) {
     if (!arguments.length) return clickHandler
@@ -262,7 +267,7 @@ function StreamingChart(selection) {
       return d[yValue]
     })
     yScale
-      .domain([-1, yMax + 1])
+      .domain([0.1, yMax + 1])
       .range([chartHeight, 0])
 
     // Update Axes
@@ -305,8 +310,8 @@ function StreamingChart(selection) {
       } else {
         timeWindow = 10 * 1000
       }
-      chart.step()
     }
+    step()
   }
 
   return this

@@ -17,6 +17,14 @@
   clip-path: url('#StreamChartClip');
 }
 
+.proxy {
+  fill: #1c5b5a;
+}
+
+.point {
+  fill: #21f0b6;
+}
+
 #columnLayout {
 	column-width: 320px;
 	column-gap: 15px;
