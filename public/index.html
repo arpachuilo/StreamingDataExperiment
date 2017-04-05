@@ -6,6 +6,8 @@
   <script src='/libs/moment-duration-format.js'></script>
 
   <script src='./scripts/StreamingChart.js'></script>
+  <script src='./scripts/BarAggregation.js'></script>
+  <script src='./scripts/HeatmapAggregation.js'></script>
   <script src='./scripts/DynamicTDDisplay.js'></script>
   <script src='./scripts/CircularProxy.js'></script>
   <script src='./scripts/BoundingBoxProxy.js'></script>
@@ -22,6 +24,11 @@
 <body onresize='resize()'>
   <div id='root'>
     <div class='toprow container'>
+        <span>Aggregation: </span>
+        <select id='aggregationValue' onchange='onAggregationChange()'>
+          <option value='HeatmapAggregation'>Heatmap</option>
+          <option value='BarAggregation'>Bar Chart</option>
+        </select>
         <span>Y Value: </span>
         <select id='yValue' onchange='onYChange()'>
           <option value='followers'>Followers</option>
@@ -29,7 +36,7 @@
           <option value='rt_count'>Retweet Count</option>
           <option value='fav_count'>Favorite Count</option>
         </select>
-        <span>ProxyMethod: </span>
+        <span>Proxy Method: </span>
         <select id='proxyValue' onchange='onProxyChange()'>
           <option value='CircularProxy'>Circular Proxy</option>
           <option value='BoundingBoxProxy'>Bounding Box Proxy</option>
@@ -37,7 +44,7 @@
         </select>
     </div>
 
-    <div class='row container'>
+    <div class='row container charts'>
       <div class='four columns'>
         <div id='AggregationChart'></div>
       </div>
@@ -53,6 +60,10 @@
   </div>
 
   <script>
+    function onAggregationChange () {
+      streamChart.setAggregation(window[document.getElementById('aggregationValue').value](d3.select('#AggregationChart')))
+    }
+
     function onYChange () {
       streamChart.y(document.getElementById('yValue').value)
     }
@@ -77,32 +88,34 @@
             .update()
         }
       })
+      .setAggregation(HeatmapAggregation(d3.select('#AggregationChart')))
       .start()
 
     var dynamicTD = DynamicCardGrid(document.getElementById('columnLayout'))
       .setData(selectedData)
       .update()
 
+    // For premade
+    d3.json('./data/output.json', function (error, json) {
+      // Make for easier access to vars . . .
+      data = json
 
-    // d3.json('./data/output.json', function (error, json) {
-    //   // Make for easier access to vars . . .
-    //   data = json
-    //
-    //   var tStart = d3.min(data, function (d) {
-    //     return +d.time
-    //   })
-    //
-    //   streamChart
-    //     .setNow(tStart)
-    //     .setData(data)
-    // })
+      var tStart = d3.min(data, function (d) {
+        return +d.time
+      })
 
-    streamChart.setNow((new Date()).getTime())
-    var socket = new WebSocket('ws://localhost:8080')
-    socket.addEventListener('message', function (event) {
-      data.push(JSON.parse(event.data))
-      streamChart.setData(data)
+      streamChart
+        .setNow(tStart)
+        .setData(data)
     })
+
+    // For socket
+    // streamChart.setNow((new Date()).getTime())
+    // var socket = new WebSocket('ws://localhost:8080')
+    // socket.addEventListener('message', function (event) {
+    //   data.push(JSON.parse(event.data))
+    //   streamChart.setData(data)
+    // })
 
   </script>
 </body>

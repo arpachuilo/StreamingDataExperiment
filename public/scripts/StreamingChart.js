@@ -1,13 +1,14 @@
 function StreamingChart(selection) {
   var selection = selection
   var data = []
+  var aggregation = null
 
   // Dimensions
   var margin = {
     top: 10,
     right: 0,
     bottom: 45,
-    left: 70
+    left: 0
   }
   var height = 420
   var width = 860
@@ -21,18 +22,18 @@ function StreamingChart(selection) {
 
   // Scale
   var xScale = d3.scaleTime()
-  var yScale = d3.scaleLog()
+  var yScale = d3.scaleLinear()
 
   // Axes
   var xAxis = d3.axisBottom()
-  var yAxis = d3.axisLeft()
+  var yAxis = d3.axisRight()
   var xLabel = 'time'
   var yLabel = 'value'
 
   // Time Window Settings
   var tStart = 0
   var tDelta = 0
-  var timeWindow = 0.5 * 60 * 1000
+  var timeWindow = 0.05 * 60 * 1000
   var timer = null
 
   // Glpyh settings
@@ -183,6 +184,9 @@ function StreamingChart(selection) {
   this.y = function (_) {
     if (!arguments.length) return yValue
     yValue = _
+    if (aggregation !== null) {
+      aggregation.v(yValue)
+    }
     return this
   }
 
@@ -222,10 +226,19 @@ function StreamingChart(selection) {
     return this
   }
 
+  this.isPaused = function () {
+    return paused
+  }
+
   this.start = function () {
     timer = d3.timer(function(e) {
       tDelta = e
-      if (!paused) this.step()
+      if (!paused) {
+        if (aggregation !== null) {
+          aggregation.aggregate(tStart, xScale.domain()[0], this.data)
+        }
+        step()
+      }
     }, 1000)
     return this
   }
@@ -233,6 +246,13 @@ function StreamingChart(selection) {
   this.setNow = function (_) {
     if (!arguments.length) return tStart
     tStart = _
+    return this
+  }
+
+  this.setAggregation = function(_) {
+    if (!arguments.length) return aggregation
+    aggregation = _
+    aggregation.v(yValue)
     return this
   }
 
@@ -255,24 +275,22 @@ function StreamingChart(selection) {
 
   // Updates the visual stream
   this.step = function() {
-
     // Update the x-scale
     var now = tStart + tDelta
     xScale
       .domain([now - timeWindow, now])
       .range([0, chartWidth])
-
     // Update the y-scale
     var yMax = d3.max(this.data, function(d) {
       return d[yValue]
     })
     yScale
-      .domain([0.1, yMax + 1])
+      .domain([0, yMax + 1])
       .range([chartHeight, 0])
 
     // Update Axes
     gX.call(xAxis.scale(xScale))
-    gY.call(yAxis.scale(yScale))
+    gY.call(yAxis.scale(yScale).ticks(10))
 
     //Bind
     var points = gChart.selectAll('.point')
@@ -294,8 +312,6 @@ function StreamingChart(selection) {
         .attr('transform', function (d) {
           return 'translate(' + xScale(+d[xValue]) + ',' + yScale(+d[yValue]) + ')'
         })
-
-    return this
   }
 
   //Alters the time scale so you can 'zoom' in and out of time

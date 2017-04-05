@@ -13,8 +13,21 @@
   clip-path: url('#StreamChartClip');
 }
 
+.charts, .charts div {
+  margin: 0 0 0 0;
+}
+
 .captured {
   clip-path: url('#StreamChartClip');
+}
+
+.cell {
+  stroke: #E6E6E6;
+  stroke-width: 1px;
+}
+
+.bar {
+  fill: #1c5b5a;
 }
 
 .proxy {
