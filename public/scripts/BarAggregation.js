@@ -134,7 +134,7 @@ function BarAggregation(selection) {
     // Bind
     var bars = gChart.selectAll('.bar')
       .data(bins, function (d, i) {
-        return i + '-' + d.length + '-' + data.length
+        return t0
       })
 
     // Exit
@@ -154,12 +154,11 @@ function BarAggregation(selection) {
         return chartHeight - (chartHeight / numBins * (i + 1))
       })
 
-    // Redo scale for axis
+    // Redo scale for axis (this is to simply flip scale)
     xScale
       .domain([d3.max(bins, function (d) {
         return d.length
       }), 0])
-      .range([0, chartWidth])
 
     // Rener axis
     gAxis.call(axis.scale(xScale).ticks(4))
