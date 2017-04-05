@@ -19,12 +19,14 @@ function BarAggregation(selection) {
   var timeValue = 'time'
   var numBins = 10
 
+  var axis = d3.axisBottom()
+
   // Scale
   var xScale = d3.scaleLinear()
   var yScale = d3.scaleLinear()
 
   // Selectors, dataset, and points to grab
-  var svg, defs, gEnter, gChart
+  var svg, defs, gEnter, gChart, gAxis
 
   // Initial creation of streaming scatter plot
   selection.each(function(selData) {
@@ -42,6 +44,11 @@ function BarAggregation(selection) {
     gEnter = gEnter.append('g')
       .attr('class', 'container')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+
+    // Axis container
+    gAxis = gEnter.append('g')
+      .attr('class', 'axis')
+      .attr('transform', 'translate(' + 0 + ',' + chartHeight + ')')
 
     //Update the inner dimensions
     gChart = gEnter.append('g')
@@ -127,7 +134,7 @@ function BarAggregation(selection) {
     // Bind
     var bars = gChart.selectAll('.bar')
       .data(bins, function (d, i) {
-        return i + '-' + d.length
+        return i + '-' + d.length + '-' + data.length
       })
 
     // Exit
@@ -146,6 +153,16 @@ function BarAggregation(selection) {
       .attr('y', function (d, i) {
         return chartHeight - (chartHeight / numBins * (i + 1))
       })
+
+    // Redo scale for axis
+    xScale
+      .domain([d3.max(bins, function (d) {
+        return d.length
+      }), 0])
+      .range([0, chartWidth])
+
+    // Rener axis
+    gAxis.call(axis.scale(xScale).ticks(4))
   }
 
   return this

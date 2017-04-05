@@ -22,9 +22,13 @@ function HeatmapAggregation(selection) {
 
   // Scale
   var colorScale = d3.scaleLinear()
+  var x = d3.scaleTime()
+
+  // Axis
+  var axis = d3.axisBottom()
 
   // Selectors, dataset, and points to grab
-  var svg, defs, gEnter, gChart
+  var svg, defs, gEnter, gChart, gAxis
 
   // Initial creation of streaming scatter plot
   selection.each(function(selData) {
@@ -42,6 +46,11 @@ function HeatmapAggregation(selection) {
     gEnter = gEnter.append('g')
       .attr('class', 'container')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+
+    // Axis container
+    gAxis = gEnter.append('g')
+      .attr('class', 'axis')
+      .attr('transform', 'translate(' + 0 + ',' + chartHeight + ')')
 
     //Update the inner dimensions
     gChart = gEnter.append('g')
@@ -164,6 +173,12 @@ function HeatmapAggregation(selection) {
       .attr('y', function (d) {
         return chartHeight - (chartHeight / numYBins * (d.i + 1))
       })
+
+    x
+      .domain([t0, t1])
+      .range([0, chartWidth])
+    // Rener axis
+    gAxis.call(axis.scale(x).ticks(4))
   }
 
   return this
