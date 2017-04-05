@@ -1,4 +1,4 @@
-function BoundingBoxProxy (g, margin, xScale, yScale, xValue, yValue) {
+function BoundingBoxProxy (g, margin, xScale, yScale, xValue, yValue, stream) {
   var targetClass = '.point'
   var pt1 = [0, 0]
   var pt2 = [0, 0]
@@ -30,6 +30,7 @@ function BoundingBoxProxy (g, margin, xScale, yScale, xValue, yValue) {
     .on('mousedown', function () {
       mDown = true
       pt1 = d3.mouse(this)
+      document.body.dispatchEvent(new Event('pause'))
     })
     .on('mousemove', function () {
       if (mDown) {
@@ -56,6 +57,8 @@ function BoundingBoxProxy (g, margin, xScale, yScale, xValue, yValue) {
     })
     .on('mouseup', function () {
       if (mDown && mMove) {
+        document.body.dispatchEvent(new Event('resume'))
+
         mDown = false
         mMove = false
         proxyTargets.selectAll('*').remove()

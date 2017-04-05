@@ -111,12 +111,25 @@ function StreamingChart(selection) {
 
     //Bind pause-start option
     d3.select('body')
-      .on('keydown.StreamScatterPlot', function() {
+      .on('keydown', function() {
         if (d3.event.keyCode == 32) {
           d3.event.preventDefault()
+          toggle()
+        }
+        if (d3.event.keyCode === 80) {
           pause()
         }
+        if (d3.event.keyCode === 82) {
+          resume()
+        }
       })
+    document.body.addEventListener('pause', function () {
+      pause()
+    })
+    document.body.addEventListener('resume', function () {
+      resume()
+    })
+
   })
 
   this.destroy = function () {
@@ -142,7 +155,7 @@ function StreamingChart(selection) {
       cursor.kill()
     }
     cursor = _
-    cursor = cursor(d3.select('#stream'), margin, xScale, yScale, xValue, yValue)
+    cursor = cursor(d3.select('#stream'), margin, xScale, yScale, xValue, yValue, stream)
     return this
   }
 
@@ -257,14 +270,24 @@ function StreamingChart(selection) {
     return this
   }
 
-  this.pause = function () {
+  this.toggle = function () {
     if (!pauseAllowed) {
-      pause = false;
+      paused = false
     } else if (paused) {
-      paused = !paused;
+      paused = !paused
     } else {
-      paused = true;
+      paused = true
     }
+    return this
+  }
+
+  this.pause = function () {
+    paused = true
+    return this
+  }
+
+  this.resume = function () {
+    paused = false
     return this
   }
 
