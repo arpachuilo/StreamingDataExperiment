@@ -24,7 +24,7 @@ function WholeScreenProxy (g, margin, xScale, yScale, xValue, yValue) {
     }
   })
 
-  this.destroy = function () {
+  this.kill = function () {
     proxyTargets.remove()
   }
 

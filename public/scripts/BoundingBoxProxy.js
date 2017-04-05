@@ -7,6 +7,8 @@ function BoundingBoxProxy (g, margin, xScale, yScale, xValue, yValue) {
   var x = 0
   var y = 0
 
+  g.selectAll('.proxy').remove()
+  g.selectAll('.captured').remove()
 
   var proxyRegion = g.append('rect')
     .attr('class', 'proxy')
@@ -97,7 +99,7 @@ function BoundingBoxProxy (g, margin, xScale, yScale, xValue, yValue) {
     }
   })
 
-  this.destroy = function () {
+  this.kill = function () {
     proxyTargets.remove()
     proxyRegion.remove()
   }

@@ -3,6 +3,9 @@ function CircularProxy (g, margin, xScale, yScale, xValue, yValue) {
   var targetClass = '.point'
   var pt = [0, 0]
 
+  g.selectAll('.proxy').remove()
+  g.selectAll('.captured').remove()
+
   var proxyRegion = g.append('circle')
     .attr('class', 'proxy')
     .attr('fill-opacity', 0.2)
@@ -43,7 +46,7 @@ function CircularProxy (g, margin, xScale, yScale, xValue, yValue) {
     }
   })
 
-  this.destroy = function () {
+  this.kill = function () {
     proxyTargets.remove()
     proxyRegion.remove()
   }

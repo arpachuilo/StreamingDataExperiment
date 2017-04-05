@@ -34,7 +34,7 @@ function BarAggregation(selection) {
 
     // Otherwise, create the skeletal chart
     gEnter = svg.enter().append('svg')
-      .attr('id', 'chart')
+      .attr('id', 'aggregation')
       .attr('width', width)
       .attr('height', height)
 

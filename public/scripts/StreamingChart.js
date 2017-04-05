@@ -74,7 +74,7 @@ function StreamingChart(selection) {
     // Otherwise, create the skeletal chart
     gEnter = svg.enter().append('svg')
       .on('wheel.zoom', zoom)
-      .attr('id', 'chart')
+      .attr('id', 'stream')
       .attr('width', width)
       .attr('height', height)
 
@@ -113,6 +113,7 @@ function StreamingChart(selection) {
     d3.select('body')
       .on('keydown.StreamScatterPlot', function() {
         if (d3.event.keyCode == 32) {
+          d3.event.preventDefault()
           pause()
         }
       })
@@ -138,10 +139,10 @@ function StreamingChart(selection) {
   this.cursor = function (_) {
     if (!arguments.length) return cursor
     if (cursor) {
-      cursor.destroy()
+      cursor.kill()
     }
     cursor = _
-    cursor = cursor(d3.select('svg'), margin, xScale, yScale, xValue, yValue)
+    cursor = cursor(d3.select('#stream'), margin, xScale, yScale, xValue, yValue)
     return this
   }
 
@@ -317,6 +318,7 @@ function StreamingChart(selection) {
   //Alters the time scale so you can 'zoom' in and out of time
   function zoom () {
     if (zoomAllowed) {
+      d3.event.preventDefault()
       var dy = +d3.event.wheelDeltaY
       var sign = dy < 0 ? -1 : +1
       dy = Math.pow(Math.abs(dy), 1.4) * sign
