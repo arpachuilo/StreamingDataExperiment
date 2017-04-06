@@ -47,10 +47,15 @@ function generateCard (datum, el) {
   }
 
   if (datum.user) {
-    var user = document.createElement('p')
+    var user = document.createElement('a')
+    user.setAttribute('href', 'https://twiter.com/' + datum.user);
     user.classList.add('title')
     user.innerText = datum.user
+    var userat = document.createElement('p')
+    userat.innerHTML = "@" + datum.user
+    userat.classList.add('titleat')
     textContainer.appendChild(user)
+    textContainer.appendChild(userat)
   }
 
   if (datum.fixed_text) {

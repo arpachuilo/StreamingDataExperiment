@@ -71,6 +71,8 @@ figure {
 	transition: opacity 0.4s ease-in-out;
 	display: inline-block;
 	width: auto;
+	max-width: 490px;
+	max-height: 490px;
 }
 
 figure img {
@@ -87,11 +89,31 @@ figure img {
 
 figure .title {
   margin: 0 0 0 0;
+  padding-right: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  p:hover{
+  	color: blue;
+  }
+  a{
+  &:link,
+    &:hover,
+      &:visited,
+        &:active{
+          color: red;
+        }
+	}
+}
+
+figure .titleat{
+	color: grey;
 }
 
 figure .text {
 	padding: 0 0 0 0;
 	margin: 0 0 1px 0;
+	word-wrap: break-word;
 }
 
 .picContainer, .textContainer, .textContainer * {
