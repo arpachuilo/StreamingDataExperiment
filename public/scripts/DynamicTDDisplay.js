@@ -62,6 +62,6 @@ function generateCard (datum, el) {
     var txt = document.createElement('p')
     txt.classList.add('text')
     textContainer.appendChild(txt)
-    txt.innerHTML = datum.fixed_text
+    txt.innerHTML = datum.text
   }
 }
