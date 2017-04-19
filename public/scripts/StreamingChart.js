@@ -101,13 +101,13 @@ function StreamingChart(selection) {
       .attr('class', 'container')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-    // Create rest of skeleton
-    gX = gEnter.append('g').attr('class', 'x axis').attr('transform', 'translate(' + 0 + ',' + chartHeight + ')')
-    gY = gEnter.append('g').attr('class', 'y axis')
-
     //Update the inner dimensions
     gChart = gEnter.append('g')
       .attr('class', 'chart')
+
+    // Create rest of skeleton
+    gX = gEnter.append('g').attr('class', 'x axis').attr('transform', 'translate(' + 0 + ',' + chartHeight + ')')
+    gY = gEnter.append('g').attr('class', 'y axis')
 
     //Bind pause-start option
     d3.select('body')
