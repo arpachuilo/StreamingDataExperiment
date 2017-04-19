@@ -1,4 +1,0 @@
-function TopList () {
-
-  return this
-}

@@ -31,8 +31,8 @@ function StreamingChart(selection) {
   var yLabel = 'value'
 
   // Time Window Settings
+  var ogStart = 0
   var tStart = 0
-  var tDelta = 0
   var timeWindow = 0.5 * 60 * 1000
   var timer = null
 
@@ -138,11 +138,6 @@ function StreamingChart(selection) {
     selection.selectAll('*').remove()
   }
 
-  this.timeRange = function () {
-    var now = tStart + tDelta
-    return [now - timeWindow, now]
-  }
-
   this.clickHandler = function (_) {
     if (!arguments.length) return clickHandler
     clickHandler = _
@@ -245,14 +240,23 @@ function StreamingChart(selection) {
   }
 
   this.start = function () {
+    var prev = 0
     timer = d3.timer(function(e) {
-      tDelta = e
+      ogDelta = e
+      tStart += Math.abs(prev - e)
+      prev = e
       if (!paused) {
         if (aggregation !== null) {
-          aggregation.aggregate(tStart, xScale.domain()[0], this.data)
+          var t0 = ogStart
+          var t1 = tStart - timeWindow
+          if (t0 > t1) {
+            t0 = t1
+            t1 = t1
+          }
+          aggregation.aggregate(t0, t1, this.data)
         }
         if (timeControl !== null) {
-          timeControl.updateControls(tStart + tDelta - (ogStart - tStart), xScale, this)
+          timeControl.updateControls(tStart, xScale, this)
         }
         step()
       }
@@ -274,7 +278,7 @@ function StreamingChart(selection) {
   }
 
   this.getStreamingBounds = function (_) {
-    return [ogStart - timeWindow, ogStart + tDelta]
+    return [ogStart, ogStart + ogDelta]
   }
 
   this.setAggregation = function(_) {
@@ -320,7 +324,7 @@ function StreamingChart(selection) {
   // Updates the visual stream
   this.step = function() {
     // Update the x-scale
-    var now = tStart + tDelta - (ogStart - tStart)
+    var now = tStart
     xScale
       .domain([now - timeWindow, now])
       .range([0, chartWidth])

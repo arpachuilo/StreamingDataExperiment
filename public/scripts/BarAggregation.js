@@ -134,7 +134,7 @@ function BarAggregation(selection) {
     // Bind
     var bars = gChart.selectAll('.bar')
       .data(bins, function (d, i) {
-        return t0
+        return d.length
       })
 
     // Exit

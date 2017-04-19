@@ -12,7 +12,9 @@ function TimeControl(selection) {
   }
 
   var width = selection.node().offsetWidth
-  var height = 20
+  var height = 50
+  var trackHeight = 20
+  var timeHeight = 30
 
   var chartWidth = width - margin.left - margin.right
 
@@ -26,7 +28,7 @@ function TimeControl(selection) {
     .clamp(true)
 
   // Selectors, dataset, and points to grab
-  var svg, defs, gEnter, gTrack, gHandle, playPause, resume
+  var svg, defs, gEnter, gTrack, gHandle, playPause, resume, endTime, startTime, curTime
 
   // Initial creation of streaming scatter plot
   selection.each(function (selData) {
@@ -42,13 +44,13 @@ function TimeControl(selection) {
 
     gTrack = gEnter.append('line')
       .attr('class', 'track')
-      .attr('y1', height / 2)
-      .attr('y2', height / 2)
+      .attr('y1', trackHeight / 2)
+      .attr('y2', trackHeight / 2)
       .attr('x1', margin.left)
       .attr('x2', chartWidth)
       .attr('stroke', 'gray')
       .attr('stroke-opacity', 0.5)
-      .attr('stroke-width', height / 2)
+      .attr('stroke-width', trackHeight / 2)
       .select(function() { return this.parentNode.appendChild(this.cloneNode(true)) })
         .attr('class', 'track-inset')
       .select(function() { return this.parentNode.appendChild(this.cloneNode(true)) })
@@ -62,17 +64,17 @@ function TimeControl(selection) {
 
     gHandle = gEnter.append('circle')
       .attr('class', 'handle')
-      .attr('r', height / 2)
-      .attr('cy', height / 2)
+      .attr('r', trackHeight / 2)
+      .attr('cy', trackHeight / 2)
       .attr('cx', chartWidth)
       .attr('fill', '#1c5b5a')
 
     playPause = gEnter.append('svg:image')
       .attr('class', 'icon')
       .attr('transform', 'translate(-10, -10)')
-      .attr('height', height)
-      .attr('width', height)
-      .attr('y', height / 2)
+      .attr('height', trackHeight)
+      .attr('width', trackHeight)
+      .attr('y', trackHeight / 2)
       .attr('x', chartWidth + margin.right / 2)
       .attr('xlink:href', '../img/pause.png')
       .on('click', function () {
@@ -91,9 +93,9 @@ function TimeControl(selection) {
     resume = gEnter.append('svg:image')
       .attr('class', 'icon')
       .attr('transform', 'translate(-10, -10)')
-      .attr('height', height)
-      .attr('width', height)
-      .attr('y', height / 2)
+      .attr('height', trackHeight)
+      .attr('width', trackHeight)
+      .attr('y', trackHeight / 2)
       .attr('x', chartWidth + margin.right)
       .attr('xlink:href', '../img/resume.png')
       .on('click', function () {
@@ -102,6 +104,27 @@ function TimeControl(selection) {
           gHandle.attr('cx', chartWidth)
         }
       })
+
+    endTime = gEnter.append('text')
+      .attr('class', 'endtime')
+      .attr('x', margin.left)
+      .attr('y', timeHeight)
+      .attr('text-anchor', 'start')
+      .text('')
+
+    curTime = gEnter.append('text')
+      .attr('class', 'endtime')
+      .attr('x', chartWidth / 2)
+      .attr('y', timeHeight)
+      .attr('text-anchor', 'middle')
+      .text('')
+
+    startTime = gEnter.append('text')
+      .attr('class', 'endtime')
+      .attr('x', chartWidth)
+      .attr('y', timeHeight)
+      .attr('text-anchor', 'end')
+      .text('')
   })
 
   this.slideUpdate = function (x) {
@@ -117,6 +140,11 @@ function TimeControl(selection) {
 
   this.updateControls = function (now, xScale, stream) {
     currentStream = stream
+    var bounds = currentStream.getStreamingBounds()
+
+    startTime.text(moment(bounds[1]).format('hh:mm:ss'))
+    curTime.text(moment(now).format('hh:mm:ss'))
+    endTime.text(moment(bounds[0]).format('hh:mm:ss'))
   }
 
   return this

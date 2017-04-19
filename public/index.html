@@ -4,12 +4,13 @@
   <script src='/libs/d3.min.js'></script>
   <script src='/libs/moment.min.js'></script>
   <script src='/libs/moment-duration-format.js'></script>
+  <script src='/libs/socket.io.js'></script>
 
   <script src='./scripts/StreamingChart.js'></script>
   <script src='./scripts/TimeControl.js'></script>
   <script src='./scripts/BarAggregation.js'></script>
   <script src='./scripts/HeatmapAggregation.js'></script>
-  <script src='./scripts/DynamicTDDisplay.js'></script>
+  <script src='./scripts/DynamicCardGrid.js'></script>
   <script src='./scripts/CircularProxy.js'></script>
   <script src='./scripts/BoundingBoxProxy.js'></script>
   <script src='./scripts/WholeScreenProxy.js'></script>
@@ -110,27 +111,28 @@
       .setData(selectedData)
       .update()
 
-    // For premade
-    d3.json('./data/output_2017-04-11_10-49-NationalPetDay.json', function (error, json) {
-      // Make for easier access to vars . . .
-      data = json
+    d3.json('./config.json', function (error, CONFIG) {
+      if (CONFIG.LIVE_STREAM) {
+        streamChart.setNow((new Date()).getTime())
+        var socket = io.connect('http://localhost:8080')
+        socket.on('tweet', function (d) {
+          data.push(JSON.parse(d))
+          streamChart.setData(data)
+        })
+      } else {
+        d3.json('./data/NationalBurrito.json', function (error, json) {
+          // Make for easier access to vars . . .
+          data = json
 
-      var tStart = d3.min(data, function (d) {
-        return +d.time
-      })
+          var tStart = d3.min(data, function (d) {
+            return +d.time
+          })
 
-      streamChart
-        .setNow(tStart)
-        .setData(data)
+          streamChart
+            .setNow(tStart)
+            .setData(data)
+        })
+      }
     })
-
-    // For socket
-    // streamChart.setNow((new Date()).getTime())
-    // var socket = new WebSocket('ws://localhost:8080')
-    // socket.addEventListener('message', function (event) {
-    //   data.push(JSON.parse(event.data))
-    //   streamChart.setData(data)
-    // })
-
   </script>
 </body>
