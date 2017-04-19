@@ -6,6 +6,7 @@
   <script src='/libs/moment-duration-format.js'></script>
 
   <script src='./scripts/StreamingChart.js'></script>
+  <script src='./scripts/TimeControl.js'></script>
   <script src='./scripts/BarAggregation.js'></script>
   <script src='./scripts/HeatmapAggregation.js'></script>
   <script src='./scripts/DynamicTDDisplay.js'></script>
@@ -13,6 +14,8 @@
   <script src='./scripts/BoundingBoxProxy.js'></script>
   <script src='./scripts/WholeScreenProxy.js'></script>
   <script src='./scripts/LassoProxy.js'></script>
+
+  <script src='./scripts/api.js'></script>
 
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css'>
@@ -24,7 +27,7 @@
 
 <body onresize='resize()'>
   <div id='root'>
-    <div class='toprow container'>
+    <div class='toprow row container'>
         <span>Aggregation: </span>
         <select id='aggregationValue' onchange='onAggregationChange()'>
           <option value='HeatmapAggregation'>Heatmap</option>
@@ -46,19 +49,28 @@
         </select>
     </div>
 
-    <div class='row container charts'>
-      <div class='four columns'>
-        <div id='AggregationChart'></div>
+    <div class='row charts'>
+      <div class='nine columns'>
+        <div class='row u-full-width'>
+          <div class='four columns'>
+            <div id='AggregationChart'></div>
+          </div>
+          <div class='eight columns'>
+            <div id='StreamingChart'></div>
+          </div>
+        </div>
+        <div class='row u-full-width'>
+          <div class='four columns'>&nbsp;</div>
+          <div class='eight columns'>
+            <div id='TimeControl'></div>
+          </div>
+        </div>
       </div>
-      <div class='eight columns'>
-        <div id='StreamingChart'></div>
+      <div class='three columns'>
+        <div id='list'></div>
       </div>
     </div>
 
-    <div class='row'>
-      <div class='container' id='columnLayout'>
-      </div>
-    </div>
   </div>
 
   <script>
@@ -91,14 +103,15 @@
         }
       })
       .setAggregation(HeatmapAggregation(d3.select('#AggregationChart')))
+      .setTimeControls(TimeControl(d3.select('#TimeControl')))
       .start()
 
-    var dynamicTD = DynamicCardGrid(document.getElementById('columnLayout'))
+    var dynamicTD = DynamicCardGrid(document.getElementById('list'))
       .setData(selectedData)
       .update()
 
     // For premade
-    d3.json('./data/output_2017-03-25_12-12-BeyondWland.json', function (error, json) {
+    d3.json('./data/NationalBurrito.json', function (error, json) {
       // Make for easier access to vars . . .
       data = json
 

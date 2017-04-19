@@ -1,4 +1,4 @@
-https://bl.ocks.org/mbostock/f705fc55e6f26df29354
+// https://bl.ocks.org/mbostock/f705fc55e6f26df29354
 function LassoProxy (g, margin, xScale, yScale, xValue, yValue, stream) {
   var targetClass = '.point'
 

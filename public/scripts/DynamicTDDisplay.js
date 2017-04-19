@@ -24,7 +24,7 @@ function DynamicCardGrid (el) {
 }
 
 function generateCard (datum, el) {
-  var card = document.createElement('figure')
+  var card = document.createElement('div')
   card.classList.add('card')
 
   var picContainer = document.createElement('div')

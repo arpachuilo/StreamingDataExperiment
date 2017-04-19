@@ -13,6 +13,10 @@
   clip-path: url('#StreamChartClip');
 }
 
+.icon {
+  cursor: pointer;
+}
+
 .charts, .charts div {
   margin: 0 0 0 0;
 }
@@ -38,48 +42,35 @@
   fill: #21f0b6;
 }
 
-#columnLayout {
-	column-width: 320px;
-	column-gap: 15px;
-	width: 90%;
-	max-width: 1100px;
-	margin: 50px auto;
+#list {
+	width: 100%;
+	max-width: 490px;
+	margin: 0px auto;
 }
 
-div#columnLayout figure {
+div#list .card {
 	column-break-inside: avoid;
 }
 
-@media screen and (max-width: 750px) {
-	#columnLayout {
-		column-gap: 0px;
-	}
-
-	#columnLayout figure {
-		width: 100%;
-	}
-}
-
-figure {
+.card {
 	background: #fefefe;
 	border: 2px solid #fcfcfc;
 	box-shadow: 0 1px 2px rgba(34,25,25,0.4);
 	border-radius: 5px;
 	margin: 0 2px 15px;
-	padding: 15px;
-	padding-bottom: 10px;
-	transition: opacity 0.4s ease-in-out;
+	padding: 5px;
+	padding-bottom: 5px;
 	display: inline-block;
-	width: auto;
+	width: 100;
 	max-width: 490px;
-	max-height: 490px;
+	max-height: 600px;
 }
 
-figure img {
+.card img {
 	margin: auto;
 	height: auto;
-	padding-bottom: 15px;
-	margin-bottom: 5px;
+	padding-bottom: 3px;
+	margin-bottom: 2px;
 	display: inline-block;
 	max-width: 230px;
 	max-height: 300px;
@@ -87,7 +78,7 @@ figure img {
 	height: auto;
 }
 
-figure .title {
+.card .title {
   margin: 0 0 0 0;
   padding-right: 5px;
   font-weight: bold;
@@ -106,11 +97,11 @@ figure .title {
 	}
 }
 
-figure .titleat{
+.card .titleat{
 	color: grey;
 }
 
-figure .text {
+.card .text {
 	padding: 0 0 0 0;
 	margin: 0 0 1px 0;
 	word-wrap: break-word;
@@ -118,4 +109,36 @@ figure .text {
 
 .picContainer, .textContainer, .textContainer * {
   display: inline-block;
+}
+
+.track,
+.track-inset,
+.track-overlay {
+  stroke-linecap: round;
+}
+
+.track {
+  stroke: #000;
+  stroke-opacity: 0.3;
+  stroke-width: 10px;
+}
+
+.track-inset {
+  stroke: #ddd;
+  stroke-width: 8px;
+}
+
+.track-overlay {
+  pointer-events: stroke;
+  stroke-width: 50px;
+  stroke: transparent;
+  cursor: pointer;
+}
+
+.handle {
+  fill: #fff;
+  stroke: #000;
+  stroke-opacity: 0.5;
+  stroke-width: 1.25px;
+  pointer-events: none;
 }
