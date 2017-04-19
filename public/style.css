@@ -55,7 +55,8 @@ div#list .card {
 .card {
 	background: #fefefe;
 	border: 2px solid #fcfcfc;
-	box-shadow: 0 1px 2px rgba(34,25,25,0.4);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	/*box-shadow: 0 1px 2px rgba(34,25,25,0.4);*/
 	border-radius: 5px;
 	margin: 0 2px 15px;
 	padding: 5px;
@@ -79,8 +80,8 @@ div#list .card {
 }
 
 .card .title {
-  margin: 0 0 0 0;
   padding-right: 5px;
+  margin-top: 0px;
   font-weight: bold;
   text-decoration: none;
   color: black;
@@ -99,16 +100,35 @@ div#list .card {
 
 .card .titleat{
 	color: grey;
+	align: auto;
 }
 
 .card .text {
 	padding: 0 0 0 0;
 	margin: 0 0 1px 0;
 	word-wrap: break-word;
+	text-align: left;
+	display: inline;
+
+	.a{
+		display: inline;
+	}
 }
 
-.picContainer, .textContainer, .textContainer * {
+.userContainer{
+
+}
+
+.picContainer{
+	display: inline-block;
+	width: 10%;
+	float: left;
+}
+
+.textContainer, .textContainer * {
   display: inline-block;
+  width: 90%;
+  float: right;
 }
 
 .track,
