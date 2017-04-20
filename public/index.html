@@ -6,17 +6,21 @@
   <script src='/libs/moment-duration-format.js'></script>
   <script src='/libs/socket.io.js'></script>
 
+  <script src='./scripts/util.js'></script>
+
   <script src='./scripts/StreamingChart.js'></script>
   <script src='./scripts/TimeControl.js'></script>
   <script src='./scripts/BarAggregation.js'></script>
   <script src='./scripts/HeatmapAggregation.js'></script>
   <script src='./scripts/DynamicCardGrid.js'></script>
-  <script src='./scripts/CircularProxy.js'></script>
-  <script src='./scripts/BoundingBoxProxy.js'></script>
-  <script src='./scripts/WholeScreenProxy.js'></script>
+  <!-- <script src='./scripts/CircularProxy.js'></script> -->
+  <!-- <script src='./scripts/BoundingBoxProxy.js'></script> -->
   <script src='./scripts/LassoProxy.js'></script>
+  <script src='./scripts/WholeScreenProxy.js'></script>
+  <script src='./scripts/Tooltip.js'></script>
 
   <script src='./scripts/api.js'></script>
+  <script src='./scripts/settings.js'></script>
 
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css'>
@@ -43,8 +47,6 @@
         </select>
         <span>Proxy Method: </span>
         <select id='proxyValue' onchange='onProxyChange()'>
-          <option value='CircularProxy'>Circular Proxy</option>
-          <option value='BoundingBoxProxy'>Bounding Box Proxy</option>
           <option value='LassoProxy'>Lasso Proxy</option>
           <option value='WholeScreenProxy'>WholeScreen Proxy</option>
         </select>
@@ -94,7 +96,7 @@
     var streamChart = StreamingChart(d3.select('#StreamingChart'))
       .x('time')
       .y('followers')
-      .cursor(CircularProxy)
+      .cursor(LassoProxy)
       .clickHandler(function (d, i) {
         if (!selectedData.includes(d)) {
           selectedData.push(d)
@@ -107,7 +109,29 @@
       .setTimeControls(TimeControl(d3.select('#TimeControl')))
       .start()
 
-    var dynamicTD = DynamicCardGrid(document.getElementById('list'))
+    Redis.setStream(streamChart)
+
+    var fn = function (el, id) {
+      Redis.wrappedAdd('card_remove', {
+        target: id
+      })
+
+      // Find index to remove
+      var index = -1
+      for (var i = 0; i < selectedData.length; i++) {
+        if (selectedData[i].id === id) {
+          index = i
+          break
+        }
+      }
+
+      if (index > -1) {
+        selectedData.splice(index, 1);
+        el.remove();
+      }
+    }
+
+    var dynamicTD = DynamicCardGrid(document.getElementById('list'), fn)
       .setData(selectedData)
       .update()
 

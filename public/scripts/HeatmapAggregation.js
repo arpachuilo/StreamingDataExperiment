@@ -13,6 +13,18 @@ function HeatmapAggregation(selection) {
   var chartWidth = width - margin.right - margin.left
   var chartHeight = height - margin.top - margin.bottom
 
+  // Tooltip stuff
+  var tipFn = function (d, i) {
+    var text = d.length + ' Tweets'
+    return text
+  }
+
+  var tip = new Tooltip()
+    .attr('className', 'tooltip')
+    .offset([-8, 0])
+    .useMouseCoordinates(true)
+    .html(tipFn)
+
   // Acessor values
   var value = 'x'
   var idValue = 'id'
@@ -172,6 +184,20 @@ function HeatmapAggregation(selection) {
       })
       .attr('y', function (d) {
         return chartHeight - (chartHeight / numYBins * (d.i + 1))
+      })
+      .on('mouseenter', function (d, i) {
+        tip.show(d3.event, d, i)
+        Redis.wrappedAdd('aggregationHover', {
+          method: 'heatmap',
+          cellIndex: i,
+          cellSize: d.length
+        })
+      })
+      .on('mousemove', function (d, i) {
+        tip.show(d3.event, d, i)
+      })
+      .on('mouseout', function (d, i) {
+        tip.hide(d3.event, d, i)
       })
 
     x

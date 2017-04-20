@@ -80,11 +80,18 @@ function TimeControl(selection) {
       .on('click', function () {
         if (currentStream !== null) {
           currentStream.toggle()
-
           var icon = d3.select(this)
           if (currentStream.isPaused()) {
+            currentStream.setManualPaused(true)
+            Redis.wrappedAdd('paused', {
+              unpauseAt: +tScale(gHandle.attr('cx'))
+            })
             icon.attr('xlink:href', '../img/play.png')
           } else {
+            currentStream.setManualPaused(false)
+            Redis.wrappedAdd('unpaused', {
+              pauseAt: +tScale(gHandle.attr('cx'))
+            })
             icon.attr('xlink:href', '../img/pause.png')
           }
         }
@@ -100,6 +107,11 @@ function TimeControl(selection) {
       .attr('xlink:href', '../img/resume.png')
       .on('click', function () {
         if (currentStream !== null) {
+          Redis.wrappedAdd('resumed', {
+            prevTime: +tScale(gHandle.attr('cx')),
+            resumedTime: +currentStream.getStreamingBounds()[1]
+          })
+
           currentStream.setStart(+currentStream.getStreamingBounds()[1])
           gHandle.attr('cx', chartWidth)
         }
@@ -132,15 +144,25 @@ function TimeControl(selection) {
     gHandle.attr('cx', x)
 
     if (currentStream !== null) {
-      tScale
-        .range(currentStream.getStreamingBounds())
+      Redis.wrappedAdd('slider_moved', {
+        xPos: x,
+        timePicked: +tScale(x)
+      })
+
       currentStream.setStart(+tScale(x))
+
+      if (currentStream.isPaused()) {
+        currentStream.forceUpdate()
+      }
     }
   }
 
   this.updateControls = function (now, xScale, stream) {
     currentStream = stream
     var bounds = currentStream.getStreamingBounds()
+
+    tScale
+      .range(currentStream.getStreamingBounds())
 
     startTime.text(moment(bounds[1]).format('hh:mm:ss'))
     curTime.text(moment(now).format('hh:mm:ss'))

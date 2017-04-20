@@ -40,6 +40,7 @@ if (CONFIG.LIVE_STREAM) {
 var id, data, save
 
 if (CONFIG.LOGGING) {
+  console.log('Setting up logger . . .')
   id = ''
   data = { id: id }
   save = function () {
@@ -62,6 +63,7 @@ io.on('connection', function (socket) {
     })
 
     socket.on('add', function (key, value) {
+      console.log(key, value)
       if (key in data) {
         data[key].push(value)
       } else {
@@ -77,7 +79,7 @@ io.on('connection', function (socket) {
 
     socket.on('save', function () {
       save()
-    })    
+    })
   }
 
   if (CONFIG.LIVE_STREAM) {

@@ -48,6 +48,7 @@ function StreamingChart(selection) {
   var zoomAllowed = true
   var pauseAllowed = true
   var paused = false
+  var manuallyPaused = false
 
   // Selectors, dataset, and points to grab
   var svg, defs, gEnter, gChart, gX, gY
@@ -73,7 +74,7 @@ function StreamingChart(selection) {
 
     // Otherwise, create the skeletal chart
     gEnter = svg.enter().append('svg')
-      .on('wheel.zoom', zoom)
+      // .on('wheel.zoom', zoom)
       .attr('id', 'stream')
       .attr('width', width)
       .attr('height', height)
@@ -111,23 +112,25 @@ function StreamingChart(selection) {
 
     //Bind pause-start option
     d3.select('body')
-      .on('keydown', function() {
-        if (d3.event.keyCode == 32) {
-          d3.event.preventDefault()
-          toggle()
-        }
-        if (d3.event.keyCode === 80) {
-          pause()
-        }
-        if (d3.event.keyCode === 82) {
-          resume()
-        }
-      })
+      // .on('keydown', function() {
+      //   if (d3.event.keyCode == 32) {
+      //     d3.event.preventDefault()
+      //     toggle()
+      //   }
+      //   if (d3.event.keyCode === 80) {
+      //     pause()
+      //   }
+      //   if (d3.event.keyCode === 82) {
+      //     resume()
+      //   }
+      // })
     document.body.addEventListener('pause', function () {
-      pause()
+        pause()
     })
     document.body.addEventListener('resume', function () {
-      resume()
+      if (!manuallyPaused) {
+        resume()
+      }
     })
 
   })
@@ -239,6 +242,10 @@ function StreamingChart(selection) {
     return paused
   }
 
+  this.setManualPaused = function (_) {
+    manuallyPaused = _
+  }
+
   this.start = function () {
     var prev = 0
     timer = d3.timer(function(e) {
@@ -260,8 +267,24 @@ function StreamingChart(selection) {
         }
         step()
       }
-    }, 1000)
+    }, 1066)
     return this
+  }
+
+  this.forceUpdate = function () {
+    if (aggregation !== null) {
+      var t0 = ogStart
+      var t1 = tStart - timeWindow
+      if (t0 > t1) {
+        t0 = t1
+        t1 = t1
+      }
+      aggregation.aggregate(t0, t1, this.data)
+    }
+    if (timeControl !== null) {
+      timeControl.updateControls(tStart, xScale, this)
+    }
+    step()
   }
 
   this.setNow = function (_) {
@@ -277,8 +300,12 @@ function StreamingChart(selection) {
     return this
   }
 
-  this.getStreamingBounds = function (_) {
+  this.getStreamingBounds = function () {
     return [ogStart, ogStart + ogDelta]
+  }
+
+  this.getCurrentStreamingBounds = function () {
+    return [tStart - timeWindow, tStart]
   }
 
   this.setAggregation = function(_) {
@@ -354,7 +381,15 @@ function StreamingChart(selection) {
         .attr('class', 'point')
         .attr('d', glyph.size(glyphSize))
         .on('click', function (d, i) {
+          Redis.wrappedAdd('dot_clicked', {
+            target: d[idValue]
+          })
           clickHandler(d, i)
+        })
+        .on('mouseover', function (d, i) {
+          Redis.wrappedAdd('dot_hover', {
+            target: d[idValue]
+          })
         })
       .merge(points)
         .attr('transform', function (d) {

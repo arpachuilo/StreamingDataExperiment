@@ -1,5 +1,5 @@
 {
-  "LOGGING": false,
+  "LOGGING": true,
   "LIVE_STREAM": false,
   "STREAM_PARAMS": {
     "track": "taco"

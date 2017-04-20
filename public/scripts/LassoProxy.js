@@ -30,11 +30,11 @@ function LassoProxy (g, margin, xScale, yScale, xValue, yValue, stream) {
 
     d3.event.on('start', function () {
       dragging = false
-      document.body.dispatchEvent(new Event('pause'))
     })
 
     d3.event.on('drag', function() {
       dragging = true
+      document.body.dispatchEvent(new Event('pause'))
       var x1 = d3.event.x
       var y1 = d3.event.y
       var dx = x1 - x0
@@ -45,16 +45,16 @@ function LassoProxy (g, margin, xScale, yScale, xValue, yValue, stream) {
       active.attr('d', line)
     })
 
-    d3.event.on('end', function () {
+    d3.event.on('end', function (e) {
       if (dragging) {
         dragging = false
         proxyTargets.selectAll('*').remove()
-        d3.selectAll(targetClass)
+        var t = d3.selectAll(targetClass)
           .filter(function (f) {
             var pt = [xScale(+f[xValue]) + margin.left, yScale(+f[yValue]) + margin.top]
             return d3.polygonContains(d, pt)
           })
-          .each(function (d) {
+        t.each(function (d) {
             var point = d3.select(this)
             proxyTargets.append('path')
               .datum(d)
@@ -63,6 +63,12 @@ function LassoProxy (g, margin, xScale, yScale, xValue, yValue, stream) {
               .attr('transform', point.attr('transform'))
               .on('click', point.on('click'))
           })
+
+        Redis.wrappedAdd('proxy_used', {
+          numTargets: t.size(),
+          method: 'lasso',
+          path: active.attr('d')
+        })
         active.attr('d', null)
       }
       document.body.dispatchEvent(new Event('resume'))
@@ -72,6 +78,9 @@ function LassoProxy (g, margin, xScale, yScale, xValue, yValue, stream) {
   d3.select('body').on('keydown', function () {
     if (d3.event.key === 'c') {
       proxyTargets.selectAll('*').remove()
+      Redis.wrappedAdd('proxy_cleared', {
+        method: 'lasso'
+      })
     }
   })
 

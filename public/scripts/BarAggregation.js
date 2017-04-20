@@ -13,6 +13,18 @@ function BarAggregation(selection) {
   var chartWidth = width - margin.right - margin.left
   var chartHeight = height - margin.top - margin.bottom
 
+  // Tooltip stuff
+  var tipFn = function (d, i) {
+    var text = d.length + ' Tweets'
+    return text
+  }
+
+  var tip = new Tooltip()
+    .attr('className', 'tooltip')
+    .offset([-8, 0])
+    .useMouseCoordinates(true)
+    .html(tipFn)
+
   // Acessor values
   var value = 'x'
   var idValue = 'id'
@@ -152,6 +164,20 @@ function BarAggregation(selection) {
       })
       .attr('y', function (d, i) {
         return chartHeight - (chartHeight / numBins * (i + 1))
+      })
+      .on('mouseenter', function (d, i) {
+        tip.show(d3.event, d, i)
+        Redis.wrappedAdd('aggregationHover', {
+          method: 'barChart',
+          barIndex: i,
+          barSize: d.length
+        })
+      })
+      .on('mousemove', function (d, i) {
+        tip.show(d3.event, d, i)
+      })
+      .on('mouseout', function (d, i) {
+        tip.hide(d3.event, d, i)
       })
 
     // Redo scale for axis (this is to simply flip scale)
