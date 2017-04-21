@@ -63,7 +63,6 @@ io.on('connection', function (socket) {
     })
 
     socket.on('add', function (key, value) {
-      console.log(key, value)
       if (key in data) {
         data[key].push(value)
       } else {

@@ -33,7 +33,7 @@ function StreamingChart(selection) {
   // Time Window Settings
   var ogStart = 0
   var tStart = 0
-  var timeWindow = 0.5 * 60 * 1000
+  var timeWindow = 0.2 * 60 * 1000
   var timer = null
 
   // Glpyh settings

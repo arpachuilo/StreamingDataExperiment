@@ -44,6 +44,7 @@
           <option value='following'>Following</option>
           <option value='rt_count'>Retweet Count</option>
           <option value='fav_count'>Favorite Count</option>
+          <option value='stmt_score'>Sentimental Score</option>
         </select>
         <span>Proxy Method: </span>
         <select id='proxyValue' onchange='onProxyChange()'>
@@ -83,6 +84,8 @@
 
     function onYChange () {
       streamChart.y(document.getElementById('yValue').value)
+      var fn = window[document.getElementById('proxyValue').value]
+      streamChart.cursor(fn)
     }
 
     function onProxyChange () {
@@ -144,10 +147,12 @@
           streamChart.setData(data)
         })
       } else {
-        d3.json('./data/text_output_2017-04-11_10-49-NationalPetDay.json', function (error, json) {
+        d3.json('./data/npd_sent.json', function (error, json) {
           // Make for easier access to vars . . .
           data = json
-
+          for (var i = 0; i < data.length; i++) {
+            data[i].stmt_score = data[i].stmt.score
+          }
           var tStart = d3.min(data, function (d) {
             return +d.time
           })
