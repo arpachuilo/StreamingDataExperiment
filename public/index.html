@@ -99,7 +99,7 @@
       .cursor(LassoProxy)
       .clickHandler(function (d, i) {
         if (!selectedData.includes(d)) {
-          selectedData.push(d)
+          selectedData.unshift(d)
           dynamicTD
             .setData(selectedData)
             .update()
