@@ -8,7 +8,7 @@ function BarAggregation(selection) {
     bottom: 45,
     left: 70
   }
-  var height = 420
+  var height = window.innerHeight * .75
   var width = selection.node().offsetWidth
   var chartWidth = width - margin.right - margin.left
   var chartHeight = height - margin.top - margin.bottom

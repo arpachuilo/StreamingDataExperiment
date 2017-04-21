@@ -77,6 +77,7 @@
   </div>
 
   <script>
+    document.getElementById('list').style.maxHeight = window.innerHeight * .75 + 'px'
     function onAggregationChange () {
       streamChart.setAggregation(window[document.getElementById('aggregationValue').value](d3.select('#AggregationChart')))
     }
