@@ -148,11 +148,12 @@
           streamChart.setData(data)
         })
       } else {
-        d3.json('./data/npd_sent.json', function (error, json) {
+        d3.json('./data/pypoll_ComboStream-21.json', function (error, json) {
           // Make for easier access to vars . . .
           data = json
           for (var i = 0; i < data.length; i++) {
             // data[i].stmt_score = data[i].stmt.score
+            data[i].time = data[i].time[0]
             data[i].rt = data[i].rt_overtime[1]
             data[i].fav = data[i].fav_overtime[1]
           }
