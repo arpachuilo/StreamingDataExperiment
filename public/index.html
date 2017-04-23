@@ -42,8 +42,8 @@
         <select id='yValue' onchange='onYChange()'>
           <option value='followers'>Followers</option>
           <option value='following'>Following</option>
-          <option value='rt_count'>Retweet Count</option>
-          <option value='fav_count'>Favorite Count</option>
+          <option value='rt'>Retweet Count</option>
+          <option value='fav'>Favorite Count</option>
           <option value='stmt_score'>Sentimental Score</option>
         </select>
         <span>Proxy Method: </span>
@@ -152,7 +152,9 @@
           // Make for easier access to vars . . .
           data = json
           for (var i = 0; i < data.length; i++) {
-            data[i].stmt_score = data[i].stmt.score
+            // data[i].stmt_score = data[i].stmt.score
+            data[i].rt = data[i].rt_overtime[1]
+            data[i].fav = data[i].fav_overtime[1]
           }
           var tStart = d3.min(data, function (d) {
             return +d.time
