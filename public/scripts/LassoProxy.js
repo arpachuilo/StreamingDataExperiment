@@ -22,6 +22,8 @@ function LassoProxy (g, margin, xScale, yScale, xValue, yValue, stream) {
     .on('start', dragstarted))
 
   var draggin = false
+  var i_tol = 5
+
   function dragstarted() {
     var d = d3.event.subject
     var active = proxyRegion.datum(d)
@@ -46,7 +48,7 @@ function LassoProxy (g, margin, xScale, yScale, xValue, yValue, stream) {
     })
 
     d3.event.on('end', function (e) {
-      if (dragging) {
+      if (dragging && d.length > i_tol) {
         dragging = false
         proxyTargets.selectAll('*').remove()
         var t = d3.selectAll(targetClass)
@@ -69,8 +71,9 @@ function LassoProxy (g, margin, xScale, yScale, xValue, yValue, stream) {
           method: 'lasso',
           path: active.attr('d')
         })
-        active.attr('d', null)
       }
+
+      active.attr('d', null)
       document.body.dispatchEvent(new Event('resume'))
     })
   }
