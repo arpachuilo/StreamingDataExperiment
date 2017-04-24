@@ -31,7 +31,6 @@ function WholeScreenProxy (g, margin, xScale, yScale, xValue, yValue) {
   })
 
   this.kill = function () {
-    console.log('kill whole')
     proxyTargets.remove()
   }
 

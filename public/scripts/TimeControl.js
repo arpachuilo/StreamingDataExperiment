@@ -157,6 +157,10 @@ function TimeControl(selection) {
     }
   }
 
+  this.resetSlidePosition = function () {
+    gHandle.attr('cx', chartWidth)
+  }
+
   this.updateControls = function (now, xScale, stream) {
     currentStream = stream
     var bounds = currentStream.getStreamingBounds()

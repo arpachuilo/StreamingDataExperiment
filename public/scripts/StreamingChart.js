@@ -272,6 +272,32 @@ function StreamingChart(selection) {
     return this
   }
 
+  this.restart = function () {
+    timeControl.resetSlidePosition()
+    var prev = 0
+    timer.restart(function(e) {
+      ogDelta = e
+      tStart += Math.abs(prev - e)
+      prev = e
+      if (!paused) {
+        if (aggregation !== null) {
+          var t0 = ogStart
+          var t1 = tStart - timeWindow
+          if (t0 > t1) {
+            t0 = t1
+            t1 = t1
+          }
+          aggregation.aggregate(t0, t1, this.data)
+        }
+        if (timeControl !== null) {
+          timeControl.updateControls(tStart, xScale, this)
+        }
+        step()
+      }
+    }, 1066)
+    return this
+  }
+
   this.forceUpdate = function () {
     if (aggregation !== null) {
       var t0 = ogStart

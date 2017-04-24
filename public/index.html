@@ -32,7 +32,7 @@
 
 <body onresize='resize()'>
   <div id='root'>
-    <div class='toprow row container'>
+    <!-- <div class='toprow row container'>
         <span>Aggregation: </span>
         <select id='aggregationValue' onchange='onAggregationChange()'>
           <option value='HeatmapAggregation'>Heatmap</option>
@@ -51,7 +51,7 @@
           <option value='LassoProxy'>Lasso Proxy</option>
           <option value='WholeScreenProxy'>WholeScreen Proxy</option>
         </select>
-    </div>
+    </div> -->
 
     <div class='row charts'>
       <div class='nine columns'>
@@ -68,6 +68,8 @@
           <div class='eight columns'>
             <div id='TimeControl'></div>
           </div>
+        </div>
+        <div id='useContainer' class='row' style='margin-left: 75px;'>
         </div>
         <div id='qContainer' class='row questions' style='margin-left: 75px;'>
           <div id='question'>Question</div>
@@ -98,6 +100,28 @@
     var index = 0
     var data = []
     var selectedData = []
+
+    function usageText (cursor, agg) {
+      var t = ''
+      if (agg === 'None') {
+        t += 'You are using no aggregation'
+      } else if (agg === 'BarAggregation') {
+        t += 'You are using the bar chart aggregation'
+      } else if (agg === 'HeatmapAggregation') {
+        t += 'You are using the heatmap aggregation'
+      }
+
+      if (cursor === 'None') {
+        t += ' with no proxy method'
+      } else if (cursor === 'WholeScreenProxy') {
+        t += ' with the whole screen proxy method'
+      } else if (cursor === 'LassoProxy') {
+        t += ' with the lasso proxy method.'
+      }
+
+      return t
+    }
+
     function submit () {
       Redis.add('responses', {
         response: document.getElementById('response').value,
@@ -124,10 +148,6 @@
         document.getElementById('question').innerText = 'Question: ' + questions[index].text
         streamChart.y(questions[index].yValue)
 
-        // set correct cursor
-        var fn = window[document.getElementById('proxyValue').value]
-        streamChart.cursor(fn)
-
         // set correct aggregation
         loadFile(questions[index].filename)
       }
@@ -135,6 +155,7 @@
 
     function loadFile (filename) {
       d3.json('../data/' + filename, function (error, json) {
+        console.log('Loading: ' + filename)
         // Make for easier access to vars . . .
         data = json
         for (var i = 0; i < data.length; i++) {
@@ -152,9 +173,11 @@
         streamChart
           .setNow(tStart)
           .setData(data)
+          .restart()
 
         setCursor(cursorOrdering[0])
         setAgg(aggOrdering[0])
+        document.getElementById('useContainer').innerText = usageText(cursorOrdering[0], aggOrdering[0])
 
         if (cursorIndex === cursorOrdering.length - 1) {
           cursorIndex = 0
@@ -173,7 +196,6 @@
     }
 
     function setCursor (value) {
-      console.log('setting cursor to ' + value)
       if (value !== 'None') {
         streamChart.cursor(window[value])
       } else {
@@ -261,6 +283,7 @@
           document.getElementById('question').innerText = 'Question: ' + questions[index].text
           streamChart.y(questions[index].yValue)
           d3.json('../data/' + questions[index].filename, function (error, json) {
+            console.log('Loading: ' + questions[index].filename)
             data = json
             for (var i = 0; i < data.length; i++) {
               if ('stmt' in data[i]) {
@@ -277,9 +300,11 @@
             streamChart
               .setNow(tStart)
               .setData(data)
+              .restart()
 
             setCursor(cursorOrdering[0])
             setAgg(aggOrdering[0])
+            document.getElementById('useContainer').innerText = usageText(cursorOrdering[0], aggOrdering[0])
 
             if (cursorIndex === cursorOrdering.length - 1) {
               cursorIndex = 0
