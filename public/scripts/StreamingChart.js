@@ -356,11 +356,18 @@ function StreamingChart(selection) {
       .domain([now - timeWindow, now])
       .range([0, chartWidth])
     // Update the y-scale
+    var yMin = 0
+    if (yValue === 'stmt_score') {
+      yMin = d3.min(this.data, function(d) {
+        return d[yValue]
+      })
+    }
+
     var yMax = d3.max(this.data, function(d) {
       return d[yValue]
     })
     yScale
-      .domain([0, yMax + 1])
+      .domain([yMin, yMax + 1])
       .range([chartHeight, 0])
 
     // Update Axes
