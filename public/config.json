@@ -8,27 +8,27 @@
     {
       "text": "What happened in San Francisco Today?",
       "yValue": "followers",
-      "filename": "pypoll_ComboStream-21.json"
+      "filename": "Final_first_minute_ft_pypoll_ComboStream-21.json"
     },
     {
       "text": "What celebrity are people talking about and why?",
       "yValue": "followers",
-      "filename": "pypoll_ComboStream-21.json"
+      "filename": "Final_second_minute_ft_pypoll_ComboStream-21.json"
     },
     {
       "text": "How many tweets had a retweet count over 11,000?",
       "yValue": "followers",
-      "filename": "pypoll_ComboStream-21.json"
+      "filename": "Final_fifth_minute_ft_pypoll_ComboStream-21.json"
     },
     {
       "text": "What day of the week was it in this data set?",
       "yValue": "followers",
-      "filename": "pypoll_ComboStream-21.json"
+      "filename": "Final_fourth_minute_ft_pypoll_ComboStream-21.json"
     },
     {
       "text": "When is there a spike in high favorited tweets?",
       "yValue": "followers",
-      "filename": "pypoll_ComboStream-21.json"
+      "filename": "Final_third_minute_ft_pypoll_ComboStream-21.json"
     },
     {
       "text": "What day of the week was it in this data set?",
