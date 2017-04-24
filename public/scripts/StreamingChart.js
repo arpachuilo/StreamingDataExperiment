@@ -10,7 +10,7 @@ function StreamingChart(selection) {
     bottom: 45,
     left: 0
   }
-  var height = window.innerHeight * .75
+  var height = window.innerHeight * .55
   var width = selection.node().offsetWidth
   var chartWidth = width - margin.right - margin.left
   var chartHeight = height - margin.top - margin.bottom
@@ -138,6 +138,8 @@ function StreamingChart(selection) {
   this.destroy = function () {
     timer.stop()
     d3.select('body').on('keydown.StreamScatterPlot', null)
+    aggregation.destroy()
+    cursor.kill()
     selection.selectAll('*').remove()
   }
 

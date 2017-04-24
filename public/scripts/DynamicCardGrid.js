@@ -3,7 +3,7 @@ function DynamicCardGrid (el, fn) {
   var el = el
   var fn = fn
 
-  this.setData = function (_) {
+  this.setSelected = function (_) {
     if (!arguments.length) return data
     data = _
     return this

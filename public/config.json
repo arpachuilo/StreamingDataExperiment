@@ -3,5 +3,97 @@
   "LIVE_STREAM": false,
   "STREAM_PARAMS": {
     "track": "#RIPPrince, #FridayFeeling, #poweroutage, tyga"
-  }
+  },
+  "QUESTIONS": [
+    {
+      "text": "What happened in San Francisco Today?",
+      "yValue": "followers",
+      "filename": "pypoll_ComboStream-21.json"
+    },
+    {
+      "text": "What celebrity are people talking about and why?",
+      "yValue": "followers",
+      "filename": "pypoll_ComboStream-21.json"
+    },
+    {
+      "text": "How many tweets had a retweet count over 11,000?",
+      "yValue": "followers",
+      "filename": "pypoll_ComboStream-21.json"
+    },
+    {
+      "text": "What day of the week was it in this data set?",
+      "yValue": "followers",
+      "filename": "pypoll_ComboStream-21.json"
+    },
+    {
+      "text": "When is there a spike in high favorited tweets?",
+      "yValue": "followers",
+      "filename": "pypoll_ComboStream-21.json"
+    },
+    {
+      "text": "What day of the week was it in this data set?",
+      "yValue": "followers",
+      "filename": "pypoll_ComboStream-21.json"
+    },
+    {
+      "text": "What annual event is occuring?",
+      "yValue": "followers",
+      "filename": "pypoll_ComboStream-21.json"
+    },
+    {
+      "text": "What are people marching for?",
+      "yValue": "followers",
+      "filename": "pypoll_ComboStream-21.json"
+    },
+    {
+      "text": "How many twitter users have over x followers?",
+      "yValue": "followers",
+      "filename": "pypoll_ComboStream-21.json"
+    },
+    {
+      "text": "How many tweets got a favorite count over x?",
+      "yValue": "followers",
+      "filename": "pypoll_ComboStream-21.json"
+    },
+    {
+      "text": "Name one of the two sporting events happening today.",
+      "yValue": "followers",
+      "filename": "pypoll_ComboStream-21.json"
+    },
+    {
+      "text": "What day of the week was it in this data set?",
+      "yValue": "followers",
+      "filename": "pypoll_ComboStream-21.json"
+    },
+    {
+      "text": "What type of comedic facts are people tweeting about today?",
+      "yValue": "followers",
+      "filename": "pypoll_ComboStream-21.json"
+    },
+    {
+      "text": "How many tweets have a favorite count between x and y?",
+      "yValue": "followers",
+      "filename": "pypoll_ComboStream-21.json"
+    },
+    {
+      "text": "How many twitter users follow more than x people? ",
+      "yValue": "followers",
+      "filename": "pypoll_ComboStream-21.json"
+    },
+    {
+      "text": "Of the two events being tweeted about in this data set, name the less popular topic.",
+      "yValue": "followers",
+      "filename": "pypoll_ComboStream-21.json"
+    },
+    {
+      "text": "How many tweets have a retweet count between x and y?",
+      "yValue": "followers",
+      "filename": "pypoll_ComboStream-21.json"
+    },
+    {
+      "text": "How many tweets were favorited more than 900 times between 10:43:20 and 10:44:50",
+      "yValue": "followers",
+      "filename": "pypoll_ComboStream-21.json"
+    }
+  ]
 }

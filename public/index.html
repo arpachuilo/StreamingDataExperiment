@@ -69,6 +69,11 @@
             <div id='TimeControl'></div>
           </div>
         </div>
+        <div id='qContainer' class='row questions' style='margin-left: 75px;'>
+          <div id='question'>Question</div>
+          <textarea id='response'></textarea>
+          <button onclick='submit()'>Submit</button>
+        </div>
       </div>
       <div class='three columns'>
         <div id='list'></div>
@@ -78,7 +83,58 @@
   </div>
 
   <script>
-    document.getElementById('list').style.maxHeight = window.innerHeight * .75 + 'px'
+    var questions = null
+    var index = 0
+    var data = []
+    var selectedData = []
+    function submit () {
+      data = []
+      selectedData = []
+
+      streamChart
+        .setData(data)
+
+      dynamicTD
+        .setSelected(selectedData)
+        .update()
+
+      index +=  1
+      document.getElementById('response').value = ''
+      document.getElementById('question').innerText = 'Question: ' + questions[index].text
+      streamChart.y(questions[index].yValue)
+
+      // set correct cursor
+      var fn = window[document.getElementById('proxyValue').value]
+      streamChart.cursor(fn)
+
+      // set correct aggregation
+      loadFile(questions[index].filename)
+    }
+
+    function loadFile (filename) {
+      d3.json('../data/' + filename, function (error, json) {
+        // Make for easier access to vars . . .
+        data = json
+        for (var i = 0; i < data.length; i++) {
+          if ('stmt' in data[i]) {
+            data[i].stmt_score = data[i].stmt.score
+          }
+          data[i].time = data[i].time[0]
+          data[i].rt = data[i].rt_overtime[1]
+          data[i].fav = data[i].fav_overtime[1]
+        }
+        var tStart = d3.min(data, function (d) {
+          return +d.time
+        })
+
+        streamChart
+          .setNow(tStart)
+          .setData(data)
+      })
+    }
+
+    document.getElementById('response').style.width = document.getElementById('qContainer').offsetWidth + 'px'
+    document.getElementById('list').style.maxHeight = window.innerHeight * .8 + 'px'
     function onAggregationChange () {
       streamChart.setAggregation(window[document.getElementById('aggregationValue').value](d3.select('#AggregationChart')))
     }
@@ -94,9 +150,6 @@
       streamChart.cursor(fn)
     }
 
-    var data = []
-    var selectedData = []
-
     var streamChart = StreamingChart(d3.select('#StreamingChart'))
       .x('time')
       .y('followers')
@@ -105,7 +158,7 @@
         if (!selectedData.includes(d)) {
           selectedData.unshift(d)
           dynamicTD
-            .setData(selectedData)
+            .setSelected(selectedData)
             .update()
         }
       })
@@ -136,10 +189,12 @@
     }
 
     var dynamicTD = DynamicCardGrid(document.getElementById('list'), fn)
-      .setData(selectedData)
+      .setSelected(selectedData)
       .update()
 
     d3.json('./config.json', function (error, CONFIG) {
+      questions = CONFIG.QUESTIONS
+
       if (CONFIG.LIVE_STREAM) {
         streamChart.setNow((new Date()).getTime())
         var socket = io.connect('http://localhost:8080')
@@ -148,12 +203,14 @@
           streamChart.setData(data)
         })
       } else {
-        d3.json('./data/pypoll_ComboStream-21.json', function (error, json) {
-          // Make for easier access to vars . . .
+        document.getElementById('response').value = ''
+        document.getElementById('question').innerText = 'Question: ' + questions[index].text
+        streamChart.y(questions[index].yValue)
+        d3.json('../data/' + questions[index].filename, function (error, json) {
           data = json
           for (var i = 0; i < data.length; i++) {
             if ('stmt' in data[i]) {
-              data[i].stmt_score = data[i].stmt.score              
+              data[i].stmt_score = data[i].stmt.score
             }
             data[i].time = data[i].time[0]
             data[i].rt = data[i].rt_overtime[1]
