@@ -157,8 +157,9 @@ function TimeControl(selection) {
     }
   }
 
-  this.resetSlidePosition = function () {
+  this.reset = function () {
     gHandle.attr('cx', chartWidth)
+    playPause.attr('xlink:href', '../img/pause.png')
   }
 
   this.updateControls = function (now, xScale, stream) {

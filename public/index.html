@@ -85,6 +85,14 @@
   </div>
 
   <script>
+    var yKeys = {
+      followers: 'user follower count',
+      following: 'user following count',
+      rt: 'number of retweets',
+      fav: 'number of favorites',
+      stmt_score: 'tweets sentimental score'
+    }
+
     function arrayRotate(arr, reverse){
       if(reverse)
         arr.unshift(arr.pop())
@@ -101,7 +109,7 @@
     var data = []
     var selectedData = []
 
-    function usageText (cursor, agg) {
+    function usageText (cursor, agg, y) {
       var t = ''
       if (agg === 'None') {
         t += 'You are using no aggregation'
@@ -112,12 +120,14 @@
       }
 
       if (cursor === 'None') {
-        t += ' with no proxy method'
+        t += ' with no proxy method.'
       } else if (cursor === 'WholeScreenProxy') {
         t += ' with the whole screen proxy method'
       } else if (cursor === 'LassoProxy') {
         t += ' with the lasso proxy method.'
       }
+
+      t += ' The Y axis represents the ' + yKeys[y] + '.'
 
       return t
     }
@@ -177,7 +187,7 @@
 
         setCursor(cursorOrdering[0])
         setAgg(aggOrdering[0])
-        document.getElementById('useContainer').innerText = usageText(cursorOrdering[0], aggOrdering[0])
+        document.getElementById('useContainer').innerText = usageText(cursorOrdering[0], aggOrdering[0], questions[index].yValue)
 
         if (cursorIndex === cursorOrdering.length - 1) {
           cursorIndex = 0
@@ -304,7 +314,7 @@
 
             setCursor(cursorOrdering[0])
             setAgg(aggOrdering[0])
-            document.getElementById('useContainer').innerText = usageText(cursorOrdering[0], aggOrdering[0])
+            document.getElementById('useContainer').innerText = usageText(cursorOrdering[0], aggOrdering[0], questions[index].yValue)
 
             if (cursorIndex === cursorOrdering.length - 1) {
               cursorIndex = 0

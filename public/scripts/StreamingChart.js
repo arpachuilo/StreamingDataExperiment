@@ -110,7 +110,7 @@ function StreamingChart(selection) {
     gX = gEnter.append('g').attr('class', 'x axis').attr('transform', 'translate(' + 0 + ',' + chartHeight + ')')
     gY = gEnter.append('g').attr('class', 'y axis')
 
-    //Bind pause-start option
+    // Bind pause-start option
     d3.select('body')
     document.body.addEventListener('pause', function () {
         pause()
@@ -273,7 +273,9 @@ function StreamingChart(selection) {
   }
 
   this.restart = function () {
-    timeControl.resetSlidePosition()
+    timeControl.reset()
+    resume()
+    manuallyPaused = false
     var prev = 0
     timer.restart(function(e) {
       ogDelta = e
