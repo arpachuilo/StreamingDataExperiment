@@ -1,331 +1,47 @@
 <!DOCTYPE html>
 <head>
-  <meta charset='utf-8'>
-  <script src='/libs/d3.min.js'></script>
-  <script src='/libs/moment.min.js'></script>
-  <script src='/libs/moment-duration-format.js'></script>
-  <script src='/libs/socket.io.js'></script>
-
-  <script src='./scripts/util.js'></script>
-
-  <script src='./scripts/StreamingChart.js'></script>
-  <script src='./scripts/TimeControl.js'></script>
-  <script src='./scripts/BarAggregation.js'></script>
-  <script src='./scripts/HeatmapAggregation.js'></script>
-  <script src='./scripts/DynamicCardGrid.js'></script>
-  <!-- <script src='./scripts/CircularProxy.js'></script> -->
-  <!-- <script src='./scripts/BoundingBoxProxy.js'></script> -->
-  <script src='./scripts/LassoProxy.js'></script>
-  <script src='./scripts/WholeScreenProxy.js'></script>
-  <script src='./scripts/Tooltip.js'></script>
-
-  <script src='./scripts/api.js'></script>
-  <script src='./scripts/settings.js'></script>
-
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
-  <link rel='stylesheet' href='style.css'>
 
   <title>Streaming Selection</title>
 </head>
-
-<body onresize='resize()'>
-  <div id='root'>
-    <!-- <div class='toprow row container'>
-        <span>Aggregation: </span>
-        <select id='aggregationValue' onchange='onAggregationChange()'>
-          <option value='HeatmapAggregation'>Heatmap</option>
-          <option value='BarAggregation'>Bar Chart</option>
-        </select>
-        <span>Y Value: </span>
-        <select id='yValue' onchange='onYChange()'>
-          <option value='followers'>Followers</option>
-          <option value='following'>Following</option>
-          <option value='rt'>Retweet Count</option>
-          <option value='fav'>Favorite Count</option>
-          <option value='stmt_score'>Sentimental Score</option>
-        </select>
-        <span>Proxy Method: </span>
-        <select id='proxyValue' onchange='onProxyChange()'>
-          <option value='LassoProxy'>Lasso Proxy</option>
-          <option value='WholeScreenProxy'>WholeScreen Proxy</option>
-        </select>
-    </div> -->
-
-    <div class='row charts'>
-      <div class='nine columns'>
-        <div class='row u-full-width'>
-          <div class='four columns'>
-            <div id='AggregationChart'></div>
-          </div>
-          <div class='eight columns'>
-            <div id='StreamingChart'></div>
-          </div>
-        </div>
-        <div class='row u-full-width'>
-          <div class='four columns'>&nbsp;</div>
-          <div class='eight columns'>
-            <div id='TimeControl'></div>
-          </div>
-        </div>
-        <div id='useContainer' class='row' style='margin-left: 75px;'>
-        </div>
-        <div id='qContainer' class='row questions' style='margin-left: 75px;'>
-          <div id='question'>Question</div>
-          <textarea id='response'></textarea>
-          <button onclick='submit()'>Submit</button>
-        </div>
-      </div>
-      <div class='three columns'>
-        <div id='list'></div>
-      </div>
-    </div>
-
+<html>
+<body style="text-align: center; color: #252830;">
+<div class='container'>
+  <h2>User Behavior and Situational Performance Using Streaming Visualizations
+  </h2>
+  <h5>Investigators: Nicolas Bain (Graduate Student - Department of Computer Science, Texas A&M University),</br> Andrew Pachuilo (Graduate Student - Department of Computer Science, Texas A&M University),</br>Zhi Chai (Graduate Student - Department of Computer Science, Texas A&M University)</h5>
+  <div style="background-color: #87CEFA; width = 100%;">
+  <h3 style="padding-top: 20px;">Introduction</h3>
+  <p>The purpose of this page is to provide you with information that may affect your decision whether or not to participate in this research study. If you agree, you will be asked to participate in a research study that tests users situational awareness while monitoring a streaming data set. This is done by asking participants to answer both target selection based questions and "big picture" questions, which are generally related to data aggregation. </p>
+  </br>
   </div>
+  <h4>What will I be asked to do?</h4>
+  <p>If you choose to participate in this study, we will collect data on your response time and accuracy while you answer questions related to the presented streaming data visualization. Specifically, you will be asked questions related to target selection and data aggregation. Target selection is explained below, whereas the data aggregation questions will have to do with either a heatmap or a bar chart. Participants should have an understanding of how to read these before they proceed. The data we gather will be kept confidential and no identifiers linking you to this information will be included in any report that will be kept or published.</p>
 
-  <script>
-    var yKeys = {
-      followers: 'user follower count',
-      following: 'user following count',
-      rt: 'number of retweets',
-      fav: 'number of favorites',
-      stmt_score: 'tweets sentimental score'
-    }
+  <h4>What is the projected time frame?</h4>
+  <p>This study should take no more than 40 minutes of your time. Please set aside adequate time and complete the study in one sitting.
+  </p>
 
-    function arrayRotate(arr, reverse){
-      if(reverse)
-        arr.unshift(arr.pop())
-      else
-        arr.push(arr.shift())
-      return arr
-    }
+  <h4>Instructions</h4>
+  <p>In order to complete this study, participants must know how to use the selection techniques and how to utilize the time control mechanic. There are two types of selection techniques offered to the participants; a lasso proxy and a whole screen proxy.
+  </p>
+  <p>
+  The <b>lasso proxy</b> works by users clicking and holding their mouse button while they outline a region. Everything in the selected region then has a proxy (ghost) of itself created and displayed on the screen. This proxy target will not move with time, which makes target selection easier. Performing the lasso action again will clear the old targets and create proxy targets of whatever data is in the new region.
+  </p>
 
-    var aggOrdering = null
-    var cursorIndex = 0
-    var cursorOrdering = null
-    var questions = null
-    var index = 0
-    var data = []
-    var selectedData = []
+  <p>The <b>whole screen proxy</b> will create a proxy of every target currently displayed on the scatterplot. Participants activate this proxy by hitting the left shift key on their keyboard. Hitting shift again will clear the original proxy targets and activate new proxy targets whatever data is currently on the scatterplot.
+  </p>
 
-    function usageText (cursor, agg, y) {
-      var t = ''
-      if (agg === 'None') {
-        t += 'You are using no aggregation'
-      } else if (agg === 'BarAggregation') {
-        t += 'You are using the bar chart aggregation'
-      } else if (agg === 'HeatmapAggregation') {
-        t += 'You are using the heatmap aggregation'
-      }
+  <p>The <b>time control mechanics</b> are rather straight forward. There is a play and pause button, a skip forward button, and an icon for the current time position, which can be moved by participants. These time control mechanics work just time control would work for a normal video. The leftmost time is the beggining time for the stream, the center time is where the stream is currently located, and the right most time is 'realtime,' as in the current max time for the stream. This will increase as time goes on. Participants are free to skip back and forth in each of the data streams. Perform this action if you are unable to answer the assigned question by the end of the stream.
+  </p>
 
-      if (cursor === 'None') {
-        t += ' with no proxy method.'
-      } else if (cursor === 'WholeScreenProxy') {
-        t += ' with the whole screen proxy method'
-      } else if (cursor === 'LassoProxy') {
-        t += ' with the lasso proxy method.'
-      }
+  <h3>Click the button below to begin the study</h3>
 
-      t += ' The Y axis represents the ' + yKeys[y] + '.'
-
-      return t
-    }
-
-    function submit () {
-      Redis.add('responses', {
-        response: document.getElementById('response').value,
-        question: questions[index].text,
-        time: +(new Date())
-      })
-      data = []
-      selectedData = []
-
-      streamChart
-        .setData(data)
-
-      dynamicTD
-        .setSelected(selectedData)
-        .update()
-
-      index +=  1
-
-      if (index === questions.length) {
-        document.body.innerHTML = ''
-        document.body.innerHTML = 'Thank you for your participation please copy the folllow id and take our survey at the following link. Remember to copy the id, the survey will ask you for it'
-      } else {
-        document.getElementById('response').value = ''
-        document.getElementById('question').innerText = 'Question: ' + questions[index].text
-        streamChart.y(questions[index].yValue)
-
-        // set correct aggregation
-        loadFile(questions[index].filename)
-      }
-    }
-
-    function loadFile (filename) {
-      d3.json('../data/' + filename, function (error, json) {
-        console.log('Loading: ' + filename)
-        // Make for easier access to vars . . .
-        data = json
-        for (var i = 0; i < data.length; i++) {
-          if ('stmt' in data[i]) {
-            data[i].stmt_score = data[i].stmt.score
-          }
-          data[i].time = data[i].time[0]
-          data[i].rt = data[i].rt_overtime[1]
-          data[i].fav = data[i].fav_overtime[1]
-        }
-        var tStart = d3.min(data, function (d) {
-          return +d.time
-        })
-
-        streamChart
-          .setNow(tStart)
-          .setData(data)
-          .restart()
-
-        setCursor(cursorOrdering[0])
-        setAgg(aggOrdering[0])
-        document.getElementById('useContainer').innerText = usageText(cursorOrdering[0], aggOrdering[0], questions[index].yValue)
-
-        if (cursorIndex === cursorOrdering.length - 1) {
-          cursorIndex = 0
-          arrayRotate(aggOrdering, true)
-        } else {
-          arrayRotate(cursorOrdering, true)
-          cursorIndex += 1
-        }
-      })
-    }
-
-    document.getElementById('response').style.width = document.getElementById('qContainer').offsetWidth + 'px'
-    document.getElementById('list').style.maxHeight = window.innerHeight * .8 + 'px'
-    function onAggregationChange () {
-      streamChart.setAggregation(window[document.getElementById('aggregationValue').value](d3.select('#AggregationChart')))
-    }
-
-    function setCursor (value) {
-      if (value !== 'None') {
-        streamChart.cursor(window[value])
-      } else {
-        streamChart.cursor(false)
-      }
-    }
-
-    function setAgg (value) {
-      if (value !== 'None') {
-        document.getElementById('AggregationChart').innerHTML = ''
-        streamChart.setAggregation(window[value](d3.select('#AggregationChart')))
-      } else {
-        streamChart.removeAggregation()
-        document.getElementById('AggregationChart').innerHTML = '&nbsp;'
-      }
-    }
-
-    function onYChange () {
-      streamChart.y(document.getElementById('yValue').value)
-      var fn = window[document.getElementById('proxyValue').value]
-      streamChart.cursor(fn)
-    }
-
-    function onProxyChange () {
-      var fn = window[document.getElementById('proxyValue').value]
-      streamChart.cursor(fn)
-    }
-
-    var streamChart = StreamingChart(d3.select('#StreamingChart'))
-      .x('time')
-      .y('followers')
-      .clickHandler(function (d, i) {
-        if (!selectedData.includes(d)) {
-          selectedData.unshift(d)
-          dynamicTD
-            .setSelected(selectedData)
-            .update()
-        }
-      })
-      .setTimeControls(TimeControl(d3.select('#TimeControl')))
-      .start()
-
-    Redis.setStream(streamChart)
-
-    var fn = function (el, id) {
-      Redis.wrappedAdd('card_remove', {
-        target: id
-      })
-
-      // Find index to remove
-      var index = -1
-      for (var i = 0; i < selectedData.length; i++) {
-        if (selectedData[i].id === id) {
-          index = i
-          break
-        }
-      }
-
-      if (index > -1) {
-        selectedData.splice(index, 1);
-        el.remove();
-      }
-    }
-
-    var dynamicTD = DynamicCardGrid(document.getElementById('list'), fn)
-      .setSelected(selectedData)
-      .update()
-
-    document.body.addEventListener('gotOrdering', function () {
-      d3.json('./config.json', function (error, CONFIG) {
-        questions = CONFIG.QUESTIONS
-
-        if (CONFIG.LIVE_STREAM) {
-          streamChart.setNow((new Date()).getTime())
-          var socket = io.connect('http://localhost:8080')
-          socket.on('tweet', function (d) {
-            data.push(JSON.parse(d))
-            streamChart.setData(data)
-          })
-        } else {
-          aggOrdering = Redis.getAggOrdering()
-          cursorOrdering= Redis.getCursorOrdering()
-
-          document.getElementById('response').value = ''
-          document.getElementById('question').innerText = 'Question: ' + questions[index].text
-          streamChart.y(questions[index].yValue)
-          d3.json('../data/' + questions[index].filename, function (error, json) {
-            console.log('Loading: ' + questions[index].filename)
-            data = json
-            for (var i = 0; i < data.length; i++) {
-              if ('stmt' in data[i]) {
-                data[i].stmt_score = data[i].stmt.score
-              }
-              data[i].time = data[i].time[0]
-              data[i].rt = data[i].rt_overtime[1]
-              data[i].fav = data[i].fav_overtime[1]
-            }
-            var tStart = d3.min(data, function (d) {
-              return +d.time
-            })
-
-            streamChart
-              .setNow(tStart)
-              .setData(data)
-              .restart()
-
-            setCursor(cursorOrdering[0])
-            setAgg(aggOrdering[0])
-            document.getElementById('useContainer').innerText = usageText(cursorOrdering[0], aggOrdering[0], questions[index].yValue)
-
-            if (cursorIndex === cursorOrdering.length - 1) {
-              cursorIndex = 0
-              arrayRotate(aggregationOrdering, true)
-            } else {
-              arrayRotate(cursorOrdering, true)
-              cursorIndex += 1
-            }
-          })
-        }
-      })
-    })
-  </script>
+  <form action="/test.html">
+      <input type="submit" value="Start User Study" />
+  </form>
+</div>
 </body>
+</html>

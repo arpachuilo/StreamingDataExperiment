@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<head>
+  <meta charset='utf-8'>
+  <script src='/libs/d3.min.js'></script>
+  <script src='/libs/moment.min.js'></script>
+  <script src='/libs/moment-duration-format.js'></script>
+  <script src='/libs/socket.io.js'></script>
+
+  <script src='./scripts/util.js'></script>
+
+  <script src='./scripts/StreamingChart.js'></script>
+  <script src='./scripts/TimeControl.js'></script>
+  <script src='./scripts/BarAggregation.js'></script>
+  <script src='./scripts/HeatmapAggregation.js'></script>
+  <script src='./scripts/DynamicCardGrid.js'></script>
+  <!-- <script src='./scripts/CircularProxy.js'></script> -->
+  <!-- <script src='./scripts/BoundingBoxProxy.js'></script> -->
+  <script src='./scripts/LassoProxy.js'></script>
+  <script src='./scripts/WholeScreenProxy.js'></script>
+  <script src='./scripts/Tooltip.js'></script>
+
+  <script src='./scripts/api.js'></script>
+  <script src='./scripts/settings.js'></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
+  <link rel='stylesheet' href='style.css'>
+
+  <title>Streaming Selection</title>
+</head>
+
+<body onresize='resize()'>
+  <div id='loader' class='loading'>Loading&#8230;</div>
+  <div id='root'>
+    <!-- <div class='toprow row container'>
+        <span>Aggregation: </span>
+        <select id='aggregationValue' onchange='onAggregationChange()'>
+          <option value='HeatmapAggregation'>Heatmap</option>
+          <option value='BarAggregation'>Bar Chart</option>
+        </select>
+        <span>Y Value: </span>
+        <select id='yValue' onchange='onYChange()'>
+          <option value='followers'>Followers</option>
+          <option value='following'>Following</option>
+          <option value='rt'>Retweet Count</option>
+          <option value='fav'>Favorite Count</option>
+          <option value='stmt_score'>Sentimental Score</option>
+        </select>
+        <span>Proxy Method: </span>
+        <select id='proxyValue' onchange='onProxyChange()'>
+          <option value='LassoProxy'>Lasso Proxy</option>
+          <option value='WholeScreenProxy'>WholeScreen Proxy</option>
+        </select>
+    </div> -->
+
+    <div class='row charts'>
+      <div class='nine columns'>
+        <div class='row u-full-width'>
+          <div class='four columns'>
+            <div id='AggregationChart'></div>
+          </div>
+          <div class='eight columns'>
+            <div id='StreamingChart'></div>
+          </div>
+        </div>
+        <div class='row u-full-width'>
+          <div class='four columns'>&nbsp;</div>
+          <div class='eight columns'>
+            <div id='TimeControl'></div>
+          </div>
+        </div>
+        <div id='useContainer' class='row' style='margin-left: 75px;'>
+        </div>
+        <div id='qContainer' class='row questions' style='margin-left: 75px;'>
+          <div id='question'>Question</div>
+          <textarea id='response'></textarea>
+          <button onclick='submit()'>Submit</button>
+        </div>
+      </div>
+      <div class='three columns'>
+        <div id='list'></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    var yKeys = {
+      followers: 'user follower count',
+      following: 'user following count',
+      rt: 'number of retweets',
+      fav: 'number of favorites',
+      stmt_score: 'tweets sentimental score'
+    }
+
+    function arrayRotate(arr, reverse){
+      if(reverse)
+        arr.unshift(arr.pop())
+      else
+        arr.push(arr.shift())
+      return arr
+    }
+
+    var aggOrdering = null
+    var cursorIndex = 0
+    var cursorOrdering = null
+    var questions = null
+    var index = 0
+    var data = []
+    var selectedData = []
+
+    function usageText (cursor, agg, y) {
+      var t = ''
+      if (agg === 'None') {
+        t += 'You are using no aggregation'
+      } else if (agg === 'BarAggregation') {
+        t += 'You are using the bar chart aggregation'
+      } else if (agg === 'HeatmapAggregation') {
+        t += 'You are using the heatmap aggregation'
+      }
+
+      if (cursor === 'None') {
+        t += ' with no proxy method.'
+      } else if (cursor === 'WholeScreenProxy') {
+        t += ' with the whole screen proxy method'
+      } else if (cursor === 'LassoProxy') {
+        t += ' with the lasso proxy method.'
+      }
+
+      t += ' The Y axis represents the ' + yKeys[y] + '.'
+
+      return t
+    }
+
+    function submit () {
+      document.getElementById('loader').style.display = 'block'
+
+      Redis.add('responses', {
+        response: document.getElementById('response').value,
+        question: questions[index].text,
+        time: +(new Date())
+      })
+      data = []
+      selectedData = []
+
+      streamChart
+        .setData(data)
+
+      dynamicTD
+        .setSelected(selectedData)
+        .update()
+
+      index +=  1
+
+      if (index === questions.length) {
+        document.body.innerHTML = ''
+        document.body.innerHTML = 'Thank you for your participation please copy the folllow id and take our survey at the following link. Remember to copy the id, the survey will ask you for it'
+      } else {
+        document.getElementById('response').value = ''
+        document.getElementById('question').innerText = 'Question: ' + questions[index].text
+        streamChart.y(questions[index].yValue)
+
+        // set correct aggregation
+        loadFile(questions[index].filename)
+      }
+    }
+
+    function loadFile (filename) {
+      console.log('Loading: ' + filename)
+      d3.json('../data/' + filename, function (error, json) {
+        // Make for easier access to vars . . .
+        data = json
+        for (var i = 0; i < data.length; i++) {
+          if ('stmt' in data[i]) {
+            data[i].stmt_score = data[i].stmt.score
+          }
+          data[i].time = data[i].time[0]
+          data[i].rt = data[i].rt_overtime[1]
+          data[i].fav = data[i].fav_overtime[1]
+        }
+        var tStart = d3.min(data, function (d) {
+          return +d.time
+        })
+
+        streamChart
+          .setNow(tStart)
+          .setData(data)
+          .restart()
+
+        setCursor(cursorOrdering[0])
+        setAgg(aggOrdering[0])
+        document.getElementById('useContainer').innerText = usageText(cursorOrdering[0], aggOrdering[0], questions[index].yValue)
+
+        if (cursorIndex === cursorOrdering.length - 1) {
+          cursorIndex = 0
+          arrayRotate(aggOrdering, true)
+        } else {
+          arrayRotate(cursorOrdering, true)
+          cursorIndex += 1
+        }
+
+        document.getElementById('loader').style.display = 'none'
+      })
+    }
+
+    document.getElementById('response').style.width = document.getElementById('qContainer').offsetWidth + 'px'
+    document.getElementById('list').style.maxHeight = window.innerHeight * .8 + 'px'
+    function onAggregationChange () {
+      streamChart.setAggregation(window[document.getElementById('aggregationValue').value](d3.select('#AggregationChart')))
+    }
+
+    function setCursor (value) {
+      if (value !== 'None') {
+        streamChart.cursor(window[value])
+      } else {
+        streamChart.cursor(false)
+      }
+    }
+
+    function setAgg (value) {
+      if (value !== 'None') {
+        document.getElementById('AggregationChart').innerHTML = ''
+        streamChart.setAggregation(window[value](d3.select('#AggregationChart')))
+      } else {
+        streamChart.removeAggregation()
+        document.getElementById('AggregationChart').innerHTML = '&nbsp;'
+      }
+    }
+
+    function onYChange () {
+      streamChart.y(document.getElementById('yValue').value)
+      var fn = window[document.getElementById('proxyValue').value]
+      streamChart.cursor(fn)
+    }
+
+    function onProxyChange () {
+      var fn = window[document.getElementById('proxyValue').value]
+      streamChart.cursor(fn)
+    }
+
+    var streamChart = StreamingChart(d3.select('#StreamingChart'))
+      .x('time')
+      .y('followers')
+      .clickHandler(function (d, i) {
+        if (!selectedData.includes(d)) {
+          selectedData.unshift(d)
+          dynamicTD
+            .setSelected(selectedData)
+            .update()
+        }
+      })
+      .setTimeControls(TimeControl(d3.select('#TimeControl')))
+      .start()
+
+    Redis.setStream(streamChart)
+
+    var fn = function (el, id) {
+      Redis.wrappedAdd('card_remove', {
+        target: id
+      })
+
+      // Find index to remove
+      var index = -1
+      for (var i = 0; i < selectedData.length; i++) {
+        if (selectedData[i].id === id) {
+          index = i
+          break
+        }
+      }
+
+      if (index > -1) {
+        selectedData.splice(index, 1);
+        el.remove();
+      }
+    }
+
+    var dynamicTD = DynamicCardGrid(document.getElementById('list'), fn)
+      .setSelected(selectedData)
+      .update()
+    document.getElementById('loader').style.display = 'block'
+    document.body.addEventListener('gotOrdering', function () {
+      d3.json('./config.json', function (error, CONFIG) {
+        questions = CONFIG.QUESTIONS
+
+        if (CONFIG.LIVE_STREAM) {
+          streamChart.setNow((new Date()).getTime())
+          var socket = io.connect('http://localhost:8080')
+          socket.on('tweet', function (d) {
+            data.push(JSON.parse(d))
+            streamChart.setData(data)
+          })
+        } else {
+          aggOrdering = Redis.getAggOrdering()
+          cursorOrdering= Redis.getCursorOrdering()
+
+          document.getElementById('response').value = ''
+          document.getElementById('question').innerText = 'Question: ' + questions[index].text
+          streamChart.y(questions[index].yValue)
+          d3.json('../data/' + questions[index].filename, function (error, json) {
+            console.log('Loading: ' + questions[index].filename)
+            data = json
+            for (var i = 0; i < data.length; i++) {
+              if ('stmt' in data[i]) {
+                data[i].stmt_score = data[i].stmt.score
+              }
+              data[i].time = data[i].time[0]
+              data[i].rt = data[i].rt_overtime[1]
+              data[i].fav = data[i].fav_overtime[1]
+            }
+            var tStart = d3.min(data, function (d) {
+              return +d.time
+            })
+
+            streamChart
+              .setNow(tStart)
+              .setData(data)
+              .restart()
+
+            setCursor(cursorOrdering[0])
+            setAgg(aggOrdering[0])
+            document.getElementById('useContainer').innerText = usageText(cursorOrdering[0], aggOrdering[0], questions[index].yValue)
+
+            if (cursorIndex === cursorOrdering.length - 1) {
+              cursorIndex = 0
+              arrayRotate(aggregationOrdering, true)
+            } else {
+              arrayRotate(cursorOrdering, true)
+              cursorIndex += 1
+            }
+            document.getElementById('loader').style.display = 'none'
+          })
+        }
+      })
+    })
+  </script>
+</body>
