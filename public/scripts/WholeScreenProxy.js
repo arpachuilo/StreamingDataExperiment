@@ -1,6 +1,5 @@
 function WholeScreenProxy (g, margin, xScale, yScale, xValue, yValue) {
   var targetClass = '.point'
-
   var proxyTargets = g.append('g')
     .attr('class', 'captured')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
@@ -32,6 +31,7 @@ function WholeScreenProxy (g, margin, xScale, yScale, xValue, yValue) {
   })
 
   this.kill = function () {
+    console.log('kill whole')
     proxyTargets.remove()
   }
 

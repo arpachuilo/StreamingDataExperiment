@@ -21,7 +21,7 @@ function LassoProxy (g, margin, xScale, yScale, xValue, yValue, stream) {
     .subject(function() { var p = [d3.event.x, d3.event.y]; return [p, p]; })
     .on('start', dragstarted))
 
-  var draggin = false
+  var dragging = false
   var i_tol = 5
 
   function dragstarted() {

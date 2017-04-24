@@ -112,18 +112,6 @@ function StreamingChart(selection) {
 
     //Bind pause-start option
     d3.select('body')
-      // .on('keydown', function() {
-      //   if (d3.event.keyCode == 32) {
-      //     d3.event.preventDefault()
-      //     toggle()
-      //   }
-      //   if (d3.event.keyCode === 80) {
-      //     pause()
-      //   }
-      //   if (d3.event.keyCode === 82) {
-      //     resume()
-      //   }
-      // })
     document.body.addEventListener('pause', function () {
         pause()
     })
@@ -143,6 +131,14 @@ function StreamingChart(selection) {
     selection.selectAll('*').remove()
   }
 
+
+  this.removeAggregation = function () {
+    if (aggregation !== null) {
+      aggregation.destroy()
+      aggregation = null
+    }
+  }
+
   this.clickHandler = function (_) {
     if (!arguments.length) return clickHandler
     clickHandler = _
@@ -155,7 +151,10 @@ function StreamingChart(selection) {
       cursor.kill()
     }
     cursor = _
-    cursor = cursor(d3.select('#stream'), margin, xScale, yScale, xValue, yValue, stream)
+    if (cursor) {
+      cursor = cursor(d3.select('#stream'), margin, xScale, yScale, xValue, yValue, stream)
+
+    }
     return this
   }
 

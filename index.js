@@ -37,14 +37,35 @@ if (CONFIG.LOGGING) {
   }
 }
 
+function arrayRotate(arr, reverse){
+  if(reverse)
+    arr.unshift(arr.pop())
+  else
+    arr.push(arr.shift())
+  return arr
+}
+
+var aggregationOrdering = ['HeatmapAggregation', 'BarAggregation', 'None']
+var cursorOrdering = ['LassoProxy', 'WholeScreenProxy', 'None']
+var cursorIndex = 0
+
 io.on('connection', function (socket) {
 
   if (CONFIG.LOGGING) {
     data[socket.id] = {}
     data[socket.id].id = socket.id
 
+    socket.emit('ordering', aggregationOrdering, cursorOrdering)
+
+    if (cursorIndex === cursorOrdering.length - 1) {
+      cursorIndex = 0
+      arrayRotate(aggregationOrdering, true)
+    } else {
+      arrayRotate(cursorOrdering, true)
+      cursorIndex += 1
+    }
+
     socket.on('add', function (key, value) {
-      console.log(socket.id, data)
       if (key in data) {
         data[socket.id][key].push(value)
       } else {

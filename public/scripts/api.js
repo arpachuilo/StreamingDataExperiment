@@ -1,6 +1,16 @@
 var Redis = (function () {
   var socket = io.connect('http://localhost:8080')
   var stream = null
+  var aggOrdering = null
+  var cursorOrdering = null
+
+  socket.on('ordering', function (agg, cursor) {
+    aggOrdering = agg
+    cursorOrdering = cursor
+
+    var event = new Event('gotOrdering')
+    document.body.dispatchEvent(event)
+  })
 
   function add (k, v) {
     socket.emit('add', k, v)
@@ -22,10 +32,20 @@ var Redis = (function () {
     stream = s
   }
 
+  function getAggOrdering () {
+    return aggOrdering
+  }
+
+  function getCursorOrdering () {
+    return cursorOrdering
+  }
+
   return {
     add: add,
     set: set,
     wrappedAdd: wrappedAdd,
-    setStream: setStream
+    setStream: setStream,
+    getAggOrdering: getAggOrdering,
+    getCursorOrdering: getCursorOrdering
   }
 }())
