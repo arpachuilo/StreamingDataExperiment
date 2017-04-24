@@ -8,7 +8,7 @@ function BarAggregation(selection) {
     bottom: 45,
     left: 70
   }
-  var height = window.innerHeight * .75
+  var height = window.innerHeight * .6
   var width = selection.node().offsetWidth
   var chartWidth = width - margin.right - margin.left
   var chartHeight = height - margin.top - margin.bottom
@@ -146,7 +146,7 @@ function BarAggregation(selection) {
     // Bind
     var bars = gChart.selectAll('.bar')
       .data(bins, function (d, i) {
-        return d.length
+        return i + '-' + d.length
       })
 
     // Exit
