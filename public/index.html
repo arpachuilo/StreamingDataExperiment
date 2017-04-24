@@ -88,6 +88,11 @@
     var data = []
     var selectedData = []
     function submit () {
+      Redis.add('responses', {
+        response: document.getElementById('response').value,
+        question: questions[index].text,
+        time: +(new Date())
+      })
       data = []
       selectedData = []
 
