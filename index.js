@@ -29,12 +29,10 @@ if (CONFIG.LOGGING) {
 
 var data, save
 
-if (CONFIG.LOGGING) {
-  console.log('Setting up logger . . .')
-  data = {}
-  save = function (id) {
-    redisClient.set(id, JSON.stringify(data[id]))
-  }
+console.log('Setting up logger . . .')
+data = {}
+save = function (id) {
+  redisClient.set(id, JSON.stringify(data[id]))
 }
 
 function arrayRotate(arr, reverse){
@@ -72,21 +70,22 @@ io.on('connection', function (socket) {
     }
 
     socket.on('add', function (key, value) {
-      if (key in data) {
-        data[socket.id][key].push(value)
+      if (socket.id in data) {
+        if (key in data[socket.id]) {
+          data[socket.id][key].push(value)
+        } else {
+          data[socket.id][key] = []
+          data[socket.id][key].push(value)
+        }
+        save(socket.id)
       } else {
-        data[socket.id][key] = []
-        data[socket.id][key].push(value)
+        data[socket.id] = {}
+        data[socket.id].id = socket.id
       }
-      save(socket.id)
     })
 
     socket.on('set', function (key, value) {
       data[socket.id][key] = value
-    })
-
-    socket.on('save', function () {
-      save()
     })
   }
 })
