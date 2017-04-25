@@ -55,6 +55,12 @@ io.on('connection', function (socket) {
     data[socket.id] = {}
     data[socket.id].id = socket.id
 
+    console.log('User connected . . .')
+    console.log('Time: ',new  Date())
+    console.log('ID: ' + socket.id)
+    console.log('Aggregation Ordering: ' + aggregationOrdering)
+    console.log('Proxy Ordering: ' + cursorOrdering)
+    console.log('')
     socket.emit('ordering', aggregationOrdering, cursorOrdering)
 
     if (cursorIndex === cursorOrdering.length - 1) {

@@ -155,7 +155,7 @@
 
       if (index === questions.length) {
         document.body.innerHTML = ''
-        document.body.innerHTML = 'Thank you for your participation please copy the folllow id and take our survey at the following link. Remember to copy the id, the survey will ask you for it'
+        document.body.innerHTML = 'Thank you for your participation <b>please copy the folllowing id</b> and take our survey at the following link. <b>Remember to copy the id, the survey will ask you for it.</b>' + '</br>' + 'Your id is: ' + Redis.getID() + '</br>' + 'Survey Link: ' + '<a href="https://docs.google.com/forms/d/e/1FAIpQLSfMi5HMLLurGuz85aNVM8ADnGqUulH_1EWKnzNzKUvBYvMVWw/viewform">https://docs.google.com/forms/d/e/1FAIpQLSfMi5HMLLurGuz85aNVM8ADnGqUulH_1EWKnzNzKUvBYvMVWw/viewform</a>'
       } else {
         document.getElementById('response').value = ''
         document.getElementById('question').innerText = 'Question: ' + questions[index].text

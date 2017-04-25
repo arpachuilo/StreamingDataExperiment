@@ -40,12 +40,17 @@ var Redis = (function () {
     return cursorOrdering
   }
 
+  function getID () {
+    return socket.id
+  }
+
   return {
     add: add,
     set: set,
     wrappedAdd: wrappedAdd,
     setStream: setStream,
     getAggOrdering: getAggOrdering,
-    getCursorOrdering: getCursorOrdering
+    getCursorOrdering: getCursorOrdering,
+    getID: getID
   }
 }())
