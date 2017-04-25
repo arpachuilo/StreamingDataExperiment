@@ -84,7 +84,7 @@ io.on('connection', function (socket) {
       }
     })
 
-    socket.on('delete', function () {
+    socket.on('clear', function () {
       save(socket.id)
       delete data[socket.id]
     })

@@ -20,7 +20,7 @@ var Redis = (function () {
     socket.emit('set', k, v)
   }
 
-  function delete () {
+  function clear () {
     socket.emit('delete')
   }
 
@@ -56,6 +56,6 @@ var Redis = (function () {
     getAggOrdering: getAggOrdering,
     getCursorOrdering: getCursorOrdering,
     getID: getID,
-    delete: delete
+    clear: clear
   }
 }())

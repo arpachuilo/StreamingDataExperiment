@@ -158,7 +158,7 @@
         document.body.innerHTML = 'Thank you for your participation <b>please copy the folllowing id</b> and take our survey at the following link. <b>Remember to copy the id, the survey will ask you for it.</b>' + '</br>' + 'Your id is: ' + Redis.getID() + '</br>' + 'Survey Link: ' + '<a href="https://docs.google.com/forms/d/e/1FAIpQLSfMi5HMLLurGuz85aNVM8ADnGqUulH_1EWKnzNzKUvBYvMVWw/viewform">https://docs.google.com/forms/d/e/1FAIpQLSfMi5HMLLurGuz85aNVM8ADnGqUulH_1EWKnzNzKUvBYvMVWw/viewform</a>'
 
         // WARNING: Deleting user's temp data
-        Redis.delete()
+        Redis.clear()
       } else {
         document.getElementById('response').value = ''
         document.getElementById('question').innerText = 'Question: ' + questions[index].text
