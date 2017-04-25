@@ -113,22 +113,22 @@
     function usageText (cursor, agg, y) {
       var t = ''
       if (agg === 'None') {
-        t += 'You are using no aggregation'
+        t += 'You are using <b>no </b>aggregation'
       } else if (agg === 'BarAggregation') {
-        t += 'You are using the bar chart aggregation'
+        t += 'You are using the <b>bar chart </b>aggregation'
       } else if (agg === 'HeatmapAggregation') {
-        t += 'You are using the heatmap aggregation'
+        t += 'You are using the <b>heatmap </b>aggregation'
       }
 
       if (cursor === 'None') {
-        t += ' with no proxy method.'
+        t += ' with <b>no proxy </b>method.'
       } else if (cursor === 'WholeScreenProxy') {
-        t += ' with the whole screen proxy method'
+        t += ' with the <b>whole screen proxy </b>method.'
       } else if (cursor === 'LassoProxy') {
-        t += ' with the lasso proxy method.'
+        t += ' with the <b>lasso proxy </b>method.'
       }
 
-      t += ' The Y axis represents the ' + yKeys[y] + '.'
+      t += ' The Y axis represents the <b>' + yKeys[y] + '</b>.'
 
       return t
     }
@@ -190,7 +190,7 @@
 
         setCursor(cursorOrdering[0])
         setAgg(aggOrdering[0])
-        document.getElementById('useContainer').innerText = usageText(cursorOrdering[0], aggOrdering[0], questions[index].yValue)
+        document.getElementById('useContainer').innerHTML = usageText(cursorOrdering[0], aggOrdering[0], questions[index].yValue)
 
         if (cursorIndex === cursorOrdering.length - 1) {
           cursorIndex = 0
@@ -319,7 +319,7 @@
 
             setCursor(cursorOrdering[0])
             setAgg(aggOrdering[0])
-            document.getElementById('useContainer').innerText = usageText(cursorOrdering[0], aggOrdering[0], questions[index].yValue)
+            document.getElementById('useContainer').innerHTML = usageText(cursorOrdering[0], aggOrdering[0], questions[index].yValue)
 
             if (cursorIndex === cursorOrdering.length - 1) {
               cursorIndex = 0
