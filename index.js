@@ -84,6 +84,11 @@ io.on('connection', function (socket) {
       }
     })
 
+    socket.on('delete', function () {
+      save(socket.id)
+      delete data[socket.id]
+    })
+
     socket.on('set', function (key, value) {
       data[socket.id][key] = value
     })

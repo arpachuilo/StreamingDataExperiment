@@ -20,6 +20,10 @@ var Redis = (function () {
     socket.emit('set', k, v)
   }
 
+  function delete () {
+    socket.emit('delete')
+  }
+
   function wrappedAdd (k, v) {
     socket.emit('add', k, {
       meta: v,
@@ -51,6 +55,7 @@ var Redis = (function () {
     setStream: setStream,
     getAggOrdering: getAggOrdering,
     getCursorOrdering: getCursorOrdering,
-    getID: getID
+    getID: getID,
+    delete: delete
   }
 }())
