@@ -139,12 +139,15 @@ var testChart = StreamingChart(d3.select('#testChart'))
   .setNow(n)
   .start()
 
-d3.timer(function (e) {
-  n += e
+d3.interval(function (e) {
   data.push({
     y: Math.random() * 10,
-    time: n
+    time: +(new Date())
   })
+
+  if (data.length > 1000) {
+    data.shift()
+  }
 }, 1000)
 
 </script>
