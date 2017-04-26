@@ -5,7 +5,7 @@ function WholeScreenProxy (g, margin, xScale, yScale, xValue, yValue) {
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
   d3.select('body').on('keydown', function () {
-    if (d3.event.key === 'c') {
+    if (d3.event.altKey) {
       proxyTargets.selectAll('*').remove()
       if (typeof Redis !== 'undefined') {
         Redis.wrappedAdd('proxy_cleared', {
@@ -13,7 +13,7 @@ function WholeScreenProxy (g, margin, xScale, yScale, xValue, yValue) {
         })
       }
     }
-    if (d3.event.key === 's') {
+    if (d3.event.ctrlKey) {
       proxyTargets.selectAll('*').remove()
       var t = d3.selectAll(targetClass)
       t.each(function (d) {
