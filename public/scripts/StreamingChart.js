@@ -417,15 +417,21 @@ function StreamingChart(selection) {
         .attr('class', 'point')
         .attr('d', glyph.size(glyphSize))
         .on('click', function (d, i) {
-          Redis.wrappedAdd('dot_clicked', {
-            target: d[idValue]
-          })
-          clickHandler(d, i)
+          if (typeof Redis !== 'undefined') {
+            Redis.wrappedAdd('dot_clicked', {
+              target: d[idValue],
+              class: d3.select(this).attr('class')
+            })
+          }
+          clickHandler(d, i, this)
         })
         .on('mouseover', function (d, i) {
-          Redis.wrappedAdd('dot_hover', {
-            target: d[idValue]
-          })
+          if (typeof Redis !== 'undefined') {
+            Redis.wrappedAdd('dot_hover', {
+              target: d[idValue],
+              class: d3.select(this).attr('class')
+            })
+          }
         })
       .merge(points)
         .attr('transform', function (d) {

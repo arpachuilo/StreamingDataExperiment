@@ -65,12 +65,13 @@ function LassoProxy (g, margin, xScale, yScale, xValue, yValue, stream) {
               .attr('transform', point.attr('transform'))
               .on('click', point.on('click'))
           })
-
-        Redis.wrappedAdd('proxy_used', {
-          numTargets: t.size(),
-          method: 'lasso',
-          path: active.attr('d')
-        })
+        if (typeof Redis !== 'undefined') {
+          Redis.wrappedAdd('proxy_used', {
+            numTargets: t.size(),
+            method: 'lasso',
+            path: active.attr('d')
+          })
+        }
       }
 
       active.attr('d', null)
@@ -81,9 +82,11 @@ function LassoProxy (g, margin, xScale, yScale, xValue, yValue, stream) {
   d3.select('body').on('keydown', function () {
     if (d3.event.key === 'c') {
       proxyTargets.selectAll('*').remove()
-      Redis.wrappedAdd('proxy_cleared', {
-        method: 'lasso'
-      })
+      if (typeof Redis !== 'undefined') {
+        Redis.wrappedAdd('proxy_cleared', {
+          method: 'lasso'
+        })
+      }
     }
   })
 

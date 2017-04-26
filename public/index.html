@@ -3,6 +3,20 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
+  <link rel='stylesheet' href='style.css'>
+
+  <script src='/libs/d3.min.js'></script>
+  <script src='/libs/moment.min.js'></script>
+  <script src='/libs/moment-duration-format.js'></script>
+
+  <script src='./scripts/util.js'></script>
+  <script src='./scripts/StreamingChart.js'></script>
+  <script src='./scripts/TimeControl.js'></script>
+  <script src='./scripts/LassoProxy.js'></script>
+  <script src='./scripts/WholeScreenProxy.js'></script>
+  <script src='./scripts/BarAggregation.js'></script>
+  <script src='./scripts/HeatmapAggregation.js'></script>
+  <script src='./scripts/Tooltip.js'></script>
 
   <title>Streaming Selection</title>
 </head>
@@ -11,7 +25,7 @@
 <div class='container'>
   <h2>Analysis of Interaction Techniques for Streaming Data</h2>
 
-  <h5>Investigators: Nicolas Bain (Graduate Student - Department of Computer Science, Texas A&M University),</br> Andrew Pachuilo (Graduate Student - Department of Computer Science, Texas A&M University),</br>Zhi Chai (Graduate Student - Department of Computer Science, Texas A&M University)</h5>
+  <h5>Investigators: Nicolas Bain, Andrew Pachuilo, Zhi Chai </br> (Graduate Students w/ Department of Computer Science, Texas A&M University)</h5>
   <div style="background-color: #87CEFA; width = 100%;">
   <h3 style="padding-top: 20px;">Introduction</h3>
   <p>The purpose of this page is to provide you with information that may affect your decision whether or not to participate in this research study. If you agree, you will be asked to participate in a research study that tests users situational awareness while monitoring a streaming data set. This is done by asking participants to answer both target selection based questions and "big picture" questions, which are generally related to data aggregation. </p>
@@ -31,11 +45,41 @@
   The <b>lasso proxy</b> works by users clicking and holding their mouse button while they outline a region. Everything in the selected region then has a proxy (ghost) of itself created and displayed on the screen. This proxy target will not move with time, which makes target selection easier. Performing the lasso action again will clear the old targets and create proxy targets of whatever data is in the new region.
   </p>
 
-  <p>The <b>whole screen proxy</b> will create a proxy of every target currently displayed on the scatterplot. Participants activate this proxy by hitting the left shift key on their keyboard. Hitting shift again will clear the original proxy targets and activate new proxy targets whatever data is currently on the scatterplot.
+  <p>The <b>whole screen proxy</b> will create a proxy of every target currently displayed on the scatterplot. Participants activate this proxy by hitting the left 's' key on their keyboard. Hitting 's' again will clear the original proxy targets and activate new proxy targets whatever data is currently on the scatterplot. You can also press 'c' to clear proxy targets.
   </p>
 
   <p>The <b>time control mechanics</b> are rather straight forward. There is a play and pause button, a skip forward button, and an icon for the current time position, which can be moved by participants. These time control mechanics work just time control would work for a normal video. The leftmost time is the beggining time for the stream, the center time is where the stream is currently located, and the right most time is 'realtime,' as in the current max time for the stream. This will increase as time goes on. Participants are free to skip back and forth in each of the data streams. Perform this action if you are unable to answer the assigned question by the end of the stream.
   </p>
+
+  <div>
+      <span>Aggregation: </span>
+      <select id='aggregationValue' onchange='onAggregationChange()'>
+        <option value='HeatmapAggregation'>Heatmap</option>
+        <option value='BarAggregation'>Bar Chart</option>
+      </select>
+      <span>Proxy Method: </span>
+      <select id='proxyValue' onchange='onProxyChange()'>
+        <option value='LassoProxy'>Lasso Proxy</option>
+        <option value='WholeScreenProxy'>WholeScreen Proxy</option>
+      </select>
+  </div>
+
+  <div>
+    <div class='row charts'>
+      <div class='four columns'>
+        <div id='aggChart'></div>
+      </div>
+      <div class='eight columns'>
+        <div id='testChart'></div>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='four columns'>&nbsp;</div>
+      <div class='eight columns'>
+        <div id='tc'></div>
+      </div>
+    </div>
+  </div>
 
   <h3>DON'T REFRESH THE BROWSER DURING THE STUDY</h3>
   <h3>Some things may take awhile to load</h3>
@@ -46,5 +90,37 @@
       <input type="submit" value="Start User Study" />
   </form>
 </div>
+
+<script>
+function onAggregationChange () {
+  testChart.setAggregation(window[document.getElementById('aggregationValue').value](d3.select('#aggChart')))
+}
+
+function onProxyChange () {
+  var fn = window[document.getElementById('proxyValue').value]
+  testChart.cursor(fn)
+}
+
+var data = []
+var n = +(new Date())
+
+var testChart = StreamingChart(d3.select('#testChart'))
+  .x('time')
+  .y('y')
+  .cursor(LassoProxy)
+  .setAggregation(HeatmapAggregation(d3.select('#aggChart')))
+  .setTimeControls(TimeControl(d3.select('#tc')))
+  .setNow(n)
+  .start()
+
+d3.timer(function (e) {
+  n += e
+  data.push({
+    y: Math.random() * 10,
+    time: n
+  })
+}, 1000)
+
+</script>
 </body>
 </html>

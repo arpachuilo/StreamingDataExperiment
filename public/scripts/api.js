@@ -4,6 +4,16 @@ var Redis = (function () {
   var aggOrdering = null
   var cursorOrdering = null
 
+  var currentAgg = null
+  var currentCursor = null
+
+  var cursorX = -1
+  var cursorY = -1
+  document.onmousemove = function (e) {
+    cursorX = e.pageX
+    cursorY = e.pageY
+  }
+
   socket.on('ordering', function (agg, cursor) {
     aggOrdering = agg
     cursorOrdering = cursor
@@ -28,7 +38,11 @@ var Redis = (function () {
     socket.emit('add', k, {
       meta: v,
       time: +(new Date()),
-      streamBounds: stream.getCurrentStreamingBounds()
+      streamBounds: stream.getCurrentStreamingBounds(),
+      x: cursorX,
+      y: cursorY,
+      aggregation: currentAgg,
+      cursor: currentCursor
     })
   }
 
@@ -44,6 +58,14 @@ var Redis = (function () {
     return cursorOrdering
   }
 
+  function setCurrentAgg(_) {
+    currentAgg = _
+  }
+
+  function setCurrentCursor(_) {
+    currentCursor = _
+  }
+
   function getID () {
     return socket.id
   }
@@ -55,6 +77,8 @@ var Redis = (function () {
     setStream: setStream,
     getAggOrdering: getAggOrdering,
     getCursorOrdering: getCursorOrdering,
+    setCurrentAgg: setCurrentAgg,
+    setCurrentCursor: setCurrentCursor,
     getID: getID,
     clear: clear
   }

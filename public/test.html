@@ -110,6 +110,13 @@
     var data = []
     var selectedData = []
 
+    function resize () {
+      Redis.wrappedAdd('resized', {
+        viewportWidth: getViewport()[0],
+        viewportHeight: getViewport()[1]
+      })
+    }
+
     function usageText (cursor, agg, y) {
       var t = ''
       if (agg === 'None') {
@@ -136,10 +143,18 @@
     function submit () {
       document.getElementById('loader').style.display = 'block'
 
-      Redis.add('responses', {
+      Redis.wrappedAdd('responses', {
         response: document.getElementById('response').value,
         question: questions[index].text,
         time: +(new Date())
+      })
+
+      Redis.wrappedAdd('timings', {
+        type: 'end',
+        viewportWidth: getViewport()[0],
+        viewportHeight: getViewport()[1],
+        questionIndex: index,
+        questionText: questions[index].text
       })
       data = []
       selectedData = []
@@ -163,6 +178,14 @@
         document.getElementById('response').value = ''
         document.getElementById('question').innerText = 'Question: ' + questions[index].text
         streamChart.y(questions[index].yValue)
+
+        Redis.wrappedAdd('timings', {
+          type: 'start',
+          viewportWidth: getViewport()[0],
+          viewportHeight: getViewport()[1],
+          questionIndex: index,
+          questionText: questions[index].text
+        })
 
         // set correct aggregation
         loadFile(questions[index].filename)
@@ -193,6 +216,8 @@
 
         setCursor(cursorOrdering[0])
         setAgg(aggOrdering[0])
+        Redis.setCurrentAgg(aggOrdering[0])
+        Redis.setCurrentCursor(cursorOrdering[0])
         document.getElementById('useContainer').innerHTML = usageText(cursorOrdering[0], aggOrdering[0], questions[index].yValue)
 
         if (cursorIndex === cursorOrdering.length - 1) {
@@ -322,6 +347,8 @@
 
             setCursor(cursorOrdering[0])
             setAgg(aggOrdering[0])
+            Redis.setCurrentAgg(aggOrdering[0])
+            Redis.setCurrentCursor(cursorOrdering[0])
             document.getElementById('useContainer').innerHTML = usageText(cursorOrdering[0], aggOrdering[0], questions[index].yValue)
 
             if (cursorIndex === cursorOrdering.length - 1) {
@@ -332,6 +359,14 @@
               cursorIndex += 1
             }
             document.getElementById('loader').style.display = 'none'
+
+            Redis.wrappedAdd('timings', {
+              type: 'start',
+              viewportWidth: getViewport()[0],
+              viewportHeight: getViewport()[1],
+              questionIndex: index,
+              questionText: questions[index].text
+            })
           })
         }
       })

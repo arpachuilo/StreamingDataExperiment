@@ -167,11 +167,13 @@ function BarAggregation(selection) {
       })
       .on('mouseenter', function (d, i) {
         tip.show(d3.event, d, i)
-        Redis.wrappedAdd('aggregationHover', {
-          method: 'barChart',
-          barIndex: i,
-          barSize: d.length
-        })
+        if (typeof Redis !== 'undefined') {
+          Redis.wrappedAdd('aggregationHover', {
+            method: 'barChart',
+            barIndex: i,
+            barSize: d.length
+          })  
+        }
       })
       .on('mousemove', function (d, i) {
         tip.show(d3.event, d, i)

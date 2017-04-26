@@ -14,6 +14,7 @@ for (var i = 0; i < json.length;) {
 }
 console.log(json.length)
 
+// Get avg num capture targets
 var lassoCaptureCount = 0
 var lassoUsed = 0
 
@@ -36,9 +37,8 @@ for (var i = 0; i < json.length; i++) {
 console.log('lasso avg capture: ', lassoCaptureCount / lassoUsed)
 console.log('wholescreen avg capture: ', wholeScreenCaptureCount / wholeScreenUsed)
 
+// Get question responses
 question = {}
-
-
 for (var i = 0; i < json.length; i++){
   for(var j = 0; j < json[i].responses.length; ++j){
     key = json[i].responses[j].question + j
@@ -52,4 +52,10 @@ for (var i = 0; i < json.length; i++){
   }
 }
 
-console.log(question)
+// Get data coverage based on file / dot_clicked
+
+// Get time spent per question and associated variables
+
+// Get number of times they used the clear method
+
+//

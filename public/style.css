@@ -1,4 +1,4 @@
-#StreamingChart svg {
+#StreamingChart svg, #testChart svg {
   cursor: crosshair;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -9,7 +9,7 @@
                                 supported by Chrome and Opera */
 }
 
-#StreamingChart svg .chart {
+#StreamingChart svg .chart, #testChart svg .chart {
   clip-path: url('#StreamChartClip');
 }
 

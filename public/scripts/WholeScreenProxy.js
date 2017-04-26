@@ -7,11 +7,13 @@ function WholeScreenProxy (g, margin, xScale, yScale, xValue, yValue) {
   d3.select('body').on('keydown', function () {
     if (d3.event.key === 'c') {
       proxyTargets.selectAll('*').remove()
-      Redis.wrappedAdd('proxy_cleared', {
-        method: 'wholeScreen'
-      })
+      if (typeof Redis !== 'undefined') {
+        Redis.wrappedAdd('proxy_cleared', {
+          method: 'wholeScreen'
+        })
+      }
     }
-    if (d3.event.shiftKey) {
+    if (d3.event.key === 's') {
       proxyTargets.selectAll('*').remove()
       var t = d3.selectAll(targetClass)
       t.each(function (d) {
@@ -23,10 +25,12 @@ function WholeScreenProxy (g, margin, xScale, yScale, xValue, yValue) {
           .attr('transform', point.attr('transform'))
           .on('click', point.on('click'))
       })
-      Redis.wrappedAdd('proxy_used', {
-        numTargets: t.size(),
-        method: 'wholeScreen'
-      })
+      if (typeof Redis !== 'undefined') {
+        Redis.wrappedAdd('proxy_used', {
+          numTargets: t.size(),
+          method: 'wholeScreen'
+        })
+      }
     }
   })
 

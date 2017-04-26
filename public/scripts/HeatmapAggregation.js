@@ -187,11 +187,13 @@ function HeatmapAggregation(selection) {
       })
       .on('mouseenter', function (d, i) {
         tip.show(d3.event, d, i)
-        Redis.wrappedAdd('aggregationHover', {
-          method: 'heatmap',
-          cellIndex: i,
-          cellSize: d.length
-        })
+        if (typeof Redis !== 'undefined') {
+          Redis.wrappedAdd('aggregationHover', {
+            method: 'heatmap',
+            cellIndex: i,
+            cellSize: d.length
+          })  
+        }
       })
       .on('mousemove', function (d, i) {
         tip.show(d3.event, d, i)
