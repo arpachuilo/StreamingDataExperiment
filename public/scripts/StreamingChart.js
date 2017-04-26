@@ -423,7 +423,7 @@ function StreamingChart(selection) {
               class: d3.select(this).attr('class')
             })
           }
-          clickHandler(d, i, this)
+          clickHandler(d, i, d3.select(this).attr('class'))
         })
         .on('mouseover', function (d, i) {
           if (typeof Redis !== 'undefined') {

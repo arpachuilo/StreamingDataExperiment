@@ -51,6 +51,8 @@
   <p>The <b>time control mechanics</b> are rather straight forward. There is a play and pause button, a skip forward button, and an icon for the current time position, which can be moved by participants. These time control mechanics work just time control would work for a normal video. The leftmost time is the beggining time for the stream, the center time is where the stream is currently located, and the right most time is 'realtime,' as in the current max time for the stream. This will increase as time goes on. Participants are free to skip back and forth in each of the data streams. Perform this action if you are unable to answer the assigned question by the end of the stream.
   </p>
 
+  <p>Before we can let you continue we want to make sure you test out all of the methods and their combinations. To do this simply use the dropdrowns to change the aggregation and proxy methods then use the proxy method and click one of the dots. You must do this for each combination.</p>
+
   <div>
       <span>Aggregation: </span>
       <select id='aggregationValue' onchange='onAggregationChange()'>
@@ -86,12 +88,31 @@
 
   <h3>Click the button below to begin the study</h3>
 
-  <form action="/test.html">
-      <input type="submit" value="Start User Study" />
-  </form>
+  <input type="submit" value="Start User Study" onclick="cont()" />
 </div>
 
 <script>
+
+var test = {
+  HeatmapAggregationLassoProxy: false,
+  HeatmapAggregationWholeScreenProxy: false,
+  BarAggregationLassoProxy: false,
+  BarAggregationWholeScreenProxy: false
+}
+
+function cont () {
+  var pass = true
+  Object.keys(test).forEach(function (k) {
+    pass = pass && test[k]
+  })
+
+  if (pass) {
+    window.location.href = 'test.html'
+  } else {
+    alert('Please test out all 4 possible combinations in the demo')
+  }
+}
+
 function onAggregationChange () {
   testChart.setAggregation(window[document.getElementById('aggregationValue').value](d3.select('#aggChart')))
 }
@@ -108,6 +129,11 @@ var testChart = StreamingChart(d3.select('#testChart'))
   .x('time')
   .y('y')
   .cursor(LassoProxy)
+  .clickHandler(function (d, i, c) {
+    if (c === 'proxy') {
+      test[document.getElementById('aggregationValue').value + document.getElementById('proxyValue').value] = true
+    }
+  })
   .setAggregation(HeatmapAggregation(d3.select('#aggChart')))
   .setTimeControls(TimeControl(d3.select('#tc')))
   .setNow(n)

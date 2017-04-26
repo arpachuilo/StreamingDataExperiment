@@ -1,5 +1,177 @@
 [
   {
+    "id": "H5gHtmrOEgrDmVR7AAAE",
+    "timings": [
+      {
+        "meta": {
+          "type": "start",
+          "viewportWidth": 1920,
+          "viewportHeight": 979,
+          "questionIndex": 0,
+          "questionText": "What happened in San Francisco Today?"
+        },
+        "time": 1493234986658,
+        "streamBounds": [
+          1492799694081,
+          1492799706081
+        ],
+        "x": 989,
+        "y": 906,
+        "aggregation": "None",
+        "cursor": "LassoProxy"
+      }
+    ]
+  },
+  {
+    "id": "Tb42aIBDVBNgP5rtAAAC",
+    "timings": [
+      {
+        "meta": {
+          "type": "start",
+          "viewportWidth": 1920,
+          "viewportHeight": 979,
+          "questionIndex": 0,
+          "questionText": "What happened in San Francisco Today?"
+        },
+        "time": 1493234105793,
+        "streamBounds": [
+          1492799694081,
+          1492799706081
+        ],
+        "x": -1,
+        "y": -1,
+        "aggregation": "HeatmapAggregation",
+        "cursor": "WholeScreenProxy"
+      },
+      {
+        "meta": {
+          "type": "end",
+          "viewportWidth": 1920,
+          "viewportHeight": 979,
+          "questionIndex": 0,
+          "questionText": "What happened in San Francisco Today?"
+        },
+        "time": 1493234107601,
+        "streamBounds": [
+          1492799694676.1,
+          1492799706676.1
+        ],
+        "x": 170,
+        "y": 771,
+        "aggregation": "HeatmapAggregation",
+        "cursor": "WholeScreenProxy"
+      },
+      {
+        "meta": {
+          "type": "start",
+          "viewportWidth": 1920,
+          "viewportHeight": 979,
+          "questionIndex": 1,
+          "questionText": "What celebrity are people talking about?"
+        },
+        "time": 1493234107601,
+        "streamBounds": [
+          1492799694676.1,
+          1492799706676.1
+        ],
+        "x": 170,
+        "y": 771,
+        "aggregation": "HeatmapAggregation",
+        "cursor": "WholeScreenProxy"
+      }
+    ],
+    "proxy_used": [
+      {
+        "meta": {
+          "numTargets": 450,
+          "method": "wholeScreen"
+        },
+        "time": 1493234107047,
+        "streamBounds": [
+          1492799694203.21,
+          1492799706203.21
+        ],
+        "x": 270,
+        "y": 763,
+        "aggregation": "HeatmapAggregation",
+        "cursor": "WholeScreenProxy"
+      }
+    ],
+    "responses": [
+      {
+        "meta": {
+          "response": "asdf",
+          "question": "What happened in San Francisco Today?",
+          "time": 1493234107600
+        },
+        "time": 1493234107600,
+        "streamBounds": [
+          1492799694676.1,
+          1492799706676.1
+        ],
+        "x": 170,
+        "y": 771,
+        "aggregation": "HeatmapAggregation",
+        "cursor": "WholeScreenProxy"
+      }
+    ],
+    "dot_hover": [
+      {
+        "meta": {
+          "target": "855490340253466624",
+          "class": "point"
+        },
+        "time": 1493234109829,
+        "streamBounds": [
+          1492799754854.0408,
+          1492799766854.0408
+        ],
+        "x": 1307,
+        "y": 432,
+        "aggregation": "HeatmapAggregation",
+        "cursor": "LassoProxy"
+      },
+      {
+        "meta": {
+          "target": "855490340253466624",
+          "class": "point"
+        },
+        "time": 1493234110195,
+        "streamBounds": [
+          1492799755219.566,
+          1492799767219.566
+        ],
+        "x": 1281,
+        "y": 428,
+        "aggregation": "HeatmapAggregation",
+        "cursor": "LassoProxy"
+      }
+    ]
+  },
+  {
+    "id": "7BVUvm3-l2qdnWaoAAAD",
+    "timings": [
+      {
+        "meta": {
+          "type": "start",
+          "viewportWidth": 1920,
+          "viewportHeight": 979,
+          "questionIndex": 0,
+          "questionText": "What happened in San Francisco Today?"
+        },
+        "time": 1493234375041,
+        "streamBounds": [
+          1492799694081,
+          1492799706081
+        ],
+        "x": 522,
+        "y": 465,
+        "aggregation": "None",
+        "cursor": "WholeScreenProxy"
+      }
+    ]
+  },
+  {
     "id": "1fcP3bwU_fLI4UHHAAAB",
     "timings": [
       {
