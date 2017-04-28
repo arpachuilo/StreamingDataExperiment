@@ -10,6 +10,14 @@
 
     <title>Streaming Selection</title>
 
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/tether/tether.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -21,7 +29,7 @@
     <!-- Custom styles for this template -->
     <link rel='stylesheet' href='style.css'>
     <link href="css/grayscale.css" rel="stylesheet">
-    
+
     <!-- JS Files -->
     <script src='/libs/d3.min.js'></script>
     <script src='/libs/moment.min.js'></script>
@@ -40,7 +48,7 @@
     .navbar-toggler {
         z-index: 1;
     }
-    
+
     @media (max-width: 576px) {
         nav > .container {
             width: 100%;
@@ -166,20 +174,21 @@
 
                   <div>
                     <div class='row charts'>
-                      <div class='four columns'>
+                      <div class='col-4' style="padding: 0 0 0 0;">
                         <div id='aggChart'></div>
                       </div>
-                      <div class='eight columns'>
+                      <div class='col-8' style="padding: 0 0 0 0;">
                         <div id='testChart'></div>
                       </div>
                     </div>
                     <div class='row'>
-                      <div class='four columns'>&nbsp;</div>
-                      <div class='eight columns'>
+                      <div class='col-4'>&nbsp;</div>
+                      <div class='col-8'>
                         <div id='tc'></div>
                       </div>
                     </div>
                   </div>
+
                 </div>
             </div>
         </div>
@@ -205,14 +214,6 @@
             <p>Copyright &copy; Your Website 2017</p>
         </div>
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/tether/tether.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <script>
 
@@ -275,7 +276,5 @@
 
     </script>
 
-
 </body>
-
 </html>
