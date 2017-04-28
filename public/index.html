@@ -31,6 +31,7 @@
     <link href="css/grayscale.css" rel="stylesheet">
 
     <!-- JS Files -->
+    <script src='js/grayscale.js'></script>
     <script src='/libs/d3.min.js'></script>
     <script src='/libs/moment.min.js'></script>
     <script src='/libs/moment-duration-format.js'></script>
@@ -70,13 +71,22 @@
             <div class="collapse navbar-collapse" id="navbarExample">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="#about">Introduction</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#download">Download</a>
+                        <a class="nav-link" href="#download">Task</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="#timeframe">Time Frame</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#instructions">Instructions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#demo">Demo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Begin Study</a>
                     </li>
                 </ul>
             </div>
@@ -113,7 +123,7 @@
     <!-- Download Section -->
     <section id="download" class="content-section text-center">
         <div class="download-section">
-            <div class="container">
+            <div class="container" id="downloadtest">
                 <div class="col-lg-8 offset-md-2">
                     <h2>What will I be asked to do?</h2>
                     <p>If you choose to participate in this study, we will collect data on your response time and accuracy while you answer questions related to the presented streaming data visualization. Specifically, you will be asked questions related to target selection and data aggregation. Target selection is explained below, whereas the data aggregation questions will have to do with either a heatmap or a bar chart. Participants should have an understanding of how to read these before they proceed. The data we gather will be kept confidential and no identifiers linking you to this information will be included in any report that will be kept or published.</p>
@@ -135,7 +145,7 @@
 
     <section id="instructions" class="content-section text-center">
         <div class="instructions-section">
-            <div class="container">
+            <div class="container" id="instructionstest">
                 <div class="col-lg-8 offset-md-2">
                     <h2>Instructions</h2>
                     <p>In order to complete this study, participants must know how to use the selection techniques and how to utilize the time control mechanic. There are two types of selection techniques offered to the participants; a lasso proxy and a whole screen proxy.
@@ -154,7 +164,7 @@
 
     <section id="demo" class="content-section text-center">
         <div class="demo-section">
-            <div class="container">
+            <div class="container" id="demotest">
                 <div>
                   <h2>Demonstration</h2>
                   <p>Before we can let you continue we want to make sure you test out all of the methods and their combinations. To do this simply use the dropdrowns to change the aggregation and proxy methods then use the proxy method and click one of the dots. You must do this for each combination.</p>
@@ -211,7 +221,7 @@
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p>Copyright &copy; Your Website 2017</p>
+            <p>Copyright &copy; Nicolas Bain, Andrew Pachuilo, Zhi Chai</p>
         </div>
     </footer>
 
