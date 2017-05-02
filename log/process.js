@@ -165,3 +165,53 @@ for (var i = 0; i < json.length; i++) {
 
 console.log('num lasso clear used: ', lassoClearUsed)
 console.log('num wholescreen clear used: ', wholeScreenClearUsed)
+
+// get avg time taken
+var time = 0
+for (var i = 0; i < json.length; i++) {
+  time += json[i].timings[json[i].timings.length - 1].time - json[i].timings[0].time
+}
+console.log('avg time to do study in minutes: ' + (time / (60 * 1000)) / json.length)
+
+// question type / combination of technique
+var selectionQuestionNumbers = [0, 1, 3, 5, 6, 7, 10, 11, 12, 15]
+// Get avg time spent with certain technique combinations
+var timeTotalsQuestionType = {
+  SelectionHeatmapAggregationWholeScreenProxy: 0,
+  SelectionHeatmapAggregationLassoProxy: 0,
+  SelectionHeatmapAggregationNone: 0,
+  SelectionBarAggregationWholeScreenProxy: 0,
+  SelectionBarAggregationLassoProxy: 0,
+  SelectionBarAggregationNone: 0,
+  SelectionNoneWholeScreenProxy: 0,
+  SelectionNoneLassoProxy: 0,
+  SelectionNoneNone: 0,
+  AggregationHeatmapAggregationWholeScreenProxy: 0,
+  AggregationHeatmapAggregationLassoProxy: 0,
+  AggregationHeatmapAggregationNone: 0,
+  AggregationBarAggregationWholeScreenProxy: 0,
+  AggregationBarAggregationLassoProxy: 0,
+  AggregationBarAggregationNone: 0,
+  AggregationNoneWholeScreenProxy: 0,
+  AggregationNoneLassoProxy: 0,
+  AggregationNoneNone: 0
+}
+
+for (var i = 0; i < json.length; i++) {
+  var prevTime = json[i].timings[0].time
+  for (var j = 1; j < json[i].timings.length; j++) {
+    if (json[i].timings[j].meta.type === 'end') {
+      var currTime = json[i].timings[j].time
+      var type = selectionQuestionNumbers.indexOf(json[i].timings[j].meta.questionIndex) > -1
+        ? 'Selection'
+        : 'Aggregation'
+      var key = type + json[i].timings[j].aggregation + json[i].timings[j].cursor
+      timeTotalsQuestionType[key] += (currTime - prevTime)
+      prevTime = currTime
+    }
+  }
+}
+
+Object.keys(timeTotalsQuestionType).forEach(function (key) {
+  console.log(key + ': ' + (timeTotalsQuestionType[key] / 1000 / 4) + ' seconds')
+})
