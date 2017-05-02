@@ -69,20 +69,20 @@ for (var i = 0; i < json.length; i++) {
 }
 
 timeTotalsByIndex.forEach(function (d, i) {
-  console.log('Question ' + i + ' time: ' + ((d / 1000) / 4) + ' seconds')
+  console.log('Question ' + i + ' time: ' + ((d / 1000) / json.length) + ' seconds')
 })
 
 // Get avg time spent with certain technique combinations
 var timeTotalsByKey = {
-  HeatmapAggregationWholeScreenProxy: 0,
-  HeatmapAggregationLassoProxy: 0,
-  HeatmapAggregationNone: 0,
-  BarAggregationWholeScreenProxy: 0,
-  BarAggregationLassoProxy: 0,
-  BarAggregationNone: 0,
-  NoneWholeScreenProxy: 0,
-  NoneLassoProxy: 0,
-  NoneNone: 0
+  HeatmapAggregationWholeScreenProxy: [],
+  HeatmapAggregationLassoProxy: [],
+  HeatmapAggregationNone: [],
+  BarAggregationWholeScreenProxy: [],
+  BarAggregationLassoProxy: [],
+  BarAggregationNone: [],
+  NoneWholeScreenProxy: [],
+  NoneLassoProxy: [],
+  NoneNone: []
 }
 
 for (var i = 0; i < json.length; i++) {
@@ -91,37 +91,38 @@ for (var i = 0; i < json.length; i++) {
     if (json[i].timings[j].meta.type === 'end') {
       var currTime = json[i].timings[j].time
       var key = json[i].timings[j].aggregation + json[i].timings[j].cursor
-      timeTotalsByKey[key] += (currTime - prevTime)
+      timeTotalsByKey[key].push((currTime - prevTime) / 1000)
       prevTime = currTime
     }
   }
 }
 
 Object.keys(timeTotalsByKey).forEach(function (key) {
-  console.log(key + ': ' + (timeTotalsByKey[key] / 1000 / 4) + ' seconds')
+  console.log(key + ' avg: ' + (avg(timeTotalsByKey[key])) + ' seconds')
+  console.log(key + ' stddev: ' + (stdDev(timeTotalsByKey[key])))
 })
 
 // More refined viewing of technique combination and question index
 var timeTotalsComplete = []
 for (var i = 0; i < 18; i++) {
   timeTotalsComplete.push({
-    HeatmapAggregationWholeScreenProxy: 0,
+    HeatmapAggregationWholeScreenProxy: [],
     HeatmapAggregationWholeScreenProxyUsers: 0,
-    HeatmapAggregationLassoProxy: 0,
+    HeatmapAggregationLassoProxy: [],
     HeatmapAggregationLassoProxyUsers: 0,
-    HeatmapAggregationNone: 0,
+    HeatmapAggregationNone: [],
     HeatmapAggregationNoneUsers: 0,
-    BarAggregationWholeScreenProxy: 0,
+    BarAggregationWholeScreenProxy: [],
     BarAggregationWholeScreenProxyUsers: 0,
-    BarAggregationLassoProxy: 0,
+    BarAggregationLassoProxy: [],
     BarAggregationLassoProxyUsers: 0,
-    BarAggregationNone: 0,
+    BarAggregationNone: [],
     BarAggregationNoneUsers: 0,
-    NoneWholeScreenProxy: 0,
+    NoneWholeScreenProxy: [],
     NoneWholeScreenProxyUsers: 0,
-    NoneLassoProxy: 0,
+    NoneLassoProxy: [],
     NoneLassoProxyUsers: 0,
-    NoneNone: 0,
+    NoneNone: [],
     NoneNoneUsers: 0
   })
 }
@@ -132,7 +133,7 @@ for (var i = 0; i < json.length; i++) {
     if (json[i].timings[j].meta.type === 'end') {
       var currTime = json[i].timings[j].time
       var key = json[i].timings[j].aggregation + json[i].timings[j].cursor
-      timeTotalsComplete[json[i].timings[j].meta.questionIndex][key] += (currTime - prevTime)
+      timeTotalsComplete[json[i].timings[j].meta.questionIndex][key].push((currTime - prevTime) / 1000)
       timeTotalsComplete[json[i].timings[j].meta.questionIndex][key + 'Users'] += 1
       prevTime = currTime
     }
@@ -143,7 +144,8 @@ timeTotalsComplete.forEach(function (d, i) {
   console.log('Question ' + i + ' results')
   Object.keys(timeTotalsComplete[i]).forEach(function (key) {
     if (!key.includes('Users')) {
-      console.log(key + ' with ' + timeTotalsComplete[i][key + 'Users'] + ' users: ' + (timeTotalsComplete[i][key] / 1000 / timeTotalsComplete[i][key + 'Users']) + ' seconds')
+      console.log(key + ' with ' + timeTotalsComplete[i][key + 'Users'] + ' avg users: ' + (avg(timeTotalsComplete[i][key])) + ' seconds')
+      console.log(key + ' with ' + timeTotalsComplete[i][key + 'Users'] + ' stdev users: ' + (stdDev(timeTotalsComplete[i][key])))
     }
   })
 })
@@ -167,34 +169,35 @@ console.log('num lasso clear used: ', lassoClearUsed)
 console.log('num wholescreen clear used: ', wholeScreenClearUsed)
 
 // get avg time taken
-var time = 0
+var time = []
 for (var i = 0; i < json.length; i++) {
-  time += json[i].timings[json[i].timings.length - 1].time - json[i].timings[0].time
+  time.push((json[i].timings[json[i].timings.length - 1].time - json[i].timings[0].time) / (60 * 1000))
 }
-console.log('avg time to do study in minutes: ' + (time / (60 * 1000)) / json.length)
+console.log('avg time to do study in minutes: ' + (avg(time)))
+console.log('stddev time to do study in minutes: ' + (stdDev(time)))
 
 // question type / combination of technique
 var selectionQuestionNumbers = [0, 1, 3, 5, 6, 7, 10, 11, 12, 15]
 // Get avg time spent with certain technique combinations
 var timeTotalsQuestionType = {
-  SelectionHeatmapAggregationWholeScreenProxy: 0,
-  SelectionHeatmapAggregationLassoProxy: 0,
-  SelectionHeatmapAggregationNone: 0,
-  SelectionBarAggregationWholeScreenProxy: 0,
-  SelectionBarAggregationLassoProxy: 0,
-  SelectionBarAggregationNone: 0,
-  SelectionNoneWholeScreenProxy: 0,
-  SelectionNoneLassoProxy: 0,
-  SelectionNoneNone: 0,
-  AggregationHeatmapAggregationWholeScreenProxy: 0,
-  AggregationHeatmapAggregationLassoProxy: 0,
-  AggregationHeatmapAggregationNone: 0,
-  AggregationBarAggregationWholeScreenProxy: 0,
-  AggregationBarAggregationLassoProxy: 0,
-  AggregationBarAggregationNone: 0,
-  AggregationNoneWholeScreenProxy: 0,
-  AggregationNoneLassoProxy: 0,
-  AggregationNoneNone: 0
+  SelectionHeatmapAggregationWholeScreenProxy: [],
+  SelectionHeatmapAggregationLassoProxy: [],
+  SelectionHeatmapAggregationNone: [],
+  SelectionBarAggregationWholeScreenProxy: [],
+  SelectionBarAggregationLassoProxy: [],
+  SelectionBarAggregationNone: [],
+  SelectionNoneWholeScreenProxy: [],
+  SelectionNoneLassoProxy: [],
+  SelectionNoneNone: [],
+  AggregationHeatmapAggregationWholeScreenProxy: [],
+  AggregationHeatmapAggregationLassoProxy: [],
+  AggregationHeatmapAggregationNone: [],
+  AggregationBarAggregationWholeScreenProxy: [],
+  AggregationBarAggregationLassoProxy: [],
+  AggregationBarAggregationNone: [],
+  AggregationNoneWholeScreenProxy: [],
+  AggregationNoneLassoProxy: [],
+  AggregationNoneNone: []
 }
 
 for (var i = 0; i < json.length; i++) {
@@ -206,12 +209,38 @@ for (var i = 0; i < json.length; i++) {
         ? 'Selection'
         : 'Aggregation'
       var key = type + json[i].timings[j].aggregation + json[i].timings[j].cursor
-      timeTotalsQuestionType[key] += (currTime - prevTime)
+      timeTotalsQuestionType[key].push((currTime - prevTime) / 1000)
       prevTime = currTime
     }
   }
 }
 
 Object.keys(timeTotalsQuestionType).forEach(function (key) {
-  console.log(key + ': ' + (timeTotalsQuestionType[key] / 1000 / 4) + ' seconds')
+  console.log(key + ' avg: ' + (avg(timeTotalsQuestionType[key])) + ' seconds')
+  console.log(key + ' stddev: ' + (stdDev(timeTotalsQuestionType[key])))
 })
+
+// lazily pasted from https://derickbailey.com/2014/09/21/calculating-standard-deviation-with-array-map-and-array-reduce-in-javascript/
+function stdDev(values){
+  var average = avg(values);
+
+  var squareDiffs = values.map(function(value){
+    var diff = value - average;
+    var sqrDiff = diff * diff;
+    return sqrDiff;
+  });
+
+  var avgSquareDiff = avg(squareDiffs);
+
+  var stdDev = Math.sqrt(avgSquareDiff);
+  return stdDev;
+}
+
+function avg(data){
+  var sum = data.reduce(function(sum, value){
+    return sum + value;
+  }, 0);
+
+  var average = sum / data.length;
+  return average;
+}
