@@ -1,0 +1,128 @@
+{
+    "SelectionHeatmapAggregationWholeScreenProxy": [
+        40.406,
+        5.117,
+        112.123,
+        51.852,
+        104.856,
+        68.121
+    ],
+    "SelectionHeatmapAggregationLassoProxy": [
+        6.092,
+        39.738,
+        53.852,
+        228.539,
+        397.608,
+        39.348
+    ],
+    "SelectionHeatmapAggregationNone": [
+        41.287,
+        13.214,
+        93.175,
+        131.664,
+        21.673,
+        101.584
+    ],
+    "SelectionBarAggregationWholeScreenProxy": [
+        8.076,
+        54.64,
+        23.262,
+        122.188
+    ],
+    "SelectionBarAggregationLassoProxy": [
+        9.028,
+        97.261,
+        75.677,
+        28.462,
+        31.731,
+        56.041
+    ],
+    "SelectionBarAggregationNone": [
+        4.251,
+        189.943,
+        30.346,
+        109.475,
+        14.66
+    ],
+    "SelectionNoneWholeScreenProxy": [
+        16.264,
+        28.029,
+        283.381,
+        58.45,
+        38.889
+    ],
+    "SelectionNoneLassoProxy": [
+        15.686,
+        131.013,
+        32.819,
+        30.176
+    ],
+    "SelectionNoneNone": [
+        16.146,
+        300.723,
+        12.616,
+        20.152,
+        111.636,
+        72.356,
+        25.897,
+        145.832
+    ],
+    "AggregationHeatmapAggregationWholeScreenProxy": [
+        134.998,
+        103.478,
+        279.05,
+        159.244
+    ],
+    "AggregationHeatmapAggregationLassoProxy": [
+        99.444,
+        93.512,
+        304.762,
+        99.744
+    ],
+    "AggregationHeatmapAggregationNone": [
+        343.973,
+        85.988,
+        111.006,
+        120.697
+    ],
+    "AggregationBarAggregationWholeScreenProxy": [
+        86.725,
+        191.822,
+        36.81,
+        141.586,
+        83.633,
+        79.069
+    ],
+    "AggregationBarAggregationLassoProxy": [
+        226.848,
+        55.15,
+        135.222,
+        82.553
+    ],
+    "AggregationBarAggregationNone": [
+        176.133,
+        108.469,
+        86.473,
+        73.787,
+        38.881
+    ],
+    "AggregationNoneWholeScreenProxy": [
+        152.648,
+        303.188,
+        91.587,
+        139.649,
+        57.456
+    ],
+    "AggregationNoneLassoProxy": [
+        105.398,
+        157.544,
+        171.123,
+        183.783,
+        106.607,
+        132.578
+    ],
+    "AggregationNoneNone": [
+        100.342,
+        140.262
+    ]
+}

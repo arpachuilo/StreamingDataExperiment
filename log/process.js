@@ -1,5 +1,7 @@
 var json = require('./data.json')
 
+var fs = require('fs')
+
 // Remove any that didn't complete study
 for (var i = 0; i < json.length;) {
   if ('responses' in json[i]) {
@@ -38,39 +40,47 @@ console.log('lasso avg capture: ', lassoCaptureCount / lassoUsed)
 console.log('wholescreen avg capture: ', wholeScreenCaptureCount / wholeScreenUsed)
 
 // Get question responses
-question = {}
+var question = {}
 for (var i = 0; i < json.length; i++){
-  for(var j = 0; j < json[i].responses.length; ++j){
-    key = json[i].responses[j].question + j
+  for (var j = 0; j < json[i].responses.length; j++){
+    var key = json[i].responses[j].meta.question + j
     if(key in question){
-      question[key].push(json[i].responses[j].response)
+      question[key].push(json[i].responses[j].meta.response)
     }
     else{
       question[key] = []
-      question[key].push(json[i].responses[j].response)
+      question[key].push(json[i].responses[j].meta.response)
     }
   }
 }
 
+console.log(question)
+
+fs.writeFile('question_reponses.json', JSON.stringify(question, null, 4), 'utf-8')
+
+
 // Get time spent per question
 var timeTotalsByIndex = [] // index corresponds to question number
 for (var i = 0; i < 18; i++) {
-  timeTotalsByIndex.push(0)
+  timeTotalsByIndex.push([])
 }
 for (var i = 0; i < json.length; i++) {
   var prevTime = json[i].timings[0].time
   for (var j = 1; j < json[i].timings.length; j++) {
     if (json[i].timings[j].meta.type === 'end') {
       var currTime = json[i].timings[j].time
-      timeTotalsByIndex[json[i].timings[j].meta.questionIndex] += (currTime - prevTime)
+      timeTotalsByIndex[json[i].timings[j].meta.questionIndex].push((currTime - prevTime) / 1000)
       prevTime = currTime
     }
   }
 }
 
 timeTotalsByIndex.forEach(function (d, i) {
-  console.log('Question ' + i + ' time: ' + ((d / 1000) / json.length) + ' seconds')
+  console.log('Question ' + i + ' time: ' + (avg(d)) + ' seconds')
 })
+
+fs.writeFile('time_spent_per_question.json', JSON.stringify(timeTotalsByIndex, null, 4), 'utf-8')
+
 
 // Get avg time spent with certain technique combinations
 var timeTotalsByKey = {
@@ -168,6 +178,7 @@ for (var i = 0; i < json.length; i++) {
 console.log('num lasso clear used: ', lassoClearUsed)
 console.log('num wholescreen clear used: ', wholeScreenClearUsed)
 
+
 // get avg time taken
 var time = []
 for (var i = 0; i < json.length; i++) {
@@ -219,6 +230,10 @@ Object.keys(timeTotalsQuestionType).forEach(function (key) {
   console.log(key + ' avg: ' + (avg(timeTotalsQuestionType[key])) + ' seconds')
   console.log(key + ' stddev: ' + (stdDev(timeTotalsQuestionType[key])))
 })
+
+
+fs.writeFile('timings_questiontype_combination.json', JSON.stringify(timeTotalsQuestionType, null, 4), 'utf-8')
+
 
 // lazily pasted from https://derickbailey.com/2014/09/21/calculating-standard-deviation-with-array-map-and-array-reduce-in-javascript/
 function stdDev(values){

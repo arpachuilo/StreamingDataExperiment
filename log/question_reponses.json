@@ -1,0 +1,128 @@
+{
+    "What happened in San Francisco Today?0": [
+        "power outages",
+        "Power outage",
+        "?",
+        "Black Friday, Earth day, and Prince died",
+        "Earthquake"
+    ],
+    "What celebrity are people talking about?1": [
+        "Prince",
+        "Prince",
+        "prince",
+        "Prince",
+        "Prince"
+    ],
+    "How many tweets had a retweet count between 7,000 and 8,000?2": [
+        "12",
+        "No clue",
+        "9",
+        "9",
+        "11"
+    ],
+    "What day of the week was it in this data set?3": [
+        "Friday",
+        "",
+        "Friday",
+        "Friday",
+        "Friday"
+    ],
+    "How many tweets received more than 325 favorites between 1:37:06 and 1:37:33?4": [
+        "13",
+        "No clue",
+        "24",
+        "6 tweets",
+        "19"
+    ],
+    "What day of the week was it in this data set?5": [
+        "Saturday",
+        "",
+        "Saturday",
+        "Saturday",
+        "Saturday"
+    ],
+    "What annual event is occuring?6": [
+        "Earth Day",
+        "Earth Day",
+        "Earth Day",
+        "Earth Day",
+        "Earth Day"
+    ],
+    "What are people marching for?7": [
+        "Science",
+        "Earth Day",
+        "Science",
+        "to boycott trumps decrease in funding for the EPA",
+        "Science"
+    ],
+    "How many twitter users have over 4000 followers?8": [
+        "17",
+        "13",
+        "17",
+        "7",
+        "17"
+    ],
+    "How many tweets got a favorite count between 1000 and 1200 between 9:09:35 and 9:09:47?9": [
+        "1",
+        "7",
+        "36",
+        "3",
+        "7"
+    ],
+    "Name one of the two sporting events happening today.10": [
+        "Madrid vs. Barcelona (soccer)",
+        "El Classico",
+        "Real Madrid vs. Barcelona",
+        "El Clasico",
+        "El Clasico"
+    ],
+    "Name a sports team that is playing today:11": [
+        "Barcelona",
+        "Real Madrid",
+        "Real Madrid",
+        "Real Madrid",
+        "Madrid\nno hablo espanol?"
+    ],
+    "What day of the week was it when this data set was collected?12": [
+        "40 clicks and no dice, you tell me...",
+        "No clue",
+        "saturday",
+        "Sunday",
+        "Sunday"
+    ],
+    "In the first 30 seconds of this stream, how many tweets were favorited more than 1000 times?13": [
+        "55",
+        "52",
+        "36",
+        "52",
+        "59"
+    ],
+    "How many twitter users follow more than 3600 people?14": [
+        "21",
+        "15",
+        "20",
+        "12 tweets",
+        "18"
+    ],
+    "Of the two events being tweeted about in this data set, name the less popular topic.15": [
+        "Love my school day",
+        "Love my school day",
+        "love my school day",
+        "Love my school day",
+        "lovemyschoolday"
+    ],
+    "In the first 30 seconds of this stream, how many tweets received more than 1200 retweets?16": [
+        "25",
+        "8",
+        "12",
+        "26",
+        "12"
+    ],
+    "How many tweets were favorited more than 900 times between 10:46:25 and 10:46:4517": [
+        "4 (hitting pause then play makes the bar jump)",
+        "8",
+        "20",
+        "7 tweets",
+        "10"
+    ]
+}
