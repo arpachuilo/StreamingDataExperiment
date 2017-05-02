@@ -12,7 +12,7 @@ for (var i = 0; i < json.length;) {
     json.splice(i, 1)
   }
 }
-console.log(json.length)
+console.log(json.length + ' participants')
 
 // Get avg num capture targets
 var lassoCaptureCount = 0
@@ -52,10 +52,116 @@ for (var i = 0; i < json.length; i++){
   }
 }
 
-// Get data coverage based on file / dot_clicked
+// Get time spent per question
+var timeTotalsByIndex = [] // index corresponds to question number
+for (var i = 0; i < 18; i++) {
+  timeTotalsByIndex.push(0)
+}
+for (var i = 0; i < json.length; i++) {
+  var prevTime = json[i].timings[0].time
+  for (var j = 1; j < json[i].timings.length; j++) {
+    if (json[i].timings[j].meta.type === 'end') {
+      var currTime = json[i].timings[j].time
+      timeTotalsByIndex[json[i].timings[j].meta.questionIndex] += (currTime - prevTime)
+      prevTime = currTime
+    }
+  }
+}
 
-// Get time spent per question and associated variables
+timeTotalsByIndex.forEach(function (d, i) {
+  console.log('Question ' + i + ' time: ' + ((d / 1000) / 4) + ' seconds')
+})
 
-// Get number of times they used the clear method
+// Get avg time spent with certain technique combinations
+var timeTotalsByKey = {
+  HeatmapAggregationWholeScreenProxy: 0,
+  HeatmapAggregationLassoProxy: 0,
+  HeatmapAggregationNone: 0,
+  BarAggregationWholeScreenProxy: 0,
+  BarAggregationLassoProxy: 0,
+  BarAggregationNone: 0,
+  NoneWholeScreenProxy: 0,
+  NoneLassoProxy: 0,
+  NoneNone: 0
+}
 
-//
+for (var i = 0; i < json.length; i++) {
+  var prevTime = json[i].timings[0].time
+  for (var j = 1; j < json[i].timings.length; j++) {
+    if (json[i].timings[j].meta.type === 'end') {
+      var currTime = json[i].timings[j].time
+      var key = json[i].timings[j].aggregation + json[i].timings[j].cursor
+      timeTotalsByKey[key] += (currTime - prevTime)
+      prevTime = currTime
+    }
+  }
+}
+
+Object.keys(timeTotalsByKey).forEach(function (key) {
+  console.log(key + ': ' + (timeTotalsByKey[key] / 1000 / 4) + ' seconds')
+})
+
+// More refined viewing of technique combination and question index
+var timeTotalsComplete = []
+for (var i = 0; i < 18; i++) {
+  timeTotalsComplete.push({
+    HeatmapAggregationWholeScreenProxy: 0,
+    HeatmapAggregationWholeScreenProxyUsers: 0,
+    HeatmapAggregationLassoProxy: 0,
+    HeatmapAggregationLassoProxyUsers: 0,
+    HeatmapAggregationNone: 0,
+    HeatmapAggregationNoneUsers: 0,
+    BarAggregationWholeScreenProxy: 0,
+    BarAggregationWholeScreenProxyUsers: 0,
+    BarAggregationLassoProxy: 0,
+    BarAggregationLassoProxyUsers: 0,
+    BarAggregationNone: 0,
+    BarAggregationNoneUsers: 0,
+    NoneWholeScreenProxy: 0,
+    NoneWholeScreenProxyUsers: 0,
+    NoneLassoProxy: 0,
+    NoneLassoProxyUsers: 0,
+    NoneNone: 0,
+    NoneNoneUsers: 0
+  })
+}
+
+for (var i = 0; i < json.length; i++) {
+  var prevTime = json[i].timings[0].time
+  for (var j = 1; j < json[i].timings.length; j++) {
+    if (json[i].timings[j].meta.type === 'end') {
+      var currTime = json[i].timings[j].time
+      var key = json[i].timings[j].aggregation + json[i].timings[j].cursor
+      timeTotalsComplete[json[i].timings[j].meta.questionIndex][key] += (currTime - prevTime)
+      timeTotalsComplete[json[i].timings[j].meta.questionIndex][key + 'Users'] += 1
+      prevTime = currTime
+    }
+  }
+}
+
+timeTotalsComplete.forEach(function (d, i) {
+  console.log('Question ' + i + ' results')
+  Object.keys(timeTotalsComplete[i]).forEach(function (key) {
+    if (!key.includes('Users')) {
+      console.log(key + ' with ' + timeTotalsComplete[i][key + 'Users'] + ' users: ' + (timeTotalsComplete[i][key] / 1000 / timeTotalsComplete[i][key + 'Users']) + ' seconds')
+    }
+  })
+})
+
+// Get num clear targets
+var lassoClearUsed = 0
+var wholeScreenClearUsed = 0
+for (var i = 0; i < json.length; i++) {
+  if ('proxy_cleared' in json[i]) {
+    for (var j = 0; j < json[i].proxy_cleared.length; j++) {
+      if (json[i].proxy_cleared[j].meta.method === 'lasso') {
+        lassoClearUsed += 1
+      } else if (json[i].proxy_cleared[j].meta.method === 'wholeScreen') {
+        wholeScreenClearUsed += 1
+      }
+    }
+  }
+}
+
+console.log('num lasso clear used: ', lassoClearUsed)
+console.log('num wholescreen clear used: ', wholeScreenClearUsed)
