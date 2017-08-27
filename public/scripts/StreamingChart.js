@@ -3,11 +3,6 @@ function StreamingChart(selection) {
   var data = []
   var aggregation = null
 
-  //Hashtag and color values
-  var tags = ['FridayFeeling','FlashbackFriday','Harvey2017','IfComedydidntExist','JavaScript','USA']
-  var colors = ["#CF819A","#979BC0","#58B0B0","#75B67B","#BCAE55","#F79B6E"]
-  var pcolors = ["#865568","#616982","#3A7A78","#538155","#887E3C","#B7734F"]
-  
   // Dimensions
   var margin = {
     top: 10,
@@ -419,20 +414,10 @@ function StreamingChart(selection) {
 
     // Enter + Update
     points = points.enter().append('path')
-        .attr('class', 'point')
+        .attr('class', function (d) {
+          return 'point ' + d.hashtag
+        })
         .attr('d', glyph.size(glyphSize))
-
-        // Styling for hashtags
-        // for(i = 0; i < tags.length; i++){
-        //   if(d.hashtag == ""){
-        //     .style("fill", "#21f0b6")
-        //   }
-        //   if(d.hashtag == tag[i]){
-        //     .style("fill", colors[i])
-        //   }
-        // }
-        // --------------------
-
         .on('click', function (d, i) {
           if (typeof Redis !== 'undefined') {
             Redis.wrappedAdd('dot_clicked', {

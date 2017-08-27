@@ -60,7 +60,7 @@ function LassoProxy (g, margin, xScale, yScale, xValue, yValue, stream) {
             var point = d3.select(this)
             proxyTargets.append('path')
               .datum(d)
-              .attr('class', 'proxy')
+              .attr('class', 'proxy-' + d.hashtag)
               .attr('d', point.attr('d'))
               .attr('transform', point.attr('transform'))
               .on('click', point.on('click'))

@@ -46,6 +46,58 @@
   fill: #21f0b6;
 }
 
+.FridayFeeling {
+  fill: #CF819A;
+}
+
+.proxy-FridayFeeling {
+  fill: #865568;
+}
+
+.FlashbackFriday {
+  fill: #979BC0;
+}
+
+.proxy-FlashbackFriday {
+  fill: #616982;
+}
+
+.Harvey2017 {
+  fill: #58B0B0;
+}
+
+.proxy-Harvey2017 {
+  fill: #3A7A78;
+}
+
+.IfComedydidntExist {
+  fill: #75B67B;
+}
+
+.proxy-IfComedydidntExist {
+  fill: #538155;
+}
+
+.JavaScript {
+  fill: #BCAE55;
+}
+
+.proxy-JavaScript {
+  fill: #887E3C;
+}
+
+.USA {
+  fill: #F79B6E;
+}
+
+.proxy-USA {
+  fill: #B7734F;
+}
+
+/*var tags = ['FridayFeeling','FlashbackFriday','Harvey2017','IfComedydidntExist','JavaScript','USA']
+var colors = ["#CF819A","#979BC0","#58B0B0","#75B67B","#BCAE55","#F79B6E"]
+var pcolors = ["#865568","#616982","#3A7A78","#538155","#887E3C","#B7734F"]*/
+
 #list {
 	width: 100%;
 	max-width: 550px;

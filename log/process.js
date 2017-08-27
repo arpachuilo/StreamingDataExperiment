@@ -259,3 +259,25 @@ function avg(data){
   var average = sum / data.length;
   return average;
 }
+
+// stuff about slider usage
+var sliderByProxy = {
+  HeatmapAggregationWholeScreenProxy: 0,
+  HeatmapAggregationLassoProxy: 0,
+  HeatmapAggregationNone: 0,
+  BarAggregationWholeScreenProxy: 0,
+  BarAggregationLassoProxy: 0,
+  BarAggregationNone: 0,
+  NoneWholeScreenProxy: 0,
+  NoneLassoProxy: 0,
+  NoneNone: 0
+}
+
+for (var i = 0; i < json.length; i++) {
+  if ('slider_moved' in json[i]) {
+    for (var j = 0; j < json[i].slider_moved.length; j++) {
+      sliderByProxy[json[i].slider_moved[j].aggregation + json[i].slider_moved[j].cursor] += 1
+    }
+  }
+}
+console.log(sliderByProxy)

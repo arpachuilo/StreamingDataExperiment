@@ -256,12 +256,9 @@
       testChart.cursor(fn)
     }
 
-    var data = []
-    var n = +(new Date())
-
     var testChart = StreamingChart(d3.select('#testChart'))
       .x('time')
-      .y('y')
+      .y('rt')
       .cursor(LassoProxy)
       .clickHandler(function (d, i, c) {
         if (c === 'proxy') {
@@ -270,19 +267,24 @@
       })
       .setAggregation(HeatmapAggregation(d3.select('#aggChart')))
       .setTimeControls(TimeControl(d3.select('#tc')))
-      .setNow(n)
       .start()
 
-    d3.interval(function (e) {
-      data.push({
-        y: Math.random() * 10,
-        time: +(new Date())
+    d3.json('../data/hashtag_test.json', function (error, json) {
+      data = json
+      for (var i = 0; i < data.length; i++) {
+        data[i].time = data[i].time[0]
+        data[i].rt = data[i].rt_overtime[1]
+      }
+
+      var tStart = d3.min(data, function (d) {
+        return +d.time
       })
 
-      if (data.length > 1000) {
-        data.shift()
-      }
-    }, 1000)
+      testChart
+        .setNow(tStart)
+        .setData(data)
+        .restart()
+    })
 
     </script>
 
