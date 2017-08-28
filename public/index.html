@@ -42,6 +42,7 @@
     <script src='./scripts/WholeScreenProxy.js'></script>
     <script src='./scripts/BarAggregation.js'></script>
     <script src='./scripts/HeatmapAggregation.js'></script>
+    <script src='./scripts/LineAggregation.js'></script>
     <script src='./scripts/Tooltip.js'></script>
 
     <!-- Temporary navbar container fix -->
@@ -174,6 +175,7 @@
                     <select id='aggregationValue' onchange='onAggregationChange()'>
                       <option value='HeatmapAggregation'>Heatmap</option>
                       <option value='BarAggregation'>Bar Chart</option>
+                      <option value='LineAggregation'>Line Chart</option>
                     </select>
                     <span>Proxy Method: </span>
                     <select id='proxyValue' onchange='onProxyChange()'>
@@ -275,6 +277,10 @@
         data[i].time = data[i].time[0]
         data[i].rt = data[i].rt_overtime[1]
       }
+
+      data = data.sort(function (a, b) {
+        return a.time - b.time
+      })
 
       var tStart = d3.min(data, function (d) {
         return +d.time

@@ -48,6 +48,7 @@
 
 .FridayFeeling {
   fill: #CF819A;
+  stroke: #CF819A;
 }
 
 .proxy-FridayFeeling {
@@ -56,6 +57,7 @@
 
 .FlashbackFriday {
   fill: #979BC0;
+  stroke: #979BC0;
 }
 
 .proxy-FlashbackFriday {
@@ -64,6 +66,7 @@
 
 .Harvey2017 {
   fill: #58B0B0;
+  stroke: #58B0B0;
 }
 
 .proxy-Harvey2017 {
@@ -72,6 +75,7 @@
 
 .IfComedydidntExist {
   fill: #75B67B;
+  stroke: #75B67B;
 }
 
 .proxy-IfComedydidntExist {
@@ -80,6 +84,7 @@
 
 .JavaScript {
   fill: #BCAE55;
+  stroke: #BCAE55;
 }
 
 .proxy-JavaScript {
@@ -88,10 +93,15 @@
 
 .USA {
   fill: #F79B6E;
+  stroke: #F79B6E;
 }
 
 .proxy-USA {
   fill: #B7734F;
+}
+
+path[class^="line"] {
+  fill: none !important;
 }
 
 /*var tags = ['FridayFeeling','FlashbackFriday','Harvey2017','IfComedydidntExist','JavaScript','USA']
