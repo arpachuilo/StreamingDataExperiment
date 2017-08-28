@@ -102,6 +102,7 @@
 
 path[class^="line"] {
   fill: none !important;
+  stroke-width: 4px;
 }
 
 /*var tags = ['FridayFeeling','FlashbackFriday','Harvey2017','IfComedydidntExist','JavaScript','USA']

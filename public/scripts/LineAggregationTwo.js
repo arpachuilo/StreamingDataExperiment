@@ -1,4 +1,4 @@
-function LineAggregation(selection) {
+function LineAggregationTwo(selection) {
   var selection = selection
   selection.selectAll('*').remove()
   // Dimensions
@@ -6,11 +6,12 @@ function LineAggregation(selection) {
     top: 5,
     right: 0,
     bottom: 45,
-    left: 70
+    left: 85
   }
 
   var toTrack = ['FridayFeeling', 'FlashbackFriday', 'Harvey2017', 'USA']
-  var numCharts = toTrack.length
+  var numTracked = toTrack.length
+  var numBins = 4
 
   // need to fit 4 into this height?
   // NOTE: Need to take into account top margin
@@ -19,7 +20,7 @@ function LineAggregation(selection) {
   var chartWidth = width - margin.right - margin.left
   var chartHeight = height - margin.top - margin.bottom
 
-  var heightSlice = chartHeight / numCharts
+  var heightSlice = chartHeight / numBins
 
   // Tooltip stuff
   var tipFn = function (d, i) {
@@ -71,16 +72,29 @@ function LineAggregation(selection) {
       .attr('class', 'axis')
       .attr('transform', 'translate(' + 0 + ',' + chartHeight + ')')
 
-    for (var index = 1; index < numCharts; index++) {
+    for (var index = 1; index < numBins; index++) {
       var _y = chartHeight - (heightSlice * index)
       gEnter.append('path')
         .attr('stroke', 'black')
         .attr('d', 'M' + 0 + ' ' + _y + ' L' + chartWidth + ' ' + _y)
     }
 
+    gYText = []
+    for (var index = 0; index < numBins; index++) {
+      var _y = chartHeight - (heightSlice * (index + 1))
+      gYText.push(
+        gEnter.append('text')
+          .attr('class', 'text' + index)
+          .attr('x', -margin.left)
+          .attr('y', _y + (heightSlice / 2))
+          .attr('font-size', 11)
+          .text(function (d) { return index; })
+      )
+    }
+
     // Multiple Y Axes
     gYAxis = []
-    for (var i = 0; i < numCharts; i++) {
+    for (var i = 0; i < numBins; i++) {
       gYAxis.push(
         gEnter.append('g')
           .attr('class', 'axis')
@@ -142,43 +156,54 @@ function LineAggregation(selection) {
 
     var lineGen = d3.line()
       .x(function (d) { return x(d[timeValue]); })
-      .y(function (d) { return y(d[value]); })
+      .y(function (d, i) { return y(i); })
 
-    // Bind
-    for (var index = 0; index < numCharts; index++) {
-      var subset = data.filter(function (d) {
-        return d[timeValue] < t1 && d.hashtag === toTrack[index]
-      })
-
-      var yMax = d3.max(subset, function (d) {
+    for (var index = 0; index < numBins; index++) {
+      var yMax = d3.max(data, function (d) {
         return d[value]
       }) + 1
 
+      yMax = Math.max(yMax, 100)
+      binSize = yMax / numBins
+
+      var binnedSet = data.filter(function (d) {
+        return d[timeValue] < t1 &&
+          d[value] < (binSize * (index + 1)) &&
+          d[value] > (binSize * index)
+      })
+
+      gYText[index].html(function () {
+        return (binSize * index) + ' - ' + (binSize * (index + 1))
+      })
+
       // Y has stepping height
       y
-        .domain([0, yMax])
+        .domain([0, binnedSet.length])
         .range([chartHeight - (heightSlice * index), chartHeight - (heightSlice * (index + 1))])
 
-      var gLine = gChart.selectAll('.line' + toTrack[index])
-        .data([subset])
-
-      // // Exit
-      // gLine.exit().remove()
-
-      // Enter + Update
-      gLine.enter().append('path')
-        .attr('class', 'line' + toTrack[index] + ' ' + toTrack[index])
-        .merge(gLine)
-        .attr('d', lineGen)
-        .on('mouseenter', function (d, i) {
-          tip.show(d3.event, d, i)
-          if (typeof Redis !== 'undefined') {
-            Redis.wrappedAdd('aggregationHover', {
-              method: 'lineChart',
-              line: toTrack[index]
-            })
-          }
+      for (var jndex = 0; jndex < numTracked; jndex++) {
+        var subset = binnedSet.filter(function (d) {
+          return  d.hashtag === toTrack[jndex]
         })
+
+        var gLine = gChart.selectAll('.line' + toTrack[jndex] + index)
+          .data([subset])
+
+        // Enter + Update
+        gLine.enter().append('path')
+          .attr('class', 'line' + toTrack[jndex] +  + index + ' ' + toTrack[jndex])
+          .merge(gLine)
+          .attr('d', lineGen)
+          .on('mouseenter', function (d, i) {
+            tip.show(d3.event, d, i)
+            if (typeof Redis !== 'undefined') {
+              Redis.wrappedAdd('aggregationHover', {
+                method: 'lineChart',
+                line: toTrack[jndex]
+              })
+            }
+          })
+      }
 
       // Rener axes
       gYAxis[index].call(yAxis.scale(y).ticks(2))
