@@ -6,34 +6,34 @@
   },
   "QUESTIONS": [
     {
-      "text": "What happened in San Francisco Today?",
-      "yValue": "followers",
-      "filename": "Final_first_minute_ftn_pypoll_ComboStream-21.json"
+      "text": "What trends do you notice in this selection of tweets. Why do you think that is?",
+      "yValue": "rt",
+      "filename": "hashtag_test.json"
     },
     {
       "text": "What celebrity are people talking about?",
       "yValue": "followers",
-      "filename": "Final_second_minute_ftn_pypoll_ComboStream-21.json"
+      "filename": "hashtag_test.json"
     },
     {
       "text": "How many tweets had a retweet count between 7,000 and 8,000?",
       "yValue": "rt",
-      "filename": "Final_fifth_minute_ftn_pypoll_ComboStream-21.json"
+      "filename": "hashtag_test.json"
     },
     {
       "text": "What day of the week was it in this data set?",
       "yValue": "rt",
-      "filename": "Final_fourth_minute_ftn_pypoll_ComboStream-21.json"
+      "filename": "hashtag_test.json"
     },
     {
       "text": "How many tweets received more than 325 favorites between 1:37:06 and 1:37:33?",
       "yValue": "fav",
-      "filename": "Final_third_minute_ftn_pypoll_ComboStream-21.json"
+      "filename": "hashtag_test.json"
     },
     {
       "text": "What day of the week was it in this data set?",
       "yValue": "followers",
-      "filename": "Final_first_minute_ftn_pypoll_ComboStream-22.json"
+      "filename": "hashtag_test.json"
     },
     {
       "text": "What annual event is occuring?",

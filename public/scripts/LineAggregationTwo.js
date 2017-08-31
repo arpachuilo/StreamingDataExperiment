@@ -62,7 +62,7 @@ function LineAggregationTwo(selection) {
       .attr('width', width)
       .attr('height', height)
 
-    // Transofrm container
+    // Transform container
     gEnter = gEnter.append('g')
       .attr('class', 'container')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')

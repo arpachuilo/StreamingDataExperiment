@@ -6,7 +6,7 @@ function LineAggregation(selection) {
     top: 5,
     right: 0,
     bottom: 45,
-    left: 70
+    left: 105
   }
 
   var toTrack = ['FridayFeeling', 'FlashbackFriday', 'Harvey2017', 'USA']
@@ -76,6 +76,20 @@ function LineAggregation(selection) {
       gEnter.append('path')
         .attr('stroke', 'black')
         .attr('d', 'M' + 0 + ' ' + _y + ' L' + chartWidth + ' ' + _y)
+    }
+
+    var hashtags = ['#FridayFeeling', '#FlashbackFriday', '#Harvey2017', '#USA']
+    gYText = []
+    for (var index = 0; index < 4; index++) {
+      var _y = chartHeight - (heightSlice * (index + 1))
+      gYText.push(
+        gEnter.append('text')
+          .attr('class', 'text' + index)
+          .attr('x', -margin.left)
+          .attr('y', _y + (heightSlice / 2))
+          .attr('font-size', 11)
+          .text(hashtags[index])
+      )
     }
 
     // Multiple Y Axes

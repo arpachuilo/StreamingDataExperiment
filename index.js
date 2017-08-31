@@ -43,7 +43,8 @@ function arrayRotate(arr, reverse){
   return arr
 }
 
-var aggregationOrdering = ['HeatmapAggregation', 'BarAggregation', 'None']
+//var aggregationOrdering = ['HeatmapAggregation', 'BarAggregation', 'None']
+var aggregationOrdering = ['LineAggregation', 'LineAggregationTwo']
 var cursorOrdering = ['LassoProxy', 'WholeScreenProxy', 'None']
 var cursorIndex = 0
 
