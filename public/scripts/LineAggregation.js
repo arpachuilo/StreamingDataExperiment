@@ -98,6 +98,7 @@ function LineAggregation(selection) {
       gYAxis.push(
         gEnter.append('g')
           .attr('class', 'axis')
+          .attr('id', 'lineYAxis')
       )
     }
 

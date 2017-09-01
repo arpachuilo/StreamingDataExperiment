@@ -21,14 +21,14 @@
   pointer-events: none;
 }
 
-.axis .tick{
+/*.axis .tick{
   stroke-opacity: 0.0;
 }
 
 .axis text{
   color: white;
   visibility: hidden;
-}
+}*/
 
 .charts, .charts div {
   margin: 0 0 0 0;
@@ -109,13 +109,22 @@
   fill: #B7734F;
 }
 
-#lineYAxis.tick line{
+#lineYAxis .tick{
   visibility:hidden;
+}
+
+#lineYAxis .tick{
+  stroke-opacity: 0.0;
+}
+
+#lineYAxis text{
+  color: white;
+  visibility: hidden;
 }
 
 path[class^="line"] {
   fill: none !important;
-  stroke-width: 4px;
+  stroke-width: 3px;
 }
 
 /*var tags = ['FridayFeeling','FlashbackFriday','Harvey2017','IfComedydidntExist','JavaScript','USA']
